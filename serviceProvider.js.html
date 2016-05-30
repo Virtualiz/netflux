@@ -4,7 +4,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width">
-	<title>Netflux Module: service</title>
+	<title>Netflux Source: serviceProvider.js</title>
 
 	<!--[if lt IE 9]>
 	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -86,192 +86,77 @@
 <div class="row">
 
 	
-	<div class="col-md-8">
+	<div class="col-md-12">
 	
 		<div id="main">
 			
 
-	<h1 class="page-title">Module: service</h1>
+		<h1 class="page-title">Source: serviceProvider.js</h1>
+    
 <section>
+    <article>
+        <pre
+            class="sunlight-highlight-javascript linenums">import FullyConnectedService from './service/webChannelManager/FullyConnectedService'
+import WebRTCService from './service/channelBuilder/WebRTCService'
+import {MessageBuilderService} from './service/MessageBuilderService'
+/**
+ * Service Provider module is a helper module for {@link module:service}. It is
+ * responsible to instantiate all services. This module must be used to get
+ * any service instance.
+ * @module serviceProvider
+ */
 
-<header>
-    
-</header>
+/**
+ * Constant used to get an instance of {@link WebRTCService}.
+ * @type {string}
+ */
+const WEBRTC = 'WebRTCService'
 
+/**
+ * Constant used to get an instance of {@link FullyConnectedService}.
+ * @type {string}
+ */
+const FULLY_CONNECTED = 'FullyConnectedService'
 
-<article>
-    <div class="container-overview">
-    
-        
-            <div class="description"><p>Service module includes <a href="module-channelBuilder.html"><code>module:channelBuilder</code></a>,
-<a href="module-webChannelManager.html"><code>module:webChannelManager</code></a> and <code>module:channelProxy</code> modules.
-Services are substitutable stateless objects. Each service is identified by
-its class name and can receive messages via <code>WebChannel</code> sent by another
-service.</p></div>
-        
+const MESSAGE_BUILDER = 'MessageBuilderService'
 
-        
-<dl class="details">
-    
+const services = new Map()
 
-	
+/**
+ * Provides the service instance specified by `name`.
+ *
+ * @param  {(module:serviceProvider.CHANNEL_PROXY|
+ *          module:serviceProvider.WEBRTC|
+ *          module:serviceProvider.FULLY_CONNECTED)} name - The service name.
+ * @param  {Object} [options] - Any options that the service accepts.
+ * @return {module:service~Interface} - Service instance.
+ */
+let provide = function (name, options = {}) {
+  if (services.has(name)) {
+    return services.get(name)
+  }
+  let service
+  switch (name) {
+    case WEBRTC:
+      return new WebRTCService(options)
+    case FULLY_CONNECTED:
+      service = new FullyConnectedService()
+      services.set(name, service)
+      return service
+    case MESSAGE_BUILDER:
+      service = new MessageBuilderService()
+      services.set(name, service)
+      return service
+    default:
+      return null
+  }
+}
 
-	
-
-	
-
-    
-
-    
-
-    
-
-    
-
-	
-
-	
-
-	
-
-	
-
-	
-
-
-
-	
-	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
-	<dd class="tag-source">
-		<ul class="dummy">
-			<li>
-				<a href="service_service.js.html">service/service.js</a>,
-				 <a href="service_service.js.html#sunlight-1-line-1">line 1</a>
-			</li>
-		</ul>
-	</dd>
-	
-
-	
-
-	
-	<dt class="tag-see method-doc-label method-doc-details-label">See:</dt>
-	<dd class="tag-see">
-		<ul>
-			<li><a href="module-channelBuilder.html">module:channelBuilder</a></li>
-			
-			<li><a href="module-webChannelManager.html">module:webChannelManager</a></li>
-			
-			<li>module:channelProxy</li>
-			</ul>
-	</dd>
-	
-
-	
-</dl>
-
-
-        
-    
-    </div>
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-        <h3 class="subsection-title">Members</h3>
-
-        <dl>
-            
-<hr>
-<dt class="name" id=".ServiceInterface">
-    <h4><span class="type-signature">&lt;static> </span>ServiceInterface<span class="type-signature"></span></h4>
-
-    
-</dt>
-<dd>
-    
-
-    
-
-    
-<dl class="details">
-    
-
-	
-
-	
-
-	
-
-    
-
-    
-
-    
-
-    
-
-	
-
-	
-
-	
-
-	
-
-	
-
-
-
-	
-	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
-	<dd class="tag-source">
-		<ul class="dummy">
-			<li>
-				<a href="service_service.js.html">service/service.js</a>,
-				 <a href="service_service.js.html#sunlight-1-line-33">line 33</a>
-			</li>
-		</ul>
-	</dd>
-	
-
-	
-
-	
-	<dt class="tag-see method-doc-label method-doc-details-label">See:</dt>
-	<dd class="tag-see">
-		<ul>
-			<li>module:service~Interface</li>
-			</ul>
-	</dd>
-	
-
-	
-</dl>
-
-
-    
-</dd>
-
-        </dl>
-    
-
-    
-
-    
-
-    
-</article>
-
+export {WEBRTC, FULLY_CONNECTED, MESSAGE_BUILDER, provide}
+</pre>
+    </article>
 </section>
+
 
 
 
@@ -281,10 +166,6 @@ service.</p></div>
 
 	<div class="clearfix"></div>
 
-	
-		<div class="col-md-3">
-			<div id="toc" class="col-md-3 hidden-xs hidden-sm hidden-md"></div>
-		</div>
 	
 
 </div>

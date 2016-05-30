@@ -4,7 +4,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width">
-	<title>Netflux Module: channelBuilder</title>
+	<title>Netflux Interface: ChannelBuilderInterface</title>
 
 	<!--[if lt IE 9]>
 	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -91,10 +91,19 @@
 		<div id="main">
 			
 
-	<h1 class="page-title">Module: channelBuilder</h1>
+	<h1 class="page-title">Interface: ChannelBuilderInterface</h1>
 <section>
 
 <header>
+    
+        <h2>
+            <span class="ancestors"><a href="module-channelBuilder.html">channelBuilder</a>~</span>
+        
+        ChannelBuilderInterface
+        </h2>
+        
+            <div class="class-description"><p>Interface to be implemented by each connection service.</p></div>
+        
     
 </header>
 
@@ -102,9 +111,6 @@
 <article>
     <div class="container-overview">
     
-        
-            <div class="description"><p>Channel Builder module is responsible to create a connection between two
-peers.</p></div>
         
 
         
@@ -143,7 +149,7 @@ peers.</p></div>
 		<ul class="dummy">
 			<li>
 				<a href="service_channelBuilder_channelBuilder.js.html">service/channelBuilder/channelBuilder.js</a>,
-				 <a href="service_channelBuilder_channelBuilder.js.html#sunlight-1-line-2">line 2</a>
+				 <a href="service_channelBuilder_channelBuilder.js.html#sunlight-1-line-33">line 33</a>
 			</li>
 		</ul>
 	</dd>
@@ -151,13 +157,6 @@ peers.</p></div>
 
 	
 
-	
-	<dt class="tag-see method-doc-label method-doc-details-label">See:</dt>
-	<dd class="tag-see">
-		<ul>
-			<li><a href="Channel.html">Channel</a></li>
-			</ul>
-	</dd>
 	
 
 	
@@ -169,6 +168,15 @@ peers.</p></div>
     </div>
 
     
+        <h3 class="subsection-title">Extends</h3>
+
+        
+
+
+    <ul>
+        <li>module:service~Interface</li>
+    </ul>
+
 
     
 
@@ -179,94 +187,17 @@ peers.</p></div>
     
 
     
-        <h3 class="subsection-title">Members</h3>
+
+    
+
+    
+        <h3 class="subsection-title">Methods</h3>
 
         <dl>
             
 <hr>
-<dt class="name" id=".ChannelBuilderInterface">
-    <h4><span class="type-signature">&lt;static> </span>ChannelBuilderInterface<span class="type-signature"></span></h4>
-
-    
-</dt>
-<dd>
-    
-
-    
-
-    
-<dl class="details">
-    
-
-	
-
-	
-
-	
-
-    
-
-    
-
-    
-
-    
-
-	
-
-	
-
-	
-
-	
-
-	
-
-
-
-	
-	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
-	<dd class="tag-source">
-		<ul class="dummy">
-			<li>
-				<a href="service_channelBuilder_channelBuilder.js.html">service/channelBuilder/channelBuilder.js</a>,
-				 <a href="service_channelBuilder_channelBuilder.js.html#sunlight-1-line-84">line 84</a>
-			</li>
-		</ul>
-	</dd>
-	
-
-	
-
-	
-	<dt class="tag-see method-doc-label method-doc-details-label">See:</dt>
-	<dd class="tag-see">
-		<ul>
-			<li>module:channelBuilder~Interface</li>
-			</ul>
-	</dd>
-	
-
-	
-</dl>
-
-
-    
-</dd>
-
-        </dl>
-    
-
-    
-
-    
-        <h3 class="subsection-title">Type Definitions</h3>
-
-        <dl>
-                
-<hr>
 <dt>
-    <h4 class="name" id="~onChannelCallback"><span class="type-signature"></span>onChannelCallback(channel)</h4>
+    <h4 class="name" id="open"><span class="type-signature">&lt;abstract> </span>open(key, onChannel [, options])</h4>
     
     
 </dt>
@@ -274,8 +205,7 @@ peers.</p></div>
 
     
     <div class="description">
-        <p>On channel callback for <code>module:channelBuilder~Interface#open</code>
-function.</p>
+        <p>Enables other clients to establish a connection with you.</p>
     </div>
     
 
@@ -298,6 +228,8 @@ function.</p>
         <th>Type</th>
 
         
+        <th>Argument</th>
+        
 
         
 
@@ -310,13 +242,13 @@ function.</p>
 
         <tr>
             
-                <td class="name"><code>channel</code></td>
+                <td class="name"><code>key</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type"><a href="Channel.html">Channel</a></span>
+<span class="param-type">string</span>
 
 
 
@@ -324,10 +256,86 @@ function.</p>
             </td>
 
             
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
 
             
 
-            <td class="description last"><p>A new channel.</p></td>
+            <td class="description last"><p>The unique identifier which has to be passed to the
+peers who need to connect to you.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>onChannel</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">module:channelBuilder~Interface~onChannelCallback</span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>Callback
+function to execute once the connection has been established.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>options</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>Any other options which depend on the service implementation.</p></td>
         </tr>
 
     
@@ -372,7 +380,7 @@ function.</p>
 		<ul class="dummy">
 			<li>
 				<a href="service_channelBuilder_channelBuilder.js.html">service/channelBuilder/channelBuilder.js</a>,
-				 <a href="service_channelBuilder_channelBuilder.js.html#sunlight-1-line-9">line 9</a>
+				 <a href="service_channelBuilder_channelBuilder.js.html#sunlight-1-line-52">line 52</a>
 			</li>
 		</ul>
 	</dd>
@@ -397,15 +405,43 @@ function.</p>
     
 
     
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    <ul>
+<li>Once resolved, provide an Object with <code>key</code> and <code>url</code>
+attributes to be passed to <code>module:channelBuilder~Interface#join</code> function.
+It is rejected if an error occured.</li>
+</ul>
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Promise</span>
+
+
+
+    </dd>
+</dl>
+
+
+        
 
     
 </dd>
 
+        
             
-                
 <hr>
 <dt>
-    <h4 class="name" id="~initChannel"><span class="type-signature"></span>initChannel(ch, id)</h4>
+    <h4 class="name" id="join"><span class="type-signature">&lt;abstract> </span>join(key [, options])</h4>
     
     
 </dt>
@@ -413,9 +449,214 @@ function.</p>
 
     
     <div class="description">
-        <p>Call back to initialize the channel. It should be executed on both peer
-sides during connection establishment to assure that both channels would be
-ready to be used in the web channel.</p>
+        <p>Connects you with the peer who provided the <code>key</code>.</p>
+    </div>
+    
+
+    
+
+    
+
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Argument</th>
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>key</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>A key obtained from the peer who executed
+<code>module:channelBuilder~Interface#open</code> function.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>options</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>Any other options which depend on the implementation.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="service_channelBuilder_channelBuilder.js.html">service/channelBuilder/channelBuilder.js</a>,
+				 <a href="service_channelBuilder_channelBuilder.js.html#sunlight-1-line-65">line 65</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    <p>It is resolved when the connection is established, otherwise it is rejected.</p>
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Promise</span>
+
+
+
+    </dd>
+</dl>
+
+
+        
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt>
+    <h4 class="name" id="connectMeTo"><span class="type-signature">&lt;abstract> </span>connectMeTo(wc, id)</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <p>Establish a connection between you and another peer (including joining peer) via web channel.</p>
     </div>
     
 
@@ -450,13 +691,13 @@ ready to be used in the web channel.</p>
 
         <tr>
             
-                <td class="name"><code>ch</code></td>
+                <td class="name"><code>wc</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type"><a href="Channel.html">Channel</a></span>
+<span class="param-type"><a href="WebChannel.html">WebChannel</a></span>
 
 
 
@@ -467,7 +708,7 @@ ready to be used in the web channel.</p>
 
             
 
-            <td class="description last"><p>Channel.</p></td>
+            <td class="description last"><p>Web Channel through which the connection will be established.</p></td>
         </tr>
 
     
@@ -491,7 +732,7 @@ ready to be used in the web channel.</p>
 
             
 
-            <td class="description last"><p>Unique channel identifier.</p></td>
+            <td class="description last"><p>Peer id with whom you will be connected.</p></td>
         </tr>
 
     
@@ -536,7 +777,7 @@ ready to be used in the web channel.</p>
 		<ul class="dummy">
 			<li>
 				<a href="service_channelBuilder_channelBuilder.js.html">service/channelBuilder/channelBuilder.js</a>,
-				 <a href="service_channelBuilder_channelBuilder.js.html#sunlight-1-line-17">line 17</a>
+				 <a href="service_channelBuilder_channelBuilder.js.html#sunlight-1-line-77">line 77</a>
 			</li>
 		</ul>
 	</dd>
@@ -561,11 +802,39 @@ ready to be used in the web channel.</p>
     
 
     
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    <ul>
+<li>Resolved once the connection has been established, rejected otherwise.</li>
+</ul>
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Promise</span>
+
+
+
+    </dd>
+</dl>
+
+
+        
 
     
 </dd>
 
-            </dl>
+        </dl>
+    
+
     
 
     

@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+	<title>Netflux Source: service/channelBuilder/WebRTCService.js</title>
+
+	<!--[if lt IE 9]>
+	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+	<link type="text/css" rel="stylesheet" href="styles/sunlight.default.css">
+
+	<link type="text/css" rel="stylesheet" href="styles/site.sandstone.css">
+
+</head>
+
+<body>
+
+<div class="navbar navbar-default navbar-fixed-top ">
+<div class="container">
+	<div class="navbar-header">
+		<a class="navbar-brand" href="index.html">Netflux</a>
+		<button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#topNavigation">
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+        </button>
+	</div>
+	<div class="navbar-collapse collapse" id="topNavigation">
+		<ul class="nav navbar-nav">
+			
+			<li class="dropdown">
+				<a href="modules.list.html" class="dropdown-toggle" data-toggle="dropdown">Modules<b class="caret"></b></a>
+				<ul class="dropdown-menu ">
+					<li><a href="module-channelBuilder.html">channelBuilder</a></li><li><a href="module-service.html">service</a></li><li><a href="module-webChannelManager.html">webChannelManager</a></li><li><a href="module-serviceProvider.html">serviceProvider</a></li>
+				</ul>
+			</li>
+			
+			<li class="dropdown">
+				<a href="classes.list.html" class="dropdown-toggle" data-toggle="dropdown">Classes<b class="caret"></b></a>
+				<ul class="dropdown-menu ">
+					<li><a href="JoiningPeer.html">JoiningPeer</a></li><li><a href="WebChannel.html">WebChannel</a></li><li><a href="RTCPendingConnections.html">RTCPendingConnections</a></li><li><a href="WebRTCService.html">WebRTCService</a></li><li><a href="FullyConnectedService.html">FullyConnectedService</a></li>
+				</ul>
+			</li>
+			
+			<li class="dropdown">
+				<a href="interfaces.list.html" class="dropdown-toggle" data-toggle="dropdown">Interfaces<b class="caret"></b></a>
+				<ul class="dropdown-menu ">
+					<li><a href="Channel.html">Channel</a></li><li><a href="module-channelBuilder-ChannelBuilderInterface.html">channelBuilder~ChannelBuilderInterface</a></li><li><a href="module-service-ServiceInterface.html">service~ServiceInterface</a></li><li><a href="module-webChannelManager-WebChannelManagerInterface.html">webChannelManager~WebChannelManagerInterface</a></li>
+				</ul>
+			</li>
+			
+			<li class="dropdown">
+				<a href="global.html" class="dropdown-toggle" data-toggle="dropdown">Global<b class="caret"></b></a>
+				<ul class="dropdown-menu ">
+					<li><a href="global.html#USER_DATA">USER_DATA</a></li><li><a href="global.html#SERVICE_DATA">SERVICE_DATA</a></li><li><a href="global.html#LEAVE">LEAVE</a></li><li><a href="global.html#JOIN_INIT">JOIN_INIT</a></li><li><a href="global.html#JOIN_NEW_MEMBER">JOIN_NEW_MEMBER</a></li><li><a href="global.html#REMOVE_NEW_MEMBER">REMOVE_NEW_MEMBER</a></li><li><a href="global.html#JOIN_FINILIZE">JOIN_FINILIZE</a></li><li><a href="global.html#JOIN_SUCCESS">JOIN_SUCCESS</a></li><li><a href="global.html#INIT_CHANNEL_PONG">INIT_CHANNEL_PONG</a></li><li><a href="global.html#PING">PING</a></li><li><a href="global.html#PONG">PONG</a></li>
+				</ul>
+			</li>
+			
+			<li class="dropdown">
+				<a href="externals.list.html" class="dropdown-toggle" data-toggle="dropdown">Externals<b class="caret"></b></a>
+				<ul class="dropdown-menu ">
+					<li><a href="external-JSON.html">JSON</a></li><li><a href="external-Error.html">Error</a></li><li><a href="external-RTCPeerConnection.html">RTCPeerConnection</a></li><li><a href="external-RTCSessionDescription.html">RTCSessionDescription</a></li><li><a href="external-RTCDataChannel.html">RTCDataChannel</a></li><li><a href="external-RTCIceCandidate.html">RTCIceCandidate</a></li><li><a href="external-RTCPeerConnectionIceEvent.html">RTCPeerConnectionIceEvent</a></li><li><a href="external-CloseEvent.html">CloseEvent</a></li><li><a href="external-ArrayBufferView.html">ArrayBufferView</a></li>
+				</ul>
+			</li>
+			
+		</ul>
+		<div class="col-sm-3 col-md-3">
+            <form class="navbar-form" role="search">
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Search" name="q" id="search-input">
+                    <div class="input-group-btn">
+                        <button class="btn btn-default" id="search-submit"><i class="glyphicon glyphicon-search"></i></button>
+                    </div>
+                </div>
+            </form>
+        </div>
+	</div>
+
+</div>
+</div>
+
+
+<div class="container" id="toc-content">
+<div class="row">
+
+	
+	<div class="col-md-12">
+	
+		<div id="main">
+			
+
+		<h1 class="page-title">Source: service/channelBuilder/WebRTCService.js</h1>
+    
+<section>
+    <article>
+        <pre
+            class="sunlight-highlight-javascript linenums">import {ChannelBuilderInterface} from './channelBuilder'
+
+/**
+ * Ice candidate event handler.
+ *
+ * @callback WebRTCService~onCandidate
+ * @param {external:RTCPeerConnectionIceEvent} evt - Event.
+ */
+
+/**
+ * Session description event handler.
+ *
+ * @callback WebRTCService~onSDP
+ * @param {external:RTCPeerConnectionIceEvent} evt - Event.
+ */
+
+/**
+ * Data channel event handler.
+ *
+ * @callback WebRTCService~onChannel
+ * @param {external:RTCPeerConnectionIceEvent} evt - Event.
+ */
+
+/**
+ * The goal of this class is to prevent the error when adding an ice candidate
+ * before the remote description has been set.
+ */
+class RTCPendingConnections {
+  constructor () {
+    this.connections = new Map()
+  }
+
+  /**
+   * Prepares pending connection for the specified peer only if it has not been added already.
+   *
+   * @param  {string} id - Peer id
+   */
+  add (id) {
+    if (!this.connections.has(id)) {
+      let pc = null
+      let obj = {promise: null}
+      obj.promise = new Promise((resolve, reject) => {
+        Object.defineProperty(obj, 'pc', {
+          get: () => pc,
+          set: (value) => {
+            pc = value
+            resolve()
+          }
+        })
+        setTimeout(reject, CONNECT_TIMEOUT, 'timeout')
+      })
+      this.connections.set(id, obj)
+    }
+  }
+
+  /**
+   * Remove a pending connection from the Map. Usually when the connection has already
+   * been established and there is now interest to hold this reference.
+   *
+   * @param  {string} id - Peer id.
+   */
+  remove (id) {
+    this.connections.delete(id)
+  }
+
+  /**
+   * Returns RTCPeerConnection object for the provided peer id.
+   *
+   * @param  {string} id - Peer id.
+   * @return {external:RTCPeerConnection} - Peer connection.
+   */
+  getPC (id) {
+    return this.connections.get(id).pc
+  }
+
+  /**
+   * Updates RTCPeerConnection reference for the provided peer id.
+   *
+   * @param  {string} id - Peer id.
+   * @param  {external:RTCPeerConnection} pc - Peer connection.
+   */
+  setPC (id, pc) {
+    this.connections.get(id).pc = pc
+  }
+
+  /**
+   * When the remote description is set, it will add the ice candidate to the
+   * peer connection of specified peer.
+   *
+   * @param  {string} id - Peer id.
+   * @param  {external:RTCIceCandidate} candidate - Ice candidate.
+   * @return {Promise} - Resolved once the ice candidate has been succesfully added.
+   */
+  addIceCandidate (id, candidate) {
+    let obj = this.connections.get(id)
+    return obj.promise.then(() => {
+      return obj.pc.addIceCandidate(candidate)
+    })
+  }
+}
+
+const CONNECT_TIMEOUT = 2000
+const connectionsByWC = new Map()
+
+/**
+ * Service class responsible to establish connections between peers via
+ * `RTCDataChannel`.
+ *
+ * @see {@link external:RTCPeerConnection}
+ * @extends module:channelBuilder~Interface
+ */
+class WebRTCService extends ChannelBuilderInterface {
+
+  /**
+   * WebRTCService constructor.
+   *
+   * @param  {Object} [options] - This service options.
+   * @param  {Object} [options.signaling='wws://sigver-coastteam.rhcloud.com:8000'] -
+   * Signaling server URL.
+   * @param  {Object[]} [options.iceServers=[{urls: 'stun:23.21.150.121'},{urls: 'stun:stun.l.google.com:19302'},{urls: 'turn:numb.viagenie.ca', credential: 'webrtcdemo', username: 'louis%40mozilla.com'}]] - WebRTC options to setup which STUN
+   * and TURN servers to be used.
+   */
+  constructor (options = {}) {
+    super()
+    this.defaults = {
+      signaling: 'wws://sigver-coastteam.rhcloud.com:8000',
+      iceServers: [
+        {urls: 'stun:23.21.150.121'},
+        {urls: 'stun:stun.l.google.com:19302'},
+        {urls: 'turn:numb.viagenie.ca', credential: 'webrtcdemo', username: 'louis%40mozilla.com'}
+      ]
+    }
+    this.settings = Object.assign({}, this.defaults, options)
+  }
+
+  open (key, onChannel, options = {}) {
+    let settings = Object.assign({}, this.settings, options)
+    return new Promise((resolve, reject) => {
+      let connections = new RTCPendingConnections()
+      let socket
+      try {
+        socket = new window.WebSocket(settings.signaling)
+      } catch (err) {
+        reject(err.message)
+      }
+      // Send a message to signaling server: ready to receive offer
+      socket.onopen = () => {
+        try {
+          socket.send(JSON.stringify({key}))
+        } catch (err) {
+          reject(err.message)
+        }
+        // TODO: find a better solution than setTimeout. This is for the case when the key already exists and thus the server will close the socket, but it will close it after this function resolves the Promise.
+        setTimeout(resolve, 100, {key, url: settings.signaling, socket})
+      }
+      socket.onmessage = (evt) => {
+        let msg = JSON.parse(evt.data)
+        if (!('id' in msg) || !('data' in msg)) {
+          console.log('Unknown message from the signaling server: ' + evt.data)
+          socket.close()
+          return
+        }
+        connections.add(msg.id)
+        if ('offer' in msg.data) {
+          this.createPeerConnectionAndAnswer(
+              (candidate) => socket.send(JSON.stringify({id: msg.id, data: {candidate}})),
+              (answer) => socket.send(JSON.stringify({id: msg.id, data: {answer}})),
+              onChannel,
+              msg.data.offer
+            ).then((pc) => connections.setPC(msg.id, pc))
+            .catch((reason) => {
+              console.error(`Answer generation failed: ${reason}`)
+            })
+        } else if ('candidate' in msg.data) {
+          connections.addIceCandidate(
+              msg.id,
+              this.createIceCandidate(msg.data.candidate)
+            ).catch((reason) => {
+              console.error(`Adding ice candidate failed: ${reason}`)
+            })
+        }
+      }
+      socket.onclose = (closeEvt) => {
+        if (closeEvt.code !== 1000) {
+          console.error(`Socket with signaling server ${settings.signaling} has been closed with code ${closeEvt.code}: ${closeEvt.reason}`)
+          reject(closeEvt.reason)
+        }
+      }
+    })
+  }
+
+  join (key, options = {}) {
+    let settings = Object.assign({}, this.settings, options)
+    return new Promise((resolve, reject) => {
+      let pc
+      // Connect to the signaling server
+      let socket = new WebSocket(settings.signaling)
+      socket.onopen = () => {
+        // Prepare and send offer
+        this.createPeerConnectionAndOffer(
+            (candidate) => socket.send(JSON.stringify({data: {candidate}})),
+            (offer) => socket.send(JSON.stringify({join: key, data: {offer}})),
+            resolve
+          )
+          .then((peerConnection) => { pc = peerConnection })
+          .catch(reject)
+      }
+      socket.onmessage = (evt) => {
+        try {
+          let msg = JSON.parse(evt.data)
+          // Check message format
+          if (!('data' in msg)) {
+            reject(`Unknown message from the signaling server: ${evt.data}`)
+          }
+
+          if ('answer' in msg.data) {
+            pc.setRemoteDescription(this.createSessionDescription(msg.data.answer))
+              .catch(reject)
+          } else if ('candidate' in msg.data) {
+            pc.addIceCandidate(this.createIceCandidate(msg.data.candidate))
+              .catch((evt) => {
+                // This exception does not reject the current Promise, because
+                // still the connection may be established even without one or
+                // several candidates
+                console.error('Adding candidate failed: ', evt)
+              })
+          } else {
+            reject(`Unknown message from the signaling server: ${evt.data}`)
+          }
+        } catch (err) {
+          reject(err.message)
+        }
+      }
+      socket.onerror = (evt) => {
+        reject('WebSocket with signaling server error')
+      }
+      socket.onclose = (closeEvt) => {
+        if (closeEvt.code !== 1000) {
+          reject(`Socket with signaling server ${settings.signaling} has been closed with code ${closeEvt.code}: ${closeEvt.reason}`)
+        }
+      }
+    })
+  }
+
+  connectMeTo (wc, id) {
+    return new Promise((resolve, reject) => {
+      let sender = wc.myId
+      let connections = this.getPendingConnections(wc)
+      connections.add(id)
+      this.createPeerConnectionAndOffer(
+        (candidate) => wc.sendSrvMsg(this.name, id, {sender, candidate}),
+        (offer) => wc.sendSrvMsg(this.name, id, {sender, offer}),
+        (channel) => {
+          connections.remove(id)
+          resolve(channel)
+        }
+      ).then((pc) => connections.setPC(id, pc))
+      setTimeout(reject, CONNECT_TIMEOUT, 'Timeout')
+    })
+  }
+
+  onMessage (wc, channel, msg) {
+    let connections = this.getPendingConnections(wc)
+    connections.add(msg.sender)
+    if ('offer' in msg) {
+      this.createPeerConnectionAndAnswer(
+        (candidate) => wc.sendSrvMsg(this.name, msg.sender,
+          {sender: wc.myId, candidate}),
+        (answer) => wc.sendSrvMsg(this.name, msg.sender,
+          {sender: wc.myId, answer}),
+        (channel) => {
+          wc.initChannel(channel, false, msg.sender)
+          connections.remove(channel.peerId)
+        },
+        msg.offer
+      ).then((pc) => {
+        connections.setPC(msg.sender, pc)
+      })
+    } if ('answer' in msg) {
+      connections.getPC(msg.sender)
+        .setRemoteDescription(this.createSessionDescription(msg.answer))
+        .catch((reason) => { console.error('Setting answer error: ' + reason) })
+    } else if ('candidate' in msg) {
+      connections.addIceCandidate(msg.sender, this.createIceCandidate(msg.candidate))
+        .catch((reason) => { console.error('Setting candidate error: ', reason) })
+    }
+  }
+
+  /**
+   * Creates a peer connection and generates an SDP offer.
+   *
+   * @param  {WebRTCService~onCandidate} onCandidate - Ice candidate event handler.
+   * @param  {WebRTCService~onSDP} sendOffer - Session description event handler.
+   * @param  {WebRTCService~onChannel} onChannel - Handler event when the data channel is ready.
+   * @return {Promise} - Resolved when the offer has been succesfully created,
+   * set as local description and sent to the peer.
+   */
+  createPeerConnectionAndOffer (onCandidate, sendOffer, onChannel) {
+    let pc = this.createPeerConnection(onCandidate)
+    let dc = pc.createDataChannel(null)
+    pc.oniceconnectionstatechange = () => {
+      if (pc.iceConnectionState === 'disconnected') {
+        dc.onclose()
+      }
+    }
+    dc.onopen = (evt) => onChannel(dc)
+    return pc.createOffer()
+      .then((offer) => pc.setLocalDescription(offer))
+      .then(() => {
+        sendOffer(pc.localDescription.toJSON())
+        return pc
+      })
+  }
+
+  /**
+   * Creates a peer connection and generates an SDP answer.
+   *
+   * @param  {WebRTCService~onCandidate} onCandidate - Ice candidate event handler.
+   * @param  {WebRTCService~onSDP} sendOffer - Session description event handler.
+   * @param  {WebRTCService~onChannel} onChannel - Handler event when the data channel is ready.
+   * @param  {Object} offer - Offer received from a peer.
+   * @return {Promise} - Resolved when the offer has been succesfully created,
+   * set as local description and sent to the peer.
+   */
+  createPeerConnectionAndAnswer (onCandidate, sendAnswer, onChannel, offer) {
+    let pc = this.createPeerConnection(onCandidate)
+    pc.ondatachannel = (dcEvt) => {
+      let dc = dcEvt.channel
+      pc.oniceconnectionstatechange = () => {
+        if (pc.iceConnectionState === 'disconnected') {
+          dc.onclose()
+        }
+      }
+      dc.onopen = (evt) => onChannel(dc)
+    }
+    return pc.setRemoteDescription(this.createSessionDescription(offer))
+      .then(() => pc.createAnswer())
+      .then((answer) => pc.setLocalDescription(answer))
+      .then(() => {
+        sendAnswer(pc.localDescription.toJSON())
+        return pc
+      })
+  }
+
+  /**
+   * Creates an instance of `RTCPeerConnection` and sets `onicecandidate` event handler.
+   *
+   * @private
+   * @param  {WebRTCService~onCandidate} onCandidate - Ice
+   * candidate event handler.
+   * @return {external:RTCPeerConnection} - Peer connection.
+   */
+  createPeerConnection (onCandidate) {
+    let pc = new RTCPeerConnection({iceServers: this.settings.iceServers})
+    pc.onicecandidate = (evt) => {
+      if (evt.candidate !== null) {
+        let candidate = {
+          candidate: evt.candidate.candidate,
+          sdpMLineIndex: evt.candidate.sdpMLineIndex
+        }
+        onCandidate(candidate)
+      }
+    }
+    return pc
+  }
+
+  /**
+   * Creates an instance of `RTCIceCandidate`.
+   *
+   * @private
+   * @param  {Object} candidate - Candidate object created in
+   * {@link WebRTCService#createPeerConnection}.
+   * @param {} candidate.candidate
+   * @param {} candidate.sdpMLineIndex
+   * @return {external:RTCIceCandidate} - Ice candidate.
+   */
+  createIceCandidate (candidate) {
+    return new RTCIceCandidate(candidate)
+  }
+
+  /**
+   * Creates an instance of `RTCSessionDescription`.
+   *
+   * @private
+   * @param  {Object} sd - An offer or an answer created by WebRTC API.
+   * @param  {} sd.type
+   * @param  {} sd.sdp
+   * @return {external:RTCSessionDescription} - Session description.
+   */
+  createSessionDescription (sd) {
+    return Object.assign(new RTCSessionDescription(), sd)
+  }
+
+  getPendingConnections (wc) {
+    if (connectionsByWC.has(wc.id)) {
+      return connectionsByWC.get(wc.id)
+    } else {
+      let connections = new RTCPendingConnections()
+      connectionsByWC.set(wc.id, connections)
+      return connections
+    }
+  }
+}
+
+export default WebRTCService
+</pre>
+    </article>
+</section>
+
+
+
+
+
+		</div>
+	</div>
+
+	<div class="clearfix"></div>
+
+	
+
+</div>
+</div>
+
+<div class="modal fade" id="searchResults">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">Search results</h4>
+      </div>
+      <div class="modal-body"></div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div>
+
+<footer>
+
+
+	<span class="copyright">
+	© 2016 Loria, <a href="https: //team.inria.fr/coast/" target="_blank">COAST team</a>
+	</span>
+
+<span class="jsdoc-message">
+	Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.0</a>
+	
+		on 2016-05-30T18:16:51+02:00
+	
+	using the <a href="https://github.com/docstrap/docstrap">DocStrap template</a>.
+</span>
+</footer>
+
+<script src="scripts/docstrap.lib.js"></script>
+<script src="scripts/toc.js"></script>
+<script type="text/javascript" src="scripts/fulltext-search-ui.js"></script>
+
+<script>
+$( function () {
+	$( "[id*='$']" ).each( function () {
+		var $this = $( this );
+
+		$this.attr( "id", $this.attr( "id" ).replace( "$", "__" ) );
+	} );
+
+	$( ".tutorial-section pre, .readme-section pre" ).each( function () {
+		var $this = $( this );
+
+		var example = $this.find( "code" );
+		exampleText = example.html();
+		var lang = /{@lang (.*?)}/.exec( exampleText );
+		if ( lang && lang[1] ) {
+			exampleText = exampleText.replace( lang[0], "" );
+			example.html( exampleText );
+			lang = lang[1];
+		} else {
+			var langClassMatch = example.parent()[0].className.match(/lang\-(\S+)/);
+			lang = langClassMatch ? langClassMatch[1] : "javascript";
+		}
+
+		if ( lang ) {
+
+			$this
+			.addClass( "sunlight-highlight-" + lang )
+			.addClass( "linenums" )
+			.html( example.html() );
+
+		}
+	} );
+
+	Sunlight.highlightAll( {
+		lineNumbers : true,
+		showMenu : true,
+		enableDoclinks : true
+	} );
+
+	$.catchAnchorLinks( {
+        navbarOffset: 10
+	} );
+	$( "#toc" ).toc( {
+		anchorName  : function ( i, heading, prefix ) {
+			var id = $( heading ).attr( "id" );
+			return id && id.replace(/\~/g, '-inner-').replace(/\./g, '-static-') || ( prefix + i );
+		},
+		selectors   : "#toc-content h1,#toc-content h2,#toc-content h3,#toc-content h4",
+		showAndHide : false,
+		smoothScrolling: true
+	} );
+
+	$( "#main span[id^='toc']" ).addClass( "toc-shim" );
+	$( '.dropdown-toggle' ).dropdown();
+
+    $( "table" ).each( function () {
+      var $this = $( this );
+      $this.addClass('table');
+    } );
+
+} );
+</script>
+
+
+
+<!--Navigation and Symbol Display-->
+
+
+<!--Google Analytics-->
+
+
+<script type="text/javascript">
+	$(document).ready(function() {
+		SearcherDisplay.init();
+	});
+</script>
+
+</body>
+</html>

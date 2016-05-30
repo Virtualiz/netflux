@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+	<title>Netflux Source: service/webChannelManager/webChannelManager.js</title>
+
+	<!--[if lt IE 9]>
+	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+	<link type="text/css" rel="stylesheet" href="styles/sunlight.default.css">
+
+	<link type="text/css" rel="stylesheet" href="styles/site.sandstone.css">
+
+</head>
+
+<body>
+
+<div class="navbar navbar-default navbar-fixed-top ">
+<div class="container">
+	<div class="navbar-header">
+		<a class="navbar-brand" href="index.html">Netflux</a>
+		<button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#topNavigation">
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+        </button>
+	</div>
+	<div class="navbar-collapse collapse" id="topNavigation">
+		<ul class="nav navbar-nav">
+			
+			<li class="dropdown">
+				<a href="modules.list.html" class="dropdown-toggle" data-toggle="dropdown">Modules<b class="caret"></b></a>
+				<ul class="dropdown-menu ">
+					<li><a href="module-channelBuilder.html">channelBuilder</a></li><li><a href="module-service.html">service</a></li><li><a href="module-webChannelManager.html">webChannelManager</a></li><li><a href="module-serviceProvider.html">serviceProvider</a></li>
+				</ul>
+			</li>
+			
+			<li class="dropdown">
+				<a href="classes.list.html" class="dropdown-toggle" data-toggle="dropdown">Classes<b class="caret"></b></a>
+				<ul class="dropdown-menu ">
+					<li><a href="JoiningPeer.html">JoiningPeer</a></li><li><a href="WebChannel.html">WebChannel</a></li><li><a href="RTCPendingConnections.html">RTCPendingConnections</a></li><li><a href="WebRTCService.html">WebRTCService</a></li><li><a href="FullyConnectedService.html">FullyConnectedService</a></li>
+				</ul>
+			</li>
+			
+			<li class="dropdown">
+				<a href="interfaces.list.html" class="dropdown-toggle" data-toggle="dropdown">Interfaces<b class="caret"></b></a>
+				<ul class="dropdown-menu ">
+					<li><a href="Channel.html">Channel</a></li><li><a href="module-channelBuilder-ChannelBuilderInterface.html">channelBuilder~ChannelBuilderInterface</a></li><li><a href="module-service-ServiceInterface.html">service~ServiceInterface</a></li><li><a href="module-webChannelManager-WebChannelManagerInterface.html">webChannelManager~WebChannelManagerInterface</a></li>
+				</ul>
+			</li>
+			
+			<li class="dropdown">
+				<a href="global.html" class="dropdown-toggle" data-toggle="dropdown">Global<b class="caret"></b></a>
+				<ul class="dropdown-menu ">
+					<li><a href="global.html#USER_DATA">USER_DATA</a></li><li><a href="global.html#SERVICE_DATA">SERVICE_DATA</a></li><li><a href="global.html#LEAVE">LEAVE</a></li><li><a href="global.html#JOIN_INIT">JOIN_INIT</a></li><li><a href="global.html#JOIN_NEW_MEMBER">JOIN_NEW_MEMBER</a></li><li><a href="global.html#REMOVE_NEW_MEMBER">REMOVE_NEW_MEMBER</a></li><li><a href="global.html#JOIN_FINILIZE">JOIN_FINILIZE</a></li><li><a href="global.html#JOIN_SUCCESS">JOIN_SUCCESS</a></li><li><a href="global.html#INIT_CHANNEL_PONG">INIT_CHANNEL_PONG</a></li><li><a href="global.html#PING">PING</a></li><li><a href="global.html#PONG">PONG</a></li>
+				</ul>
+			</li>
+			
+			<li class="dropdown">
+				<a href="externals.list.html" class="dropdown-toggle" data-toggle="dropdown">Externals<b class="caret"></b></a>
+				<ul class="dropdown-menu ">
+					<li><a href="external-JSON.html">JSON</a></li><li><a href="external-Error.html">Error</a></li><li><a href="external-RTCPeerConnection.html">RTCPeerConnection</a></li><li><a href="external-RTCSessionDescription.html">RTCSessionDescription</a></li><li><a href="external-RTCDataChannel.html">RTCDataChannel</a></li><li><a href="external-RTCIceCandidate.html">RTCIceCandidate</a></li><li><a href="external-RTCPeerConnectionIceEvent.html">RTCPeerConnectionIceEvent</a></li><li><a href="external-CloseEvent.html">CloseEvent</a></li><li><a href="external-ArrayBufferView.html">ArrayBufferView</a></li>
+				</ul>
+			</li>
+			
+		</ul>
+		<div class="col-sm-3 col-md-3">
+            <form class="navbar-form" role="search">
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Search" name="q" id="search-input">
+                    <div class="input-group-btn">
+                        <button class="btn btn-default" id="search-submit"><i class="glyphicon glyphicon-search"></i></button>
+                    </div>
+                </div>
+            </form>
+        </div>
+	</div>
+
+</div>
+</div>
+
+
+<div class="container" id="toc-content">
+<div class="row">
+
+	
+	<div class="col-md-12">
+	
+		<div id="main">
+			
+
+		<h1 class="page-title">Source: service/webChannelManager/webChannelManager.js</h1>
+    
+<section>
+    <article>
+        <pre
+            class="sunlight-highlight-javascript linenums">import {ServiceInterface} from '../service'
+import {provide} from '../../serviceProvider'
+
+/**
+ * Web Channel Manager module is a submodule of {@link module:service} and the
+ * main component of any Web Channel. It is responsible to preserve Web Channel
+ * structure intact (i.e. all peers have the same vision of the Web Channel).
+ * Among its duties are:
+ *
+ * - Add a new peer into Web Channel.
+ * - Remove a peer from Web Channel.
+ * - Send a broadcast message.
+ * - Send a message to a particular peer.
+ *
+ * @module webChannelManager
+ * @see FullyConnectedService
+ */
+
+/**
+ * Connection service of the peer who received a message of this type should
+ * establish connection with one or several peers.
+ */
+const CONNECT_WITH = 1
+const CONNECT_WITH_FEEDBACK = 2
+const THIS_CHANNEL_TO_JOINING_PEER = 3
+
+const CONNECT_WITH_TIMEOUT = 5000
+
+/**
+ * Each Web Channel Manager Service must implement this interface.
+ * @interface
+ * @extends module:service~Interface
+ */
+class WebChannelManagerInterface extends ServiceInterface {
+
+  constructor () {
+    super()
+  }
+
+  onMessage (wc, channel, msg) {
+    let cBuilder = provide(wc.settings.connector, wc.settings)
+    switch (msg.code) {
+      case CONNECT_WITH:
+        if (wc.isJoining()) {
+          msg.joiningPeers.forEach((jp) => {
+            wc.addJoiningPeer(jp.jpId, jp.intermediaryId)
+            msg.peerIds.push(jp.jpId)
+          })
+        }
+        // console.log('Me ' + wc.myId + ' should connect to ----> ', msg.peerIds)
+        msg.peerIds = this.reUseIntermediaryChannelIfPossible(wc, msg.jpId, msg.peerIds)
+        let failed = []
+        if (msg.peerIds.length === 0) {
+          wc.sendSrvMsg(this.name, msg.sender,
+            {code: CONNECT_WITH_FEEDBACK, id: wc.myId, failed}
+          )
+        } else {
+          // console.log('Me ' + wc.myId + ' should connect to ----> ' + msg.peerIds + '--reUseIntermediaryChannelIfPossible')
+          let counter = 0
+          msg.peerIds.forEach((id) => {
+            cBuilder.connectMeTo(wc, id)
+              .then((channel) => {
+                return wc.initChannel(channel, true, id)
+              })
+              .then((channel) => {
+                // console.log('PEER ' + wc.myId + ' CONNECTED TO ' + channel.peerId)
+                counter++
+                let jp = wc.getJoiningPeer(msg.jpId)
+                jp.toAddList(channel)
+                wc.sendSrvMsg(this.name, channel.peerId,
+                  {code: THIS_CHANNEL_TO_JOINING_PEER,
+                  jpId: msg.jpId,
+                  intermediaryId: jp.intermediaryId,
+                  toBeAdded: true},
+                  channel
+                )
+                if (counter === msg.peerIds.length) {
+                  wc.sendSrvMsg(this.name, msg.sender,
+                    {code: CONNECT_WITH_FEEDBACK, id: wc.myId, failed}
+                  )
+                }
+              })
+              .catch((reason) => {
+                counter++
+                failed.push({id, reason})
+                if (counter === msg.peerIds.length) {
+                  wc.sendSrvMsg(this.name, msg.sender,
+                    {code: CONNECT_WITH_FEEDBACK, id: wc.myId, failed}
+                  )
+                }
+              })
+          })
+        }
+        break
+      case CONNECT_WITH_FEEDBACK:
+        wc.connectWithRequests.get(msg.id)(true)
+        break
+      case THIS_CHANNEL_TO_JOINING_PEER:
+        let jp
+        if (wc.hasJoiningPeer(msg.jpId)) {
+          jp = wc.getJoiningPeer(msg.jpId)
+        } else {
+          jp = wc.addJoiningPeer(msg.jpId, msg.intermediaryId)
+        }
+        if (msg.toBeAdded) {
+          jp.toAddList(channel)
+        } else {
+          jp.toRemoveList(channel)
+        }
+        break
+    }
+  }
+
+  /**
+   * Send a request to a peer asking him to establish a connection with some
+   * peers. This function is used when a new peer is joining Web Channel.
+   * The request can be sent to the peer who is joining as well as other peers
+   * who are already members of Web Channel.
+   *
+   * @param  {WebChannel} wc - The Web Channel.
+   * @param  {string} id - Id of the peer who will receive this request.
+   * @param  {string} jpId - Joining peer id (it is possible that `id`=`jpId`).
+   * @param  {string[]} peerIds - Ids of peers with whom `id` peer must established
+*              connections.
+   * @return {Promise} - Is resolved once some of the connections could be established. It is rejected when an error occured.
+   */
+  connectWith (wc, id, jpId, peerIds, jpIds) {
+    let joiningPeers = []
+    jpIds.forEach((id) => {
+      let jp = wc.getJoiningPeer(id)
+      joiningPeers.push({
+        jpId: jp.id,
+        intermediaryId: jp.intermediaryId
+      })
+    })
+    wc.sendSrvMsg(this.name, id,
+      {code: CONNECT_WITH, jpId: jpId, sender: wc.myId, peerIds, joiningPeers}
+    )
+    return new Promise((resolve, reject) => {
+      wc.connectWithRequests.set(id, (isDone) => {
+        if (isDone) {
+          resolve()
+        } else {
+          reject()
+        }
+      })
+      setTimeout(() => {
+        reject('CONNECT_WITH_TIMEOUT')
+      }, this.calculateConnectWithTimeout(peerIds.length))
+    })
+  }
+
+  calculateConnectWithTimeout (nbPeers) {
+    if (nbPeers > 0) {
+      return CONNECT_WITH_TIMEOUT + Math.log10(nbPeers)
+    } else {
+      return CONNECT_WITH_TIMEOUT
+    }
+  }
+
+  reUseIntermediaryChannelIfPossible (wc, jpId, ids) {
+    let intermidiaryChannel
+    let peerIndex
+    for (let jp of wc.getJoiningPeers()) {
+      if (jp.intermediaryChannel !== null) {
+        peerIndex = ids.indexOf(jp.intermediaryId)
+        if (peerIndex === -1) {
+          peerIndex = ids.indexOf(jp.id)
+        }
+        if (peerIndex !== -1) {
+          intermidiaryChannel = jp.intermediaryChannel
+          break
+        }
+      }
+    }
+    let jp = wc.getJoiningPeer(jpId)
+    jp.toAddList(intermidiaryChannel)
+    wc.sendSrvMsg(this.name, jp.intermediaryId,
+      {code: THIS_CHANNEL_TO_JOINING_PEER,
+        jpId,
+        intermediaryId: jp.intermediaryId,
+        toBeAdded: true},
+      intermidiaryChannel
+    )
+    ids.splice(peerIndex, 1)
+    return ids
+  }
+
+  /**
+   * Adds a new peer into Web Channel.
+   *
+   * @abstract
+   * @param  {Channel} ch - Channel to be added (it should has
+   * the `webChannel` property).
+   * @return {Promise} - Resolved once the channel has been succesfully added,
+   * rejected otherwise.
+   */
+  add (ch) {
+    throw new Error('Must be implemented by subclass!')
+  }
+
+  /**
+   * Send a message to all peers in Web Channel.
+   *
+   * @abstract
+   * @param  {WebChannel} wc - Web Channel where the message will be propagated.
+   * @param  {string} data - Data in stringified JSON format to be send.
+   */
+  broadcast (wc, data) {
+    throw new Error('Must be implemented by subclass!')
+  }
+
+  /**
+   * Send a message to a particular peer in Web Channel.
+   *
+   * @abstract
+   * @param  {string} id - Peer id.
+   * @param  {WebChannel} wc - Web Channel where the message will be propagated.
+   * @param  {string} data - Data in stringified JSON format to be send.
+   */
+  sendTo (id, wc, data) {
+    throw new Error('Must be implemented by subclass!')
+  }
+
+  /**
+   * Leave Web Channel.
+   *
+   * @abstract
+   * @param  {WebChannel} wc - Web Channel to leave.
+   */
+  leave (wc) {
+    throw new Error('Must be implemented by subclass!')
+  }
+}
+
+export {
+  /** @see module:webChannelManager~Interface */
+  WebChannelManagerInterface
+}
+</pre>
+    </article>
+</section>
+
+
+
+
+
+		</div>
+	</div>
+
+	<div class="clearfix"></div>
+
+	
+
+</div>
+</div>
+
+<div class="modal fade" id="searchResults">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">Search results</h4>
+      </div>
+      <div class="modal-body"></div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div>
+
+<footer>
+
+
+	<span class="copyright">
+	© 2016 Loria, <a href="https: //team.inria.fr/coast/" target="_blank">COAST team</a>
+	</span>
+
+<span class="jsdoc-message">
+	Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.0</a>
+	
+		on 2016-05-30T18:16:51+02:00
+	
+	using the <a href="https://github.com/docstrap/docstrap">DocStrap template</a>.
+</span>
+</footer>
+
+<script src="scripts/docstrap.lib.js"></script>
+<script src="scripts/toc.js"></script>
+<script type="text/javascript" src="scripts/fulltext-search-ui.js"></script>
+
+<script>
+$( function () {
+	$( "[id*='$']" ).each( function () {
+		var $this = $( this );
+
+		$this.attr( "id", $this.attr( "id" ).replace( "$", "__" ) );
+	} );
+
+	$( ".tutorial-section pre, .readme-section pre" ).each( function () {
+		var $this = $( this );
+
+		var example = $this.find( "code" );
+		exampleText = example.html();
+		var lang = /{@lang (.*?)}/.exec( exampleText );
+		if ( lang && lang[1] ) {
+			exampleText = exampleText.replace( lang[0], "" );
+			example.html( exampleText );
+			lang = lang[1];
+		} else {
+			var langClassMatch = example.parent()[0].className.match(/lang\-(\S+)/);
+			lang = langClassMatch ? langClassMatch[1] : "javascript";
+		}
+
+		if ( lang ) {
+
+			$this
+			.addClass( "sunlight-highlight-" + lang )
+			.addClass( "linenums" )
+			.html( example.html() );
+
+		}
+	} );
+
+	Sunlight.highlightAll( {
+		lineNumbers : true,
+		showMenu : true,
+		enableDoclinks : true
+	} );
+
+	$.catchAnchorLinks( {
+        navbarOffset: 10
+	} );
+	$( "#toc" ).toc( {
+		anchorName  : function ( i, heading, prefix ) {
+			var id = $( heading ).attr( "id" );
+			return id && id.replace(/\~/g, '-inner-').replace(/\./g, '-static-') || ( prefix + i );
+		},
+		selectors   : "#toc-content h1,#toc-content h2,#toc-content h3,#toc-content h4",
+		showAndHide : false,
+		smoothScrolling: true
+	} );
+
+	$( "#main span[id^='toc']" ).addClass( "toc-shim" );
+	$( '.dropdown-toggle' ).dropdown();
+
+    $( "table" ).each( function () {
+      var $this = $( this );
+      $this.addClass('table');
+    } );
+
+} );
+</script>
+
+
+
+<!--Navigation and Symbol Display-->
+
+
+<!--Google Analytics-->
+
+
+<script type="text/javascript">
+	$(document).ready(function() {
+		SearcherDisplay.init();
+	});
+</script>
+
+</body>
+</html>

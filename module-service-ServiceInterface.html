@@ -4,7 +4,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width">
-	<title>Netflux Module: service</title>
+	<title>Netflux Interface: ServiceInterface</title>
 
 	<!--[if lt IE 9]>
 	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -91,10 +91,19 @@
 		<div id="main">
 			
 
-	<h1 class="page-title">Module: service</h1>
+	<h1 class="page-title">Interface: ServiceInterface</h1>
 <section>
 
 <header>
+    
+        <h2>
+            <span class="ancestors"><a href="module-service.html">service</a>~</span>
+        
+        ServiceInterface
+        </h2>
+        
+            <div class="class-description"><p>Each service must implement this interface.</p></div>
+        
     
 </header>
 
@@ -102,12 +111,6 @@
 <article>
     <div class="container-overview">
     
-        
-            <div class="description"><p>Service module includes <a href="module-channelBuilder.html"><code>module:channelBuilder</code></a>,
-<a href="module-webChannelManager.html"><code>module:webChannelManager</code></a> and <code>module:channelProxy</code> modules.
-Services are substitutable stateless objects. Each service is identified by
-its class name and can receive messages via <code>WebChannel</code> sent by another
-service.</p></div>
         
 
         
@@ -146,7 +149,7 @@ service.</p></div>
 		<ul class="dummy">
 			<li>
 				<a href="service_service.js.html">service/service.js</a>,
-				 <a href="service_service.js.html#sunlight-1-line-1">line 1</a>
+				 <a href="service_service.js.html#sunlight-1-line-19">line 19</a>
 			</li>
 		</ul>
 	</dd>
@@ -154,17 +157,6 @@ service.</p></div>
 
 	
 
-	
-	<dt class="tag-see method-doc-label method-doc-details-label">See:</dt>
-	<dd class="tag-see">
-		<ul>
-			<li><a href="module-channelBuilder.html">module:channelBuilder</a></li>
-			
-			<li><a href="module-webChannelManager.html">module:webChannelManager</a></li>
-			
-			<li>module:channelProxy</li>
-			</ul>
-	</dd>
 	
 
 	
@@ -191,12 +183,16 @@ service.</p></div>
         <dl>
             
 <hr>
-<dt class="name" id=".ServiceInterface">
-    <h4><span class="type-signature">&lt;static> </span>ServiceInterface<span class="type-signature"></span></h4>
+<dt class="name" id="name">
+    <h4><span class="type-signature"></span>name<span class="type-signature"></span></h4>
 
     
 </dt>
 <dd>
+    
+    <div class="description">
+        <p>Service name which corresponds to its class name.</p>
+    </div>
     
 
     
@@ -237,7 +233,7 @@ service.</p></div>
 		<ul class="dummy">
 			<li>
 				<a href="service_service.js.html">service/service.js</a>,
-				 <a href="service_service.js.html#sunlight-1-line-33">line 33</a>
+				 <a href="service_service.js.html#sunlight-1-line-26">line 26</a>
 			</li>
 		</ul>
 	</dd>
@@ -245,13 +241,6 @@ service.</p></div>
 
 	
 
-	
-	<dt class="tag-see method-doc-label method-doc-details-label">See:</dt>
-	<dd class="tag-see">
-		<ul>
-			<li>module:service~Interface</li>
-			</ul>
-	</dd>
 	
 
 	

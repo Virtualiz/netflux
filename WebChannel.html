@@ -4,14 +4,14 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width">
-	<title>Documentation Class: WebChannel</title>
+	<title>Netflux Class: WebChannel</title>
 
 	<!--[if lt IE 9]>
 	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 	<![endif]-->
 	<link type="text/css" rel="stylesheet" href="styles/sunlight.default.css">
 
-	<link type="text/css" rel="stylesheet" href="styles/site.simplex.css">
+	<link type="text/css" rel="stylesheet" href="styles/site.sandstone.css">
 
 </head>
 
@@ -20,7 +20,7 @@
 <div class="navbar navbar-default navbar-fixed-top ">
 <div class="container">
 	<div class="navbar-header">
-		<a class="navbar-brand" href="index.html">Documentation</a>
+		<a class="navbar-brand" href="index.html">Netflux</a>
 		<button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#topNavigation">
 			<span class="icon-bar"></span>
 			<span class="icon-bar"></span>
@@ -33,21 +33,35 @@
 			<li class="dropdown">
 				<a href="modules.list.html" class="dropdown-toggle" data-toggle="dropdown">Modules<b class="caret"></b></a>
 				<ul class="dropdown-menu ">
-					<li><a href="module-channelBuilder.html">channelBuilder</a></li><li><a href="module-channelProxy.html">channelProxy</a></li><li><a href="module-service.html">service</a></li><li><a href="module-serviceProvider.html">serviceProvider</a></li><li><a href="module-webChannelManager.html">webChannelManager</a></li>
+					<li><a href="module-channelBuilder.html">channelBuilder</a></li><li><a href="module-service.html">service</a></li><li><a href="module-webChannelManager.html">webChannelManager</a></li><li><a href="module-serviceProvider.html">serviceProvider</a></li>
 				</ul>
 			</li>
 			
 			<li class="dropdown">
 				<a href="classes.list.html" class="dropdown-toggle" data-toggle="dropdown">Classes<b class="caret"></b></a>
 				<ul class="dropdown-menu ">
-					<li><a href="FullyConnectedService.html">FullyConnectedService</a></li><li><a href="module-channelProxy-ChannelProxyService.html">channelProxy~ChannelProxyService</a></li><li><a href="SignalingError.html">SignalingError</a></li><li><a href="WebChannel.html">WebChannel</a></li><li><a href="WebRTCService.html">WebRTCService</a></li>
+					<li><a href="JoiningPeer.html">JoiningPeer</a></li><li><a href="WebChannel.html">WebChannel</a></li><li><a href="RTCPendingConnections.html">RTCPendingConnections</a></li><li><a href="WebRTCService.html">WebRTCService</a></li><li><a href="FullyConnectedService.html">FullyConnectedService</a></li>
 				</ul>
 			</li>
 			
 			<li class="dropdown">
 				<a href="interfaces.list.html" class="dropdown-toggle" data-toggle="dropdown">Interfaces<b class="caret"></b></a>
 				<ul class="dropdown-menu ">
-					<li><a href="ChannelInterface.html">ChannelInterface</a></li><li><a href="module-channelBuilder-Interface.html">channelBuilder~Interface</a></li><li><a href="module-service-Interface.html">service~Interface</a></li><li><a href="module-webChannelManager-Interface.html">webChannelManager~Interface</a></li>
+					<li><a href="Channel.html">Channel</a></li><li><a href="module-channelBuilder-ChannelBuilderInterface.html">channelBuilder~ChannelBuilderInterface</a></li><li><a href="module-service-ServiceInterface.html">service~ServiceInterface</a></li><li><a href="module-webChannelManager-WebChannelManagerInterface.html">webChannelManager~WebChannelManagerInterface</a></li>
+				</ul>
+			</li>
+			
+			<li class="dropdown">
+				<a href="global.html" class="dropdown-toggle" data-toggle="dropdown">Global<b class="caret"></b></a>
+				<ul class="dropdown-menu ">
+					<li><a href="global.html#USER_DATA">USER_DATA</a></li><li><a href="global.html#SERVICE_DATA">SERVICE_DATA</a></li><li><a href="global.html#LEAVE">LEAVE</a></li><li><a href="global.html#JOIN_INIT">JOIN_INIT</a></li><li><a href="global.html#JOIN_NEW_MEMBER">JOIN_NEW_MEMBER</a></li><li><a href="global.html#REMOVE_NEW_MEMBER">REMOVE_NEW_MEMBER</a></li><li><a href="global.html#JOIN_FINILIZE">JOIN_FINILIZE</a></li><li><a href="global.html#JOIN_SUCCESS">JOIN_SUCCESS</a></li><li><a href="global.html#INIT_CHANNEL_PONG">INIT_CHANNEL_PONG</a></li><li><a href="global.html#PING">PING</a></li><li><a href="global.html#PONG">PONG</a></li>
+				</ul>
+			</li>
+			
+			<li class="dropdown">
+				<a href="externals.list.html" class="dropdown-toggle" data-toggle="dropdown">Externals<b class="caret"></b></a>
+				<ul class="dropdown-menu ">
+					<li><a href="external-JSON.html">JSON</a></li><li><a href="external-Error.html">Error</a></li><li><a href="external-RTCPeerConnection.html">RTCPeerConnection</a></li><li><a href="external-RTCSessionDescription.html">RTCSessionDescription</a></li><li><a href="external-RTCDataChannel.html">RTCDataChannel</a></li><li><a href="external-RTCIceCandidate.html">RTCIceCandidate</a></li><li><a href="external-RTCPeerConnectionIceEvent.html">RTCPeerConnectionIceEvent</a></li><li><a href="external-CloseEvent.html">CloseEvent</a></li><li><a href="external-ArrayBufferView.html">ArrayBufferView</a></li>
 				</ul>
 			</li>
 			
@@ -102,7 +116,7 @@ preserving the current <em>WebChannel</em> structure (network topology).</p></di
         
 <hr>
 <dt>
-    <h4 class="name" id="WebChannel"><span class="type-signature"></span>new WebChannel(<span class="optional">options</span>)</h4>
+    <h4 class="name" id="WebChannel"><span class="type-signature"></span>new WebChannel( [options])</h4>
     
     
 </dt>
@@ -328,6 +342,16 @@ WebRTC is only available).</p>
 
 
 	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="WebChannel.js.html">WebChannel.js</a>,
+				 <a href="WebChannel.js.html#sunlight-1-line-112">line 112</a>
+			</li>
+		</ul>
+	</dd>
+	
 
 	
 
@@ -420,295 +444,15 @@ the central peer.</p>
 
 
 	
-
-	
-
-	
-
-	
-</dl>
-
-
-    
-</dd>
-
-        
-            
-<hr>
-<dt class="name" id="connections">
-    <h4><span class="type-signature">&lt;private> </span>connections<span class="type-signature"></span></h4>
-
-    
-</dt>
-<dd>
-    
-
-    
-
-    
-<dl class="details">
-    
-
-	
-
-	
-
-	
-
-    
-
-    
-
-    
-
-    
-
-	
-
-	
-
-	
-
-	
-
-	
-
-
-
-	
-
-	
-
-	
-
-	
-</dl>
-
-
-    
-</dd>
-
-        
-            
-<hr>
-<dt class="name" id="connectWithRequests">
-    <h4><span class="type-signature">&lt;private> </span>connectWithRequests<span class="type-signature"></span></h4>
-
-    
-</dt>
-<dd>
-    
-
-    
-
-    
-<dl class="details">
-    
-
-	
-
-	
-
-	
-
-    
-
-    
-
-    
-
-    
-
-	
-
-	
-
-	
-
-	
-
-	
-
-
-
-	
-
-	
-
-	
-
-	
-</dl>
-
-
-    
-</dd>
-
-        
-            
-<hr>
-<dt class="name" id="id">
-    <h4><span class="type-signature">&lt;readonly> </span>id<span class="type-signature"></span></h4>
-
-    
-</dt>
-<dd>
-    
-    <div class="description">
-        <p>Unique identifier of this <code>WebChannel</code>. The same for all peers.</p>
-    </div>
-    
-
-    
-
-    
-<dl class="details">
-    
-
-	
-
-	
-
-	
-
-    
-
-    
-
-    
-
-    
-
-	
-
-	
-
-	
-
-	
-
-	
-
-
-
-	
-
-	
-
-	
-
-	
-</dl>
-
-
-    
-</dd>
-
-        
-            
-<hr>
-<dt class="name" id="joiningPeers">
-    <h4><span class="type-signature">&lt;private> </span>joiningPeers<span class="type-signature"></span></h4>
-
-    
-</dt>
-<dd>
-    
-
-    
-
-    
-<dl class="details">
-    
-
-	
-
-	
-
-	
-
-    
-
-    
-
-    
-
-    
-
-	
-
-	
-
-	
-
-	
-
-	
-
-
-
-	
-
-	
-
-	
-
-	
-</dl>
-
-
-    
-</dd>
-
-        
-            
-<hr>
-<dt class="name" id="myId">
-    <h4><span class="type-signature">&lt;readonly> </span>myId<span class="type-signature"></span></h4>
-
-    
-</dt>
-<dd>
-    
-    <div class="description">
-        <p>Unique peer identifier in this <code>WebChannel</code>. After each <code>join</code> function call
-this id will change, because it is up to the <code>WebChannel</code> to assign it when
-you join.</p>
-    </div>
-    
-
-    
-
-    
-<dl class="details">
-    
-
-	
-
-	
-
-	
-
-    
-
-    
-
-    
-
-    
-
-	
-
-	
-
-	
-
-	
-
-	
-
-
-
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="WebChannel.js.html">WebChannel.js</a>,
+				 <a href="WebChannel.js.html#sunlight-1-line-151">line 151</a>
+			</li>
+		</ul>
+	</dd>
 	
 
 	
@@ -770,6 +514,16 @@ you join.</p>
 
 
 	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="WebChannel.js.html">WebChannel.js</a>,
+				 <a href="WebChannel.js.html#sunlight-1-line-158">line 158</a>
+			</li>
+		</ul>
+	</dd>
+	
 
 	
 
@@ -785,8 +539,8 @@ you join.</p>
         
             
 <hr>
-<dt class="name" id="proxy">
-    <h4><span class="type-signature">&lt;private> </span>proxy<span class="type-signature"></span></h4>
+<dt class="name" id="joiningPeers">
+    <h4><span class="type-signature">&lt;private> </span>joiningPeers<span class="type-signature"></span></h4>
 
     
 </dt>
@@ -825,6 +579,492 @@ you join.</p>
 
 
 
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="WebChannel.js.html">WebChannel.js</a>,
+				 <a href="WebChannel.js.html#sunlight-1-line-161">line 161</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt class="name" id="connectWithRequests">
+    <h4><span class="type-signature">&lt;private> </span>connectWithRequests<span class="type-signature"></span></h4>
+
+    
+</dt>
+<dd>
+    
+
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="WebChannel.js.html">WebChannel.js</a>,
+				 <a href="WebChannel.js.html#sunlight-1-line-163">line 163</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt class="name" id="peerNb">
+    <h4><span class="type-signature">&lt;private> </span>peerNb<span class="type-signature"></span></h4>
+
+    
+</dt>
+<dd>
+    
+
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="WebChannel.js.html">WebChannel.js</a>,
+				 <a href="WebChannel.js.html#sunlight-1-line-168">line 168</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt class="name" id="pingTime">
+    <h4><span class="type-signature">&lt;private> </span>pingTime<span class="type-signature"></span></h4>
+
+    
+</dt>
+<dd>
+    
+
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="WebChannel.js.html">WebChannel.js</a>,
+				 <a href="WebChannel.js.html#sunlight-1-line-170">line 170</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt class="name" id="gate">
+    <h4><span class="type-signature">&lt;private> </span>gate<span class="type-signature"></span></h4>
+
+    
+</dt>
+<dd>
+    
+
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="WebChannel.js.html">WebChannel.js</a>,
+				 <a href="WebChannel.js.html#sunlight-1-line-173">line 173</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt class="name" id="id">
+    <h4><span class="type-signature">&lt;readonly> </span>id<span class="type-signature"></span></h4>
+
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p>Unique identifier of this <code>WebChannel</code>. The same for all peers.</p>
+    </div>
+    
+
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="WebChannel.js.html">WebChannel.js</a>,
+				 <a href="WebChannel.js.html#sunlight-1-line-179">line 179</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt class="name" id="myId">
+    <h4><span class="type-signature">&lt;readonly> </span>myId<span class="type-signature"></span></h4>
+
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p>Unique peer identifier of you in this <code>WebChannel</code>. After each <code>join</code> function call
+this id will change, because it is up to the <code>WebChannel</code> to assign it when
+you join.</p>
+    </div>
+    
+
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="WebChannel.js.html">WebChannel.js</a>,
+				 <a href="WebChannel.js.html#sunlight-1-line-188">line 188</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt class="name" id="topology">
+    <h4><span class="type-signature"></span>topology<span class="type-signature"></span></h4>
+
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p>// TODO: add doc</p>
+    </div>
+    
+
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="WebChannel.js.html">WebChannel.js</a>,
+				 <a href="WebChannel.js.html#sunlight-1-line-377">line 377</a>
+			</li>
+		</ul>
+	</dd>
 	
 
 	
@@ -848,6 +1088,10 @@ you join.</p>
 </dt>
 <dd>
     
+    <div class="description">
+        <p>// TODO: add doc</p>
+    </div>
+    
 
     
 
@@ -882,6 +1126,16 @@ you join.</p>
 
 
 	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="WebChannel.js.html">WebChannel.js</a>,
+				 <a href="WebChannel.js.html#sunlight-1-line-523">line 523</a>
+			</li>
+		</ul>
+	</dd>
+	
 
 	
 
@@ -904,7 +1158,7 @@ you join.</p>
             
 <hr>
 <dt>
-    <h4 class="name" id="addJoiningPeer"><span class="type-signature">&lt;private> </span>addJoiningPeer(jp)</h4>
+    <h4 class="name" id="onJoining"><span class="type-signature"></span>onJoining(id)</h4>
     
     
 </dt>
@@ -912,7 +1166,7 @@ you join.</p>
 
     
     <div class="description">
-        <p>addJoiningPeer - description</p>
+        <p>Is the event handler called when a new peer has  joined the <code>WebChannel</code>.</p>
     </div>
     
 
@@ -947,13 +1201,13 @@ you join.</p>
 
         <tr>
             
-                <td class="name"><code>jp</code></td>
+                <td class="name"><code>id</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type">type</span>
+<span class="param-type">number</span>
 
 
 
@@ -964,7 +1218,7 @@ you join.</p>
 
             
 
-            <td class="description last"><p>description</p></td>
+            <td class="description last"><p>Id of the joined peer</p></td>
         </tr>
 
     
@@ -1004,6 +1258,634 @@ you join.</p>
 
 
 	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="WebChannel.js.html">WebChannel.js</a>,
+				 <a href="WebChannel.js.html#sunlight-1-line-195">line 195</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt>
+    <h4 class="name" id="onMessage"><span class="type-signature"></span>onMessage(id, data, isBroadcast)</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <p>Is the event handler called when a message is available on the <code>WebChannel</code>.</p>
+    </div>
+    
+
+    
+
+    
+
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>id</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Id of the peer who sent this message</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>data</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+|
+
+<span class="param-type"><a href="external-ArrayBufferView.html">external:ArrayBufferView</a></span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Message</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>isBroadcast</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">boolean</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>It is true if the message is sent via
+<a href="WebChannel.html#send"><code>send</code></a> method and false if it is sent via
+<a href="WebChannel.html#sendTo"><code>sendTo</code></a> method</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="WebChannel.js.html">WebChannel.js</a>,
+				 <a href="WebChannel.js.html#sunlight-1-line-206">line 206</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt>
+    <h4 class="name" id="onLeaving"><span class="type-signature"></span>onLeaving(id)</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <p>Is the event handler called when a peer hes left the <code>WebChannel</code>.</p>
+    </div>
+    
+
+    
+
+    
+
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>id</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Id of the peer who has left</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="WebChannel.js.html">WebChannel.js</a>,
+				 <a href="WebChannel.js.html#sunlight-1-line-213">line 213</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt>
+    <h4 class="name" id="onClose"><span class="type-signature"></span>onClose(id)</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <p>Is the event handler called when the <code>WebChannel</code> has been closed.</p>
+    </div>
+    
+
+    
+
+    
+
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>id</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="external-CloseEvent.html">external:CloseEvent</a></span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Close event object</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="WebChannel.js.html">WebChannel.js</a>,
+				 <a href="WebChannel.js.html#sunlight-1-line-220">line 220</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt>
+    <h4 class="name" id="openForJoining"><span class="type-signature"></span>openForJoining( [options])</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <p>Enable other peers to join the <code>WebChannel</code> with your help as an
+intermediary peer.</p>
+    </div>
+    
+
+    
+
+    
+
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Argument</th>
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>options</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>Any available connection service options</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="WebChannel.js.html">WebChannel.js</a>,
+				 <a href="WebChannel.js.html#sunlight-1-line-231">line 231</a>
+			</li>
+		</ul>
+	</dd>
+	
 
 	
 
@@ -1028,7 +1910,8 @@ you join.</p>
     
             
 <div class="param-desc">
-    <p>description</p>
+    <p>It is resolved once the <code>WebChannel</code>
+is open. The callback function take a parameter of type <a href="WebChannel.html#~AccessData"><code>WebChannel~AccessData</code></a>.</p>
 </div>
 
 
@@ -1039,7 +1922,7 @@ you join.</p>
     </dt>
     <dd>
         
-<span class="param-type">type</span>
+<span class="param-type">PromiseWebChannel~AccessData</span>
 
 
 
@@ -1064,7 +1947,7 @@ you join.</p>
 
     
     <div class="description">
-        <p>Prevent other peers to join the <code>WebChannel</code> even if they have a key.</p>
+        <p>Prevent clients to join the <code>WebChannel</code> even if they possesses a key.</p>
     </div>
     
 
@@ -1106,6 +1989,16 @@ you join.</p>
 
 
 	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="WebChannel.js.html">WebChannel.js</a>,
+				 <a href="WebChannel.js.html#sunlight-1-line-267">line 267</a>
+			</li>
+		</ul>
+	</dd>
+	
 
 	
 
@@ -1134,7 +2027,7 @@ you join.</p>
             
 <hr>
 <dt>
-    <h4 class="name" id="generateId"><span class="type-signature">&lt;private> </span>generateId()</h4>
+    <h4 class="name" id="isOpen"><span class="type-signature"></span>isOpen()</h4>
     
     
 </dt>
@@ -1142,7 +2035,8 @@ you join.</p>
 
     
     <div class="description">
-        <p>generateId - description</p>
+        <p>If the <code>WebChannel</code> is open, the clients can join it through you, otherwise
+it is not possible.</p>
     </div>
     
 
@@ -1184,157 +2078,15 @@ you join.</p>
 
 
 	
-
-	
-
-	
-
-	
-</dl>
-
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <h5>Returns:</h5>
-    
-            
-<div class="param-desc">
-    <p>description</p>
-</div>
-
-
-
-<dl>
-    <dt>
-        Type
-    </dt>
-    <dd>
-        
-<span class="param-type">type</span>
-
-
-
-    </dd>
-</dl>
-
-
-        
-
-    
-</dd>
-
-        
-            
-<hr>
-<dt>
-    <h4 class="name" id="getJoiningPeer"><span class="type-signature">&lt;private> </span>getJoiningPeer(id)</h4>
-    
-    
-</dt>
-<dd>
-
-    
-    <div class="description">
-        <p>getJoiningPeer - description</p>
-    </div>
-    
-
-    
-
-    
-
-    
-    
-        <h5>Parameters:</h5>
-        
-
-<table class="params table table-striped">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>id</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">type</span>
-
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>description</p></td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-    
-
-    
-<dl class="details">
-    
-
-	
-
-	
-
-	
-
-    
-
-    
-
-    
-
-    
-
-	
-
-	
-
-	
-
-	
-
-	
-
-
-
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="WebChannel.js.html">WebChannel.js</a>,
+				 <a href="WebChannel.js.html#sunlight-1-line-277">line 277</a>
+			</li>
+		</ul>
+	</dd>
 	
 
 	
@@ -1360,7 +2112,7 @@ you join.</p>
     
             
 <div class="param-desc">
-    <p>description</p>
+    <p>True if the <code>WebChannel</code> is open, false otherwise</p>
 </div>
 
 
@@ -1371,7 +2123,7 @@ you join.</p>
     </dt>
     <dd>
         
-<span class="param-type">type</span>
+<span class="param-type">boolean</span>
 
 
 
@@ -1388,687 +2140,7 @@ you join.</p>
             
 <hr>
 <dt>
-    <h4 class="name" id="has"><span class="type-signature">&lt;private> </span>has(peerId)</h4>
-    
-    
-</dt>
-<dd>
-
-    
-    <div class="description">
-        <p>has - description</p>
-    </div>
-    
-
-    
-
-    
-
-    
-    
-        <h5>Parameters:</h5>
-        
-
-<table class="params table table-striped">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>peerId</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">type</span>
-
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>description</p></td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-    
-
-    
-<dl class="details">
-    
-
-	
-
-	
-
-	
-
-    
-
-    
-
-    
-
-    
-
-	
-
-	
-
-	
-
-	
-
-	
-
-
-
-	
-
-	
-
-	
-
-	
-</dl>
-
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <h5>Returns:</h5>
-    
-            
-<div class="param-desc">
-    <p>description</p>
-</div>
-
-
-
-<dl>
-    <dt>
-        Type
-    </dt>
-    <dd>
-        
-<span class="param-type">type</span>
-
-
-
-    </dd>
-</dl>
-
-
-        
-
-    
-</dd>
-
-        
-            
-<hr>
-<dt>
-    <h4 class="name" id="hasJoiningPeer"><span class="type-signature">&lt;private> </span>hasJoiningPeer(id)</h4>
-    
-    
-</dt>
-<dd>
-
-    
-    <div class="description">
-        <p>hasJoiningPeer - description</p>
-    </div>
-    
-
-    
-
-    
-
-    
-    
-        <h5>Parameters:</h5>
-        
-
-<table class="params table table-striped">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>id</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">type</span>
-
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>description</p></td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-    
-
-    
-<dl class="details">
-    
-
-	
-
-	
-
-	
-
-    
-
-    
-
-    
-
-    
-
-	
-
-	
-
-	
-
-	
-
-	
-
-
-
-	
-
-	
-
-	
-
-	
-</dl>
-
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <h5>Returns:</h5>
-    
-            
-<div class="param-desc">
-    <p>description</p>
-</div>
-
-
-
-<dl>
-    <dt>
-        Type
-    </dt>
-    <dd>
-        
-<span class="param-type">type</span>
-
-
-
-    </dd>
-</dl>
-
-
-        
-
-    
-</dd>
-
-        
-            
-<hr>
-<dt>
-    <h4 class="name" id="initChannel"><span class="type-signature">&lt;private> </span>initChannel(channel, id)</h4>
-    
-    
-</dt>
-<dd>
-
-    
-    <div class="description">
-        <p>initChannel - description</p>
-    </div>
-    
-
-    
-
-    
-
-    
-    
-        <h5>Parameters:</h5>
-        
-
-<table class="params table table-striped">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>channel</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">type</span>
-
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>description</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>id</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">type</span>
-
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>= '' description</p></td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-    
-
-    
-<dl class="details">
-    
-
-	
-
-	
-
-	
-
-    
-
-    
-
-    
-
-    
-
-	
-
-	
-
-	
-
-	
-
-	
-
-
-
-	
-
-	
-
-	
-
-	
-</dl>
-
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <h5>Returns:</h5>
-    
-            
-<div class="param-desc">
-    <p>description</p>
-</div>
-
-
-
-<dl>
-    <dt>
-        Type
-    </dt>
-    <dd>
-        
-<span class="param-type">type</span>
-
-
-
-    </dd>
-</dl>
-
-
-        
-
-    
-</dd>
-
-        
-            
-<hr>
-<dt>
-    <h4 class="name" id="isInviting"><span class="type-signature">&lt;private> </span>isInviting()</h4>
-    
-    
-</dt>
-<dd>
-
-    
-
-    
-
-    
-
-    
-    
-
-    
-<dl class="details">
-    
-
-	
-
-	
-
-	
-
-    
-
-    
-
-    
-
-    
-
-	
-
-	
-
-	
-
-	
-
-	
-
-
-
-	
-
-	
-
-	
-
-	
-</dl>
-
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <h5>Returns:</h5>
-    
-            
-<div class="param-desc">
-    <p>description</p>
-</div>
-
-
-
-<dl>
-    <dt>
-        Type
-    </dt>
-    <dd>
-        
-<span class="param-type">type</span>
-
-
-
-    </dd>
-</dl>
-
-
-        
-
-    
-</dd>
-
-        
-            
-<hr>
-<dt>
-    <h4 class="name" id="isJoining"><span class="type-signature">&lt;private> </span>isJoining()</h4>
-    
-    
-</dt>
-<dd>
-
-    
-    <div class="description">
-        <p>isJoining - description</p>
-    </div>
-    
-
-    
-
-    
-
-    
-    
-
-    
-<dl class="details">
-    
-
-	
-
-	
-
-	
-
-    
-
-    
-
-    
-
-    
-
-	
-
-	
-
-	
-
-	
-
-	
-
-
-
-	
-
-	
-
-	
-
-	
-</dl>
-
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <h5>Returns:</h5>
-    
-            
-<div class="param-desc">
-    <p>description</p>
-</div>
-
-
-
-<dl>
-    <dt>
-        Type
-    </dt>
-    <dd>
-        
-<span class="param-type">type</span>
-
-
-
-    </dd>
-</dl>
-
-
-        
-
-    
-</dd>
-
-        
-            
-<hr>
-<dt>
-    <h4 class="name" id="join"><span class="type-signature"></span>join(key, <span class="optional">options</span>)</h4>
+    <h4 class="name" id="join"><span class="type-signature"></span>join(key [, options])</h4>
     
     
 </dt>
@@ -2138,7 +2210,7 @@ you join.</p>
 
             
 
-            <td class="description last"><p>The key provided by a <code>WebChannel</code> member.</p></td>
+            <td class="description last"><p>The key provided by one of the <code>WebChannel</code> members.</p></td>
         </tr>
 
     
@@ -2211,6 +2283,16 @@ you join.</p>
 
 
 
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="WebChannel.js.html">WebChannel.js</a>,
+				 <a href="WebChannel.js.html#sunlight-1-line-288">line 288</a>
+			</li>
+		</ul>
+	</dd>
 	
 
 	
@@ -2264,158 +2346,6 @@ you join.</p>
             
 <hr>
 <dt>
-    <h4 class="name" id="joinSuccess"><span class="type-signature">&lt;private> </span>joinSuccess(id)</h4>
-    
-    
-</dt>
-<dd>
-
-    
-    <div class="description">
-        <p>joinSuccess - description</p>
-    </div>
-    
-
-    
-
-    
-
-    
-    
-        <h5>Parameters:</h5>
-        
-
-<table class="params table table-striped">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>id</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">type</span>
-
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>description</p></td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-    
-
-    
-<dl class="details">
-    
-
-	
-
-	
-
-	
-
-    
-
-    
-
-    
-
-    
-
-	
-
-	
-
-	
-
-	
-
-	
-
-
-
-	
-
-	
-
-	
-
-	
-</dl>
-
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <h5>Returns:</h5>
-    
-            
-<div class="param-desc">
-    <p>description</p>
-</div>
-
-
-
-<dl>
-    <dt>
-        Type
-    </dt>
-    <dd>
-        
-<span class="param-type">type</span>
-
-
-
-    </dd>
-</dl>
-
-
-        
-
-    
-</dd>
-
-        
-            
-<hr>
-<dt>
     <h4 class="name" id="leave"><span class="type-signature"></span>leave()</h4>
     
     
@@ -2424,7 +2354,7 @@ you join.</p>
 
     
     <div class="description">
-        <p>Leave <code>WebChannel</code>. No longer can receive and send messages to the group.</p>
+        <p>Leave the <code>WebChannel</code>. No longer can receive and send messages to the group.</p>
     </div>
     
 
@@ -2466,133 +2396,15 @@ you join.</p>
 
 
 	
-
-	
-
-	
-
-	
-</dl>
-
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-</dd>
-
-        
-            
-<hr>
-<dt>
-    <h4 class="name" id="onJoining"><span class="type-signature"></span>onJoining(id)</h4>
-    
-    
-</dt>
-<dd>
-
-    
-    <div class="description">
-        <p>This event handler is called when a new member has joined the <code>WebChannel</code>.</p>
-    </div>
-    
-
-    
-
-    
-
-    
-    
-        <h5>Parameters:</h5>
-        
-
-<table class="params table table-striped">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>id</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>Peer id.</p></td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-    
-
-    
-<dl class="details">
-    
-
-	
-
-	
-
-	
-
-    
-
-    
-
-    
-
-    
-
-	
-
-	
-
-	
-
-	
-
-	
-
-
-
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="WebChannel.js.html">WebChannel.js</a>,
+				 <a href="WebChannel.js.html#sunlight-1-line-303">line 303</a>
+			</li>
+		</ul>
+	</dd>
 	
 
 	
@@ -2614,603 +2426,6 @@ you join.</p>
     
 
     
-
-    
-</dd>
-
-        
-            
-<hr>
-<dt>
-    <h4 class="name" id="onLeaving"><span class="type-signature"></span>onLeaving(id)</h4>
-    
-    
-</dt>
-<dd>
-
-    
-    <div class="description">
-        <p>This event handler is called when a <code>WebChannel</code> member has left.</p>
-    </div>
-    
-
-    
-
-    
-
-    
-    
-        <h5>Parameters:</h5>
-        
-
-<table class="params table table-striped">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>id</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>Peer id.</p></td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-    
-
-    
-<dl class="details">
-    
-
-	
-
-	
-
-	
-
-    
-
-    
-
-    
-
-    
-
-	
-
-	
-
-	
-
-	
-
-	
-
-
-
-	
-
-	
-
-	
-
-	
-</dl>
-
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-</dd>
-
-        
-            
-<hr>
-<dt>
-    <h4 class="name" id="onMessage"><span class="type-signature"></span>onMessage(id, msg)</h4>
-    
-    
-</dt>
-<dd>
-
-    
-    <div class="description">
-        <p>On message event handler.</p>
-    </div>
-    
-
-    
-
-    
-
-    
-    
-        <h5>Parameters:</h5>
-        
-
-<table class="params table table-striped">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>id</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>Peer id the message came from.</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>msg</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>Message</p></td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-    
-
-    
-<dl class="details">
-    
-
-	
-
-	
-
-	
-
-    
-
-    
-
-    
-
-    
-
-	
-
-	
-
-	
-
-	
-
-	
-
-
-
-	
-
-	
-
-	
-
-	
-</dl>
-
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-</dd>
-
-        
-            
-<hr>
-<dt>
-    <h4 class="name" id="openForJoining"><span class="type-signature"></span>openForJoining(<span class="optional">options</span>)</h4>
-    
-    
-</dt>
-<dd>
-
-    
-    <div class="description">
-        <p>Enable other peers to join the <code>WebChannel</code> with your help as an intermediary
-peer.</p>
-    </div>
-    
-
-    
-
-    
-
-    
-    
-        <h5>Parameters:</h5>
-        
-
-<table class="params table table-striped">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-        <th>Argument</th>
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>options</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">Object</span>
-
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-
-                
-
-                
-                </td>
-            
-
-            
-
-            <td class="description last"><p>Any available connection service options.</p></td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-    
-
-    
-<dl class="details">
-    
-
-	
-
-	
-
-	
-
-    
-
-    
-
-    
-
-    
-
-	
-
-	
-
-	
-
-	
-
-	
-
-
-
-	
-
-	
-
-	
-
-	
-</dl>
-
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <h5>Returns:</h5>
-    
-            
-<div class="param-desc">
-    <p>The key required by other peer to join the <code>WebChannel</code>.</p>
-</div>
-
-
-
-<dl>
-    <dt>
-        Type
-    </dt>
-    <dd>
-        
-<span class="param-type">string</span>
-
-
-
-    </dd>
-</dl>
-
-
-        
-
-    
-</dd>
-
-        
-            
-<hr>
-<dt>
-    <h4 class="name" id="removeJoiningPeer"><span class="type-signature">&lt;private> </span>removeJoiningPeer(id)</h4>
-    
-    
-</dt>
-<dd>
-
-    
-    <div class="description">
-        <p>removeJoiningPeer - description</p>
-    </div>
-    
-
-    
-
-    
-
-    
-    
-        <h5>Parameters:</h5>
-        
-
-<table class="params table table-striped">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>id</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">type</span>
-
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>description</p></td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-    
-
-    
-<dl class="details">
-    
-
-	
-
-	
-
-	
-
-    
-
-    
-
-    
-
-    
-
-	
-
-	
-
-	
-
-	
-
-	
-
-
-
-	
-
-	
-
-	
-
-	
-</dl>
-
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <h5>Returns:</h5>
-    
-            
-<div class="param-desc">
-    <p>description</p>
-</div>
-
-
-
-<dl>
-    <dt>
-        Type
-    </dt>
-    <dd>
-        
-<span class="param-type">type</span>
-
-
-
-    </dd>
-</dl>
-
-
-        
 
     
 </dd>
@@ -3227,7 +2442,7 @@ peer.</p>
 
     
     <div class="description">
-        <p>Send broadcast message.</p>
+        <p>Send the message to all <code>WebChannel</code> members.</p>
     </div>
     
 
@@ -3269,6 +2484,9 @@ peer.</p>
             
                 
 <span class="param-type">string</span>
+|
+
+<span class="param-type"><a href="external-ArrayBufferView.html">external:ArrayBufferView</a></span>
 
 
 
@@ -3319,6 +2537,16 @@ peer.</p>
 
 
 	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="WebChannel.js.html">WebChannel.js</a>,
+				 <a href="WebChannel.js.html#sunlight-1-line-320">line 320</a>
+			</li>
+		</ul>
+	</dd>
+	
 
 	
 
@@ -3347,7 +2575,401 @@ peer.</p>
             
 <hr>
 <dt>
-    <h4 class="name" id="sendSrvMsg"><span class="type-signature">&lt;private> </span>sendSrvMsg(serviceName, recepient, <span class="optional">msg</span>)</h4>
+    <h4 class="name" id="sendTo"><span class="type-signature"></span>sendTo(id, data)</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <p>Send the message to a particular peer in the <code>WebChannel</code>.</p>
+    </div>
+    
+
+    
+
+    
+
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>id</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Id of the recipient peer</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>data</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+|
+
+<span class="param-type"><a href="external-ArrayBufferView.html">external:ArrayBufferView</a></span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Message</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="WebChannel.js.html">WebChannel.js</a>,
+				 <a href="WebChannel.js.html#sunlight-1-line-334">line 334</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt>
+    <h4 class="name" id="getAccess"><span class="type-signature"></span>getAccess()</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <p>Get the data which should be provided to all clients who must join
+the <code>WebChannel</code>. It is the same data which
+<a href="WebChannel.html#openForJoining"><code>WebChannel#openForJoining</code></a> callback function provides.</p>
+    </div>
+    
+
+    
+
+    
+
+    
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="WebChannel.js.html">WebChannel.js</a>,
+				 <a href="WebChannel.js.html#sunlight-1-line-350">line 350</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    <ul>
+<li>Data to join the <code>WebChannel</code>
+or null is the <code>WebChannel</code> is closed</li>
+</ul>
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type"><a href="WebChannel.html#~AccessData">WebChannel~AccessData</a></span>
+|
+
+<span class="param-type">null</span>
+
+
+
+    </dd>
+</dl>
+
+
+        
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt>
+    <h4 class="name" id="ping"><span class="type-signature"></span>ping()</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <p>Get the ping of the <code>WebChannel</code>. It is an amount in milliseconds which
+corresponds to the longest ping to each <code>WebChannel</code> member.</p>
+    </div>
+    
+
+    
+
+    
+
+    
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="WebChannel.js.html">WebChannel.js</a>,
+				 <a href="WebChannel.js.html#sunlight-1-line-360">line 360</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <h5>Returns:</h5>
+    
+            
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Promise</span>
+
+
+
+    </dd>
+</dl>
+
+
+        
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt>
+    <h4 class="name" id="sendSrvMsg"><span class="type-signature">&lt;private> </span>sendSrvMsg(serviceName, recepient [, msg])</h4>
     
     
 </dt>
@@ -3540,6 +3162,16 @@ the Web Channel).</p>
 
 
 	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="WebChannel.js.html">WebChannel.js</a>,
+				 <a href="WebChannel.js.html#sunlight-1-line-390">line 390</a>
+			</li>
+		</ul>
+	</dd>
+	
 
 	
 
@@ -3568,7 +3200,7 @@ the Web Channel).</p>
             
 <hr>
 <dt>
-    <h4 class="name" id="sendTo"><span class="type-signature"></span>sendTo(id, data)</h4>
+    <h4 class="name" id="onChannelMessage"><span class="type-signature">&lt;private> </span>onChannelMessage()</h4>
     
     
 </dt>
@@ -3576,7 +3208,359 @@ the Web Channel).</p>
 
     
     <div class="description">
-        <p>Send the message to a particular peer.</p>
+        <p>// TODO: add doc</p>
+    </div>
+    
+
+    
+
+    
+
+    
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="WebChannel.js.html">WebChannel.js</a>,
+				 <a href="WebChannel.js.html#sunlight-1-line-430">line 430</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt>
+    <h4 class="name" id="onChannelError"><span class="type-signature">&lt;private> </span>onChannelError()</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <p>// TODO: add doc</p>
+    </div>
+    
+
+    
+
+    
+
+    
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="WebChannel.js.html">WebChannel.js</a>,
+				 <a href="WebChannel.js.html#sunlight-1-line-505">line 505</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt>
+    <h4 class="name" id="onChannelClose"><span class="type-signature">&lt;private> </span>onChannelClose()</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <p>// TODO: add doc</p>
+    </div>
+    
+
+    
+
+    
+
+    
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="WebChannel.js.html">WebChannel.js</a>,
+				 <a href="WebChannel.js.html#sunlight-1-line-514">line 514</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt>
+    <h4 class="name" id="initChannel"><span class="type-signature">&lt;private> </span>initChannel()</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <p>// TODO: add doc</p>
+    </div>
+    
+
+    
+
+    
+
+    
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="WebChannel.js.html">WebChannel.js</a>,
+				 <a href="WebChannel.js.html#sunlight-1-line-533">line 533</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt>
+    <h4 class="name" id="joinSuccess"><span class="type-signature">&lt;private> </span>joinSuccess(id)</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <p>joinSuccess - description</p>
     </div>
     
 
@@ -3628,31 +3612,7 @@ the Web Channel).</p>
 
             
 
-            <td class="description last"><p>Peer id of the recipient peer</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>data</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">type</span>
-
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>Message</p></td>
+            <td class="description last"><p>description</p></td>
         </tr>
 
     
@@ -3692,6 +3652,178 @@ the Web Channel).</p>
 
 
 	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="WebChannel.js.html">WebChannel.js</a>,
+				 <a href="WebChannel.js.html#sunlight-1-line-561">line 561</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    <p>description</p>
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">type</span>
+
+
+
+    </dd>
+</dl>
+
+
+        
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt>
+    <h4 class="name" id="getJoiningPeer"><span class="type-signature">&lt;private> </span>getJoiningPeer(id)</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <p>TODO: add doc</p>
+    </div>
+    
+
+    
+
+    
+
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>id</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">type</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>description</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="WebChannel.js.html">WebChannel.js</a>,
+				 <a href="WebChannel.js.html#sunlight-1-line-576">line 576</a>
+			</li>
+		</ul>
+	</dd>
+	
 
 	
 
@@ -3716,9 +3848,1082 @@ the Web Channel).</p>
     
 </dd>
 
+        
+            
+<hr>
+<dt>
+    <h4 class="name" id="getJoiningPeers"><span class="type-signature">&lt;private> </span>getJoiningPeers()</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <p>TODO: add doc</p>
+    </div>
+    
+
+    
+
+    
+
+    
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="WebChannel.js.html">WebChannel.js</a>,
+				 <a href="WebChannel.js.html#sunlight-1-line-593">line 593</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt>
+    <h4 class="name" id="addJoiningPeer"><span class="type-signature">&lt;private> </span>addJoiningPeer(jp)</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <p>TODO: add doc</p>
+    </div>
+    
+
+    
+
+    
+
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>jp</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">type</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>description</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="WebChannel.js.html">WebChannel.js</a>,
+				 <a href="WebChannel.js.html#sunlight-1-line-604">line 604</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    <p>description</p>
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">type</span>
+
+
+
+    </dd>
+</dl>
+
+
+        
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt>
+    <h4 class="name" id="removeJoiningPeer"><span class="type-signature">&lt;private> </span>removeJoiningPeer(id)</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <p>TODO: add doc</p>
+    </div>
+    
+
+    
+
+    
+
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>id</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">type</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>description</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="WebChannel.js.html">WebChannel.js</a>,
+				 <a href="WebChannel.js.html#sunlight-1-line-623">line 623</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    <p>description</p>
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">type</span>
+
+
+
+    </dd>
+</dl>
+
+
+        
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt>
+    <h4 class="name" id="isJoining"><span class="type-signature">&lt;private> </span>isJoining()</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <p>TODO: add doc</p>
+    </div>
+    
+
+    
+
+    
+
+    
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="WebChannel.js.html">WebChannel.js</a>,
+				 <a href="WebChannel.js.html#sunlight-1-line-635">line 635</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    <p>description</p>
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">type</span>
+
+
+
+    </dd>
+</dl>
+
+
+        
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt>
+    <h4 class="name" id="hasJoiningPeer"><span class="type-signature">&lt;private> </span>hasJoiningPeer(id)</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <p>TODO: add doc</p>
+    </div>
+    
+
+    
+
+    
+
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>id</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">type</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>description</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="WebChannel.js.html">WebChannel.js</a>,
+				 <a href="WebChannel.js.html#sunlight-1-line-651">line 651</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    <p>description</p>
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">type</span>
+
+
+
+    </dd>
+</dl>
+
+
+        
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt>
+    <h4 class="name" id="generateKey"><span class="type-signature">&lt;private> </span>generateKey()</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <p>TODO: add doc</p>
+    </div>
+    
+
+    
+
+    
+
+    
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="WebChannel.js.html">WebChannel.js</a>,
+				 <a href="WebChannel.js.html#sunlight-1-line-666">line 666</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    <p>description</p>
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">type</span>
+
+
+
+    </dd>
+</dl>
+
+
+        
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt>
+    <h4 class="name" id="generateId"><span class="type-signature">&lt;private> </span>generateId()</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <p>TODO: add doc</p>
+    </div>
+    
+
+    
+
+    
+
+    
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="WebChannel.js.html">WebChannel.js</a>,
+				 <a href="WebChannel.js.html#sunlight-1-line-685">line 685</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    <p>description</p>
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">type</span>
+
+
+
+    </dd>
+</dl>
+
+
+        
+
+    
+</dd>
+
         </dl>
     
 
+    
+        <h3 class="subsection-title">Type Definitions</h3>
+
+        <dl>
+                
+<hr>
+<dt class="name" id="~AccessData">
+    <h4>AccessData</h4>
+
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p>When the <code>WebChannel</code> is open, any clients should you this data to join
+the <code>WebChannel</code>.</p>
+    </div>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">Object</span>
+
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+    
+
+    <h5 class="subsection-title">Properties:</h5>
+
+    <dl>
+
+<table class="props table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>key</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The key to join the <code>WebChannel</code></p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>url</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Signaling server URL to use to join the <code>WebChannel</code></p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+</dl>
+
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="WebChannel.js.html">WebChannel.js</a>,
+				 <a href="WebChannel.js.html#sunlight-1-line-114">line 114</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+</dd>
+
+            </dl>
     
 
     
@@ -3761,10 +4966,14 @@ the Web Channel).</p>
 <footer>
 
 
+	<span class="copyright">
+	© 2016 Loria, <a href="https: //team.inria.fr/coast/" target="_blank">COAST team</a>
+	</span>
+
 <span class="jsdoc-message">
 	Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.0</a>
 	
-		on 2016-04-06T15:58:15+02:00
+		on 2016-05-30T18:16:51+02:00
 	
 	using the <a href="https://github.com/docstrap/docstrap">DocStrap template</a>.
 </span>
@@ -3808,7 +5017,7 @@ $( function () {
 	} );
 
 	Sunlight.highlightAll( {
-		lineNumbers : false,
+		lineNumbers : true,
 		showMenu : true,
 		enableDoclinks : true
 	} );

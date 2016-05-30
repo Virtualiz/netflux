@@ -4,14 +4,14 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width">
-	<title>Documentation Interfaces</title>
+	<title>Netflux Interfaces</title>
 
 	<!--[if lt IE 9]>
 	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 	<![endif]-->
 	<link type="text/css" rel="stylesheet" href="styles/sunlight.default.css">
 
-	<link type="text/css" rel="stylesheet" href="styles/site.simplex.css">
+	<link type="text/css" rel="stylesheet" href="styles/site.sandstone.css">
 
 </head>
 
@@ -20,7 +20,7 @@
 <div class="navbar navbar-default navbar-fixed-top ">
 <div class="container">
 	<div class="navbar-header">
-		<a class="navbar-brand" href="index.html">Documentation</a>
+		<a class="navbar-brand" href="index.html">Netflux</a>
 		<button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#topNavigation">
 			<span class="icon-bar"></span>
 			<span class="icon-bar"></span>
@@ -33,21 +33,35 @@
 			<li class="dropdown">
 				<a href="modules.list.html" class="dropdown-toggle" data-toggle="dropdown">Modules<b class="caret"></b></a>
 				<ul class="dropdown-menu ">
-					<li><a href="module-channelBuilder.html">channelBuilder</a></li><li><a href="module-channelProxy.html">channelProxy</a></li><li><a href="module-service.html">service</a></li><li><a href="module-serviceProvider.html">serviceProvider</a></li><li><a href="module-webChannelManager.html">webChannelManager</a></li>
+					<li><a href="module-channelBuilder.html">channelBuilder</a></li><li><a href="module-service.html">service</a></li><li><a href="module-webChannelManager.html">webChannelManager</a></li><li><a href="module-serviceProvider.html">serviceProvider</a></li>
 				</ul>
 			</li>
 			
 			<li class="dropdown">
 				<a href="classes.list.html" class="dropdown-toggle" data-toggle="dropdown">Classes<b class="caret"></b></a>
 				<ul class="dropdown-menu ">
-					<li><a href="FullyConnectedService.html">FullyConnectedService</a></li><li><a href="module-channelProxy-ChannelProxyService.html">channelProxy~ChannelProxyService</a></li><li><a href="SignalingError.html">SignalingError</a></li><li><a href="WebChannel.html">WebChannel</a></li><li><a href="WebRTCService.html">WebRTCService</a></li>
+					<li><a href="JoiningPeer.html">JoiningPeer</a></li><li><a href="WebChannel.html">WebChannel</a></li><li><a href="RTCPendingConnections.html">RTCPendingConnections</a></li><li><a href="WebRTCService.html">WebRTCService</a></li><li><a href="FullyConnectedService.html">FullyConnectedService</a></li>
 				</ul>
 			</li>
 			
 			<li class="dropdown">
 				<a href="interfaces.list.html" class="dropdown-toggle" data-toggle="dropdown">Interfaces<b class="caret"></b></a>
 				<ul class="dropdown-menu ">
-					<li><a href="ChannelInterface.html">ChannelInterface</a></li><li><a href="module-channelBuilder-Interface.html">channelBuilder~Interface</a></li><li><a href="module-service-Interface.html">service~Interface</a></li><li><a href="module-webChannelManager-Interface.html">webChannelManager~Interface</a></li>
+					<li><a href="Channel.html">Channel</a></li><li><a href="module-channelBuilder-ChannelBuilderInterface.html">channelBuilder~ChannelBuilderInterface</a></li><li><a href="module-service-ServiceInterface.html">service~ServiceInterface</a></li><li><a href="module-webChannelManager-WebChannelManagerInterface.html">webChannelManager~WebChannelManagerInterface</a></li>
+				</ul>
+			</li>
+			
+			<li class="dropdown">
+				<a href="global.html" class="dropdown-toggle" data-toggle="dropdown">Global<b class="caret"></b></a>
+				<ul class="dropdown-menu ">
+					<li><a href="global.html#USER_DATA">USER_DATA</a></li><li><a href="global.html#SERVICE_DATA">SERVICE_DATA</a></li><li><a href="global.html#LEAVE">LEAVE</a></li><li><a href="global.html#JOIN_INIT">JOIN_INIT</a></li><li><a href="global.html#JOIN_NEW_MEMBER">JOIN_NEW_MEMBER</a></li><li><a href="global.html#REMOVE_NEW_MEMBER">REMOVE_NEW_MEMBER</a></li><li><a href="global.html#JOIN_FINILIZE">JOIN_FINILIZE</a></li><li><a href="global.html#JOIN_SUCCESS">JOIN_SUCCESS</a></li><li><a href="global.html#INIT_CHANNEL_PONG">INIT_CHANNEL_PONG</a></li><li><a href="global.html#PING">PING</a></li><li><a href="global.html#PONG">PONG</a></li>
+				</ul>
+			</li>
+			
+			<li class="dropdown">
+				<a href="externals.list.html" class="dropdown-toggle" data-toggle="dropdown">Externals<b class="caret"></b></a>
+				<ul class="dropdown-menu ">
+					<li><a href="external-JSON.html">JSON</a></li><li><a href="external-Error.html">Error</a></li><li><a href="external-RTCPeerConnection.html">RTCPeerConnection</a></li><li><a href="external-RTCSessionDescription.html">RTCSessionDescription</a></li><li><a href="external-RTCDataChannel.html">RTCDataChannel</a></li><li><a href="external-RTCIceCandidate.html">RTCIceCandidate</a></li><li><a href="external-RTCPeerConnectionIceEvent.html">RTCPeerConnectionIceEvent</a></li><li><a href="external-CloseEvent.html">CloseEvent</a></li><li><a href="external-ArrayBufferView.html">ArrayBufferView</a></li>
 				</ul>
 			</li>
 			
@@ -147,19 +161,19 @@
         <h3 class="subsection-title">Classes</h3>
 
         <dl>
-            <dt><a href="FullyConnectedService.html">FullyConnectedService</a></dt>
-            <dd></dd>
-        
-            <dt><a href="module-channelProxy-ChannelProxyService.html">ChannelProxyService</a></dt>
-            <dd></dd>
-        
-            <dt><a href="SignalingError.html">SignalingError</a></dt>
+            <dt><a href="JoiningPeer.html">JoiningPeer</a></dt>
             <dd></dd>
         
             <dt><a href="WebChannel.html">WebChannel</a></dt>
             <dd></dd>
         
+            <dt><a href="RTCPendingConnections.html">RTCPendingConnections</a></dt>
+            <dd></dd>
+        
             <dt><a href="WebRTCService.html">WebRTCService</a></dt>
+            <dd></dd>
+        
+            <dt><a href="FullyConnectedService.html">FullyConnectedService</a></dt>
             <dd></dd>
         </dl>
     
@@ -214,10 +228,14 @@
 <footer>
 
 
+	<span class="copyright">
+	© 2016 Loria, <a href="https: //team.inria.fr/coast/" target="_blank">COAST team</a>
+	</span>
+
 <span class="jsdoc-message">
 	Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.0</a>
 	
-		on 2016-04-06T15:58:15+02:00
+		on 2016-05-30T18:16:51+02:00
 	
 	using the <a href="https://github.com/docstrap/docstrap">DocStrap template</a>.
 </span>
@@ -261,7 +279,7 @@ $( function () {
 	} );
 
 	Sunlight.highlightAll( {
-		lineNumbers : false,
+		lineNumbers : true,
 		showMenu : true,
 		enableDoclinks : true
 	} );

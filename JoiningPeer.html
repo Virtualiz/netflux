@@ -4,7 +4,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width">
-	<title>Netflux Module: service</title>
+	<title>Netflux Class: JoiningPeer</title>
 
 	<!--[if lt IE 9]>
 	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -91,10 +91,21 @@
 		<div id="main">
 			
 
-	<h1 class="page-title">Module: service</h1>
+	<h1 class="page-title">Class: JoiningPeer</h1>
 <section>
 
 <header>
+    
+        <h2>
+        JoiningPeer
+        </h2>
+        
+            <div class="class-description"><p>This class represents a temporary state of a peer, while he is about to join
+the web channel. During the joining process every peer in the web channel
+and the joining peer have an instance of this class with the same <code>id</code> and
+<code>intermediaryId</code> attribute values. After the joining process has been finished
+regardless of success, these instances will be deleted.</p></div>
+        
     
 </header>
 
@@ -103,14 +114,24 @@
     <div class="container-overview">
     
         
-            <div class="description"><p>Service module includes <a href="module-channelBuilder.html"><code>module:channelBuilder</code></a>,
-<a href="module-webChannelManager.html"><code>module:webChannelManager</code></a> and <code>module:channelProxy</code> modules.
-Services are substitutable stateless objects. Each service is identified by
-its class name and can receive messages via <code>WebChannel</code> sent by another
-service.</p></div>
-        
+<hr>
+<dt>
+    <h4 class="name" id="JoiningPeer"><span class="type-signature"></span>new JoiningPeer()</h4>
+    
+    
+</dt>
+<dd>
 
-        
+    
+
+    
+
+    
+
+    
+    
+
+    
 <dl class="details">
     
 
@@ -145,8 +166,8 @@ service.</p></div>
 	<dd class="tag-source">
 		<ul class="dummy">
 			<li>
-				<a href="service_service.js.html">service/service.js</a>,
-				 <a href="service_service.js.html#sunlight-1-line-1">line 1</a>
+				<a href="JoiningPeer.js.html">JoiningPeer.js</a>,
+				 <a href="JoiningPeer.js.html#sunlight-1-line-8">line 8</a>
 			</li>
 		</ul>
 	</dd>
@@ -155,23 +176,26 @@ service.</p></div>
 	
 
 	
-	<dt class="tag-see method-doc-label method-doc-details-label">See:</dt>
-	<dd class="tag-see">
-		<ul>
-			<li><a href="module-channelBuilder.html">module:channelBuilder</a></li>
-			
-			<li><a href="module-webChannelManager.html">module:webChannelManager</a></li>
-			
-			<li>module:channelProxy</li>
-			</ul>
-	</dd>
-	
 
 	
 </dl>
 
 
-        
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dd>
+
     
     </div>
 
@@ -191,13 +215,491 @@ service.</p></div>
         <dl>
             
 <hr>
-<dt class="name" id=".ServiceInterface">
-    <h4><span class="type-signature">&lt;static> </span>ServiceInterface<span class="type-signature"></span></h4>
+<dt class="name" id="id">
+    <h4><span class="type-signature"></span>id<span class="type-signature"> :string</span></h4>
 
     
 </dt>
 <dd>
     
+    <div class="description">
+        <p>The joining peer id.</p>
+    </div>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">string</span>
+
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="JoiningPeer.js.html">JoiningPeer.js</a>,
+				 <a href="JoiningPeer.js.html#sunlight-1-line-15">line 15</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt class="name" id="intermediaryId">
+    <h4><span class="type-signature"></span>intermediaryId<span class="type-signature"> :string</span></h4>
+
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p>The id of the peer who invited the joining peer to the web channel. It is
+a member of the web channel and called an intermediary peer between the
+joining peer and the web channel. The same value for all instances.</p>
+    </div>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">string</span>
+
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="JoiningPeer.js.html">JoiningPeer.js</a>,
+				 <a href="JoiningPeer.js.html#sunlight-1-line-24">line 24</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt class="name" id="intermediaryChannel">
+    <h4><span class="type-signature"></span>intermediaryChannel<span class="type-signature"> :<a href="Channel.html">Channel</a></span></h4>
+
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p>The channel between the joining peer and intermediary peer. It is null
+for every peer, but the joining and intermediary peers.</p>
+    </div>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type"><a href="Channel.html">Channel</a></span>
+
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="JoiningPeer.js.html">JoiningPeer.js</a>,
+				 <a href="JoiningPeer.js.html#sunlight-1-line-32">line 32</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt class="name" id="channelsToAdd">
+    <h4><span class="type-signature"></span>channelsToAdd<span class="type-signature"> :Array.&lt;<a href="Channel.html">Channel</a>></span></h4>
+
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p>This attribute is proper to each peer. Array of channels which will be
+added to the current peer once the joining peer become the member of the
+web channel.</p>
+    </div>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">Array.&lt;<a href="Channel.html">Channel</a>></span>
+
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="JoiningPeer.js.html">JoiningPeer.js</a>,
+				 <a href="JoiningPeer.js.html#sunlight-1-line-41">line 41</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt class="name" id="channelsToRemove">
+    <h4><span class="type-signature"></span>channelsToRemove<span class="type-signature"> :Array.&lt;<a href="Channel.html">Channel</a>></span></h4>
+
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p>This attribute is proper to each peer. Array of channels which will be
+closed with the current peer once the joining peer become the member of the
+web channel.</p>
+    </div>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">Array.&lt;<a href="Channel.html">Channel</a>></span>
+
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="JoiningPeer.js.html">JoiningPeer.js</a>,
+				 <a href="JoiningPeer.js.html#sunlight-1-line-50">line 50</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+</dd>
+
+        </dl>
+    
+
+    
+        <h3 class="subsection-title">Methods</h3>
+
+        <dl>
+            
+<hr>
+<dt>
+    <h4 class="name" id="toAddList"><span class="type-signature"></span>toAddList(channel)</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <p>Add channel to <code>channelsToAdd</code> array.</p>
+    </div>
+    
+
+    
+
+    
+
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>channel</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="Channel.html">Channel</a></span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Channel to add.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
 
     
 
@@ -236,8 +738,8 @@ service.</p></div>
 	<dd class="tag-source">
 		<ul class="dummy">
 			<li>
-				<a href="service_service.js.html">service/service.js</a>,
-				 <a href="service_service.js.html#sunlight-1-line-33">line 33</a>
+				<a href="JoiningPeer.js.html">JoiningPeer.js</a>,
+				 <a href="JoiningPeer.js.html#sunlight-1-line-58">line 58</a>
 			</li>
 		</ul>
 	</dd>
@@ -246,12 +748,143 @@ service.</p></div>
 	
 
 	
-	<dt class="tag-see method-doc-label method-doc-details-label">See:</dt>
-	<dd class="tag-see">
-		<ul>
-			<li>module:service~Interface</li>
-			</ul>
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt>
+    <h4 class="name" id="toRemoveList"><span class="type-signature"></span>toRemoveList(channel)</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <p>Add channel to <code>channelsToRemove</code> array</p>
+    </div>
+    
+
+    
+
+    
+
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>channel</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="Channel.html">Channel</a></span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Channel to add.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="JoiningPeer.js.html">JoiningPeer.js</a>,
+				 <a href="JoiningPeer.js.html#sunlight-1-line-67">line 67</a>
+			</li>
+		</ul>
 	</dd>
+	
+
+	
+
 	
 
 	
@@ -259,11 +892,21 @@ service.</p></div>
 
 
     
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
 </dd>
 
         </dl>
-    
-
     
 
     

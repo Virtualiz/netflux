@@ -4,7 +4,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width">
-	<title>Netflux Module: service</title>
+	<title>Netflux Source: JoiningPeer.js</title>
 
 	<!--[if lt IE 9]>
 	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -86,192 +86,92 @@
 <div class="row">
 
 	
-	<div class="col-md-8">
+	<div class="col-md-12">
 	
 		<div id="main">
 			
 
-	<h1 class="page-title">Module: service</h1>
+		<h1 class="page-title">Source: JoiningPeer.js</h1>
+    
 <section>
+    <article>
+        <pre
+            class="sunlight-highlight-javascript linenums">/**
+ * This class represents a temporary state of a peer, while he is about to join
+ * the web channel. During the joining process every peer in the web channel
+ * and the joining peer have an instance of this class with the same `id` and
+ * `intermediaryId` attribute values. After the joining process has been finished
+ * regardless of success, these instances will be deleted.
+ */
+class JoiningPeer {
+  constructor (id, intermediaryId, intermediaryChannel) {
+    /**
+     * The joining peer id.
+     *
+     * @type {string}
+     */
+    this.id = id
 
-<header>
-    
-</header>
+    /**
+     * The id of the peer who invited the joining peer to the web channel. It is
+     * a member of the web channel and called an intermediary peer between the
+     * joining peer and the web channel. The same value for all instances.
+     *
+     * @type {string}
+     */
+    this.intermediaryId = intermediaryId
 
+    /**
+     * The channel between the joining peer and intermediary peer. It is null
+     * for every peer, but the joining and intermediary peers.
+     *
+     * @type {Channel}
+     */
+    this.intermediaryChannel = intermediaryChannel
 
-<article>
-    <div class="container-overview">
-    
-        
-            <div class="description"><p>Service module includes <a href="module-channelBuilder.html"><code>module:channelBuilder</code></a>,
-<a href="module-webChannelManager.html"><code>module:webChannelManager</code></a> and <code>module:channelProxy</code> modules.
-Services are substitutable stateless objects. Each service is identified by
-its class name and can receive messages via <code>WebChannel</code> sent by another
-service.</p></div>
-        
+    /**
+     * This attribute is proper to each peer. Array of channels which will be
+     * added to the current peer once the joining peer become the member of the
+     * web channel.
+     *
+     * @type {Channel[]}
+     */
+    this.channelsToAdd = []
 
-        
-<dl class="details">
-    
+    /**
+     * This attribute is proper to each peer. Array of channels which will be
+     * closed with the current peer once the joining peer become the member of the
+     * web channel.
+     *
+     * @type {Channel[]}
+     */
+    this.channelsToRemove = []
+  }
 
-	
+  /**
+   * Add channel to `channelsToAdd` array.
+   *
+   * @param  {Channel} channel - Channel to add.
+   */
+  toAddList (channel) {
+    this.channelsToAdd[this.channelsToAdd.length] = channel
+  }
 
-	
+  /**
+   * Add channel to `channelsToRemove` array
+   *
+   * @param  {Channel} channel - Channel to add.
+   */
+  toRemoveList (channel) {
+    this.channelsToAdd[this.channelsToAdd.length] = channel
+  }
+}
 
-	
-
-    
-
-    
-
-    
-
-    
-
-	
-
-	
-
-	
-
-	
-
-	
-
-
-
-	
-	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
-	<dd class="tag-source">
-		<ul class="dummy">
-			<li>
-				<a href="service_service.js.html">service/service.js</a>,
-				 <a href="service_service.js.html#sunlight-1-line-1">line 1</a>
-			</li>
-		</ul>
-	</dd>
-	
-
-	
-
-	
-	<dt class="tag-see method-doc-label method-doc-details-label">See:</dt>
-	<dd class="tag-see">
-		<ul>
-			<li><a href="module-channelBuilder.html">module:channelBuilder</a></li>
-			
-			<li><a href="module-webChannelManager.html">module:webChannelManager</a></li>
-			
-			<li>module:channelProxy</li>
-			</ul>
-	</dd>
-	
-
-	
-</dl>
-
-
-        
-    
-    </div>
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-        <h3 class="subsection-title">Members</h3>
-
-        <dl>
-            
-<hr>
-<dt class="name" id=".ServiceInterface">
-    <h4><span class="type-signature">&lt;static> </span>ServiceInterface<span class="type-signature"></span></h4>
-
-    
-</dt>
-<dd>
-    
-
-    
-
-    
-<dl class="details">
-    
-
-	
-
-	
-
-	
-
-    
-
-    
-
-    
-
-    
-
-	
-
-	
-
-	
-
-	
-
-	
-
-
-
-	
-	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
-	<dd class="tag-source">
-		<ul class="dummy">
-			<li>
-				<a href="service_service.js.html">service/service.js</a>,
-				 <a href="service_service.js.html#sunlight-1-line-33">line 33</a>
-			</li>
-		</ul>
-	</dd>
-	
-
-	
-
-	
-	<dt class="tag-see method-doc-label method-doc-details-label">See:</dt>
-	<dd class="tag-see">
-		<ul>
-			<li>module:service~Interface</li>
-			</ul>
-	</dd>
-	
-
-	
-</dl>
-
-
-    
-</dd>
-
-        </dl>
-    
-
-    
-
-    
-
-    
-</article>
-
+export default JoiningPeer
+</pre>
+    </article>
 </section>
+
 
 
 
@@ -281,10 +181,6 @@ service.</p></div>
 
 	<div class="clearfix"></div>
 
-	
-		<div class="col-md-3">
-			<div id="toc" class="col-md-3 hidden-xs hidden-sm hidden-md"></div>
-		</div>
 	
 
 </div>

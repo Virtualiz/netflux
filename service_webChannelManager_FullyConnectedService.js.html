@@ -4,7 +4,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width">
-	<title>Netflux Module: service</title>
+	<title>Netflux Source: service/webChannelManager/FullyConnectedService.js</title>
 
 	<!--[if lt IE 9]>
 	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -86,192 +86,66 @@
 <div class="row">
 
 	
-	<div class="col-md-8">
+	<div class="col-md-12">
 	
 		<div id="main">
 			
 
-	<h1 class="page-title">Module: service</h1>
+		<h1 class="page-title">Source: service/webChannelManager/FullyConnectedService.js</h1>
+    
 <section>
+    <article>
+        <pre
+            class="sunlight-highlight-javascript linenums">import {WebChannelManagerInterface} from './webChannelManager'
 
-<header>
-    
-</header>
+/**
+ * Fully connected web channel manager. Implements fully connected topology
+ * network, when each peer is connected to each other.
+ *
+ * @extends module:webChannelManager~Interface
+ */
+class FullyConnectedService extends WebChannelManagerInterface {
 
+  constructor () {
+    super()
+  }
 
-<article>
-    <div class="container-overview">
-    
-        
-            <div class="description"><p>Service module includes <a href="module-channelBuilder.html"><code>module:channelBuilder</code></a>,
-<a href="module-webChannelManager.html"><code>module:webChannelManager</code></a> and <code>module:channelProxy</code> modules.
-Services are substitutable stateless objects. Each service is identified by
-its class name and can receive messages via <code>WebChannel</code> sent by another
-service.</p></div>
-        
+  add (channel) {
+    let wc = channel.webChannel
+    let peerIds = new Set([wc.myId])
+    let jpIds = new Set()
+    wc.channels.forEach((c) => peerIds.add(c.peerId))
+    wc.getJoiningPeers().forEach((jp) => {
+      if (channel.peerId !== jp.id &amp;&amp; !peerIds.has(jp.id)) {
+        jpIds.add(jp.id)
+      }
+    })
+    return this.connectWith(wc, channel.peerId, channel.peerId, [...peerIds], [...jpIds])
+  }
 
-        
-<dl class="details">
-    
+  broadcast (webChannel, data) {
+    for (let c of webChannel.channels) {
+      c.send(data)
+    }
+  }
 
-	
+  sendTo (id, webChannel, data) {
+    for (let c of webChannel.channels) {
+      if (c.peerId === id) {
+        c.send(data)
+        return
+      }
+    }
+  }
 
-	
+  leave (webChannel) {}
+}
 
-	
-
-    
-
-    
-
-    
-
-    
-
-	
-
-	
-
-	
-
-	
-
-	
-
-
-
-	
-	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
-	<dd class="tag-source">
-		<ul class="dummy">
-			<li>
-				<a href="service_service.js.html">service/service.js</a>,
-				 <a href="service_service.js.html#sunlight-1-line-1">line 1</a>
-			</li>
-		</ul>
-	</dd>
-	
-
-	
-
-	
-	<dt class="tag-see method-doc-label method-doc-details-label">See:</dt>
-	<dd class="tag-see">
-		<ul>
-			<li><a href="module-channelBuilder.html">module:channelBuilder</a></li>
-			
-			<li><a href="module-webChannelManager.html">module:webChannelManager</a></li>
-			
-			<li>module:channelProxy</li>
-			</ul>
-	</dd>
-	
-
-	
-</dl>
-
-
-        
-    
-    </div>
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-        <h3 class="subsection-title">Members</h3>
-
-        <dl>
-            
-<hr>
-<dt class="name" id=".ServiceInterface">
-    <h4><span class="type-signature">&lt;static> </span>ServiceInterface<span class="type-signature"></span></h4>
-
-    
-</dt>
-<dd>
-    
-
-    
-
-    
-<dl class="details">
-    
-
-	
-
-	
-
-	
-
-    
-
-    
-
-    
-
-    
-
-	
-
-	
-
-	
-
-	
-
-	
-
-
-
-	
-	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
-	<dd class="tag-source">
-		<ul class="dummy">
-			<li>
-				<a href="service_service.js.html">service/service.js</a>,
-				 <a href="service_service.js.html#sunlight-1-line-33">line 33</a>
-			</li>
-		</ul>
-	</dd>
-	
-
-	
-
-	
-	<dt class="tag-see method-doc-label method-doc-details-label">See:</dt>
-	<dd class="tag-see">
-		<ul>
-			<li>module:service~Interface</li>
-			</ul>
-	</dd>
-	
-
-	
-</dl>
-
-
-    
-</dd>
-
-        </dl>
-    
-
-    
-
-    
-
-    
-</article>
-
+export default FullyConnectedService
+</pre>
+    </article>
 </section>
+
 
 
 
@@ -281,10 +155,6 @@ service.</p></div>
 
 	<div class="clearfix"></div>
 
-	
-		<div class="col-md-3">
-			<div id="toc" class="col-md-3 hidden-xs hidden-sm hidden-md"></div>
-		</div>
 	
 
 </div>

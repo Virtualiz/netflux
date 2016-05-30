@@ -4,7 +4,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width">
-	<title>Netflux Module: channelBuilder</title>
+	<title>Netflux Global</title>
 
 	<!--[if lt IE 9]>
 	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -91,10 +91,15 @@
 		<div id="main">
 			
 
-	<h1 class="page-title">Module: channelBuilder</h1>
+	<h1 class="page-title">Global</h1>
 <section>
 
 <header>
+    
+        <h2>
+        
+        </h2>
+        
     
 </header>
 
@@ -102,9 +107,6 @@
 <article>
     <div class="container-overview">
     
-        
-            <div class="description"><p>Channel Builder module is responsible to create a connection between two
-peers.</p></div>
         
 
         
@@ -138,26 +140,9 @@ peers.</p></div>
 
 
 	
-	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
-	<dd class="tag-source">
-		<ul class="dummy">
-			<li>
-				<a href="service_channelBuilder_channelBuilder.js.html">service/channelBuilder/channelBuilder.js</a>,
-				 <a href="service_channelBuilder_channelBuilder.js.html#sunlight-1-line-2">line 2</a>
-			</li>
-		</ul>
-	</dd>
-	
 
 	
 
-	
-	<dt class="tag-see method-doc-label method-doc-details-label">See:</dt>
-	<dd class="tag-see">
-		<ul>
-			<li><a href="Channel.html">Channel</a></li>
-			</ul>
-	</dd>
 	
 
 	
@@ -184,14 +169,29 @@ peers.</p></div>
         <dl>
             
 <hr>
-<dt class="name" id=".ChannelBuilderInterface">
-    <h4><span class="type-signature">&lt;static> </span>ChannelBuilderInterface<span class="type-signature"></span></h4>
+<dt class="name" id="USER_DATA">
+    <h4><span class="type-signature">&lt;constant> </span>USER_DATA<span class="type-signature"> :int</span></h4>
 
     
 </dt>
 <dd>
     
+    <div class="description">
+        <p>One of the internal message type. It's a peer message.</p>
+    </div>
+    
 
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">int</span>
+
+
+
+            </li>
+        </ul>
     
 
     
@@ -229,8 +229,8 @@ peers.</p></div>
 	<dd class="tag-source">
 		<ul class="dummy">
 			<li>
-				<a href="service_channelBuilder_channelBuilder.js.html">service/channelBuilder/channelBuilder.js</a>,
-				 <a href="service_channelBuilder_channelBuilder.js.html#sunlight-1-line-84">line 84</a>
+				<a href="WebChannel.js.html">WebChannel.js</a>,
+				 <a href="WebChannel.js.html#sunlight-1-line-15">line 15</a>
 			</li>
 		</ul>
 	</dd>
@@ -239,12 +239,809 @@ peers.</p></div>
 	
 
 	
-	<dt class="tag-see method-doc-label method-doc-details-label">See:</dt>
-	<dd class="tag-see">
-		<ul>
-			<li>module:channelBuilder~Interface</li>
-			</ul>
+
+	
+</dl>
+
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt class="name" id="SERVICE_DATA">
+    <h4><span class="type-signature">&lt;constant> </span>SERVICE_DATA<span class="type-signature"> :int</span></h4>
+
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p>One of the internal message type. This message should be threated by a
+specific service class</p>
+    </div>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">int</span>
+
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="WebChannel.js.html">WebChannel.js</a>,
+				 <a href="WebChannel.js.html#sunlight-1-line-22">line 22</a>
+			</li>
+		</ul>
 	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt class="name" id="LEAVE">
+    <h4><span class="type-signature">&lt;constant> </span>LEAVE<span class="type-signature"> :int</span></h4>
+
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p>One of the internal message type. Means a peer has left the WebChannel.</p>
+    </div>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">int</span>
+
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="WebChannel.js.html">WebChannel.js</a>,
+				 <a href="WebChannel.js.html#sunlight-1-line-28">line 28</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt class="name" id="JOIN_INIT">
+    <h4><span class="type-signature">&lt;constant> </span>JOIN_INIT<span class="type-signature"> :int</span></h4>
+
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p>One of the internal message type. Initialization message for the joining peer.</p>
+    </div>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">int</span>
+
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="WebChannel.js.html">WebChannel.js</a>,
+				 <a href="WebChannel.js.html#sunlight-1-line-35">line 35</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt class="name" id="JOIN_NEW_MEMBER">
+    <h4><span class="type-signature">&lt;constant> </span>JOIN_NEW_MEMBER<span class="type-signature"> :int</span></h4>
+
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p>One of the internal message type. The message is intended for the WebChannel
+members to notify them about the joining peer.</p>
+    </div>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">int</span>
+
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="WebChannel.js.html">WebChannel.js</a>,
+				 <a href="WebChannel.js.html#sunlight-1-line-41">line 41</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt class="name" id="REMOVE_NEW_MEMBER">
+    <h4><span class="type-signature">&lt;constant> </span>REMOVE_NEW_MEMBER<span class="type-signature"> :int</span></h4>
+
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p>One of the internal message type. The message is intended for the WebChannel
+members to notify them that the joining peer has not succeed.</p>
+    </div>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">int</span>
+
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="WebChannel.js.html">WebChannel.js</a>,
+				 <a href="WebChannel.js.html#sunlight-1-line-48">line 48</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt class="name" id="JOIN_FINILIZE">
+    <h4><span class="type-signature">&lt;constant> </span>JOIN_FINILIZE<span class="type-signature"> :int</span></h4>
+
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p>Constant used to build a message to be sent to a newly joining peer that he
+has can now succesfully join Web Channel.</p>
+    </div>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">int</span>
+
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="WebChannel.js.html">WebChannel.js</a>,
+				 <a href="WebChannel.js.html#sunlight-1-line-55">line 55</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt class="name" id="JOIN_SUCCESS">
+    <h4><span class="type-signature">&lt;constant> </span>JOIN_SUCCESS<span class="type-signature"> :int</span></h4>
+
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p>Constant used to build a message to be sent by the newly joining peer to all
+peers in Web Channel to notify them that he has succesfully joined the Web
+Channel.</p>
+    </div>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">int</span>
+
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="WebChannel.js.html">WebChannel.js</a>,
+				 <a href="WebChannel.js.html#sunlight-1-line-62">line 62</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt class="name" id="INIT_CHANNEL_PONG">
+    <h4><span class="type-signature">&lt;constant> </span>INIT_CHANNEL_PONG<span class="type-signature"> :int</span></h4>
+
+    
+</dt>
+<dd>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">int</span>
+
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="WebChannel.js.html">WebChannel.js</a>,
+				 <a href="WebChannel.js.html#sunlight-1-line-66">line 66</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt class="name" id="PING">
+    <h4><span class="type-signature">&lt;constant> </span>PING<span class="type-signature"> :int</span></h4>
+
+    
+</dt>
+<dd>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">int</span>
+
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="WebChannel.js.html">WebChannel.js</a>,
+				 <a href="WebChannel.js.html#sunlight-1-line-70">line 70</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt class="name" id="PONG">
+    <h4><span class="type-signature">&lt;constant> </span>PONG<span class="type-signature"> :int</span></h4>
+
+    
+</dt>
+<dd>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">int</span>
+
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="WebChannel.js.html">WebChannel.js</a>,
+				 <a href="WebChannel.js.html#sunlight-1-line-74">line 74</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
 	
 
 	
@@ -259,313 +1056,6 @@ peers.</p></div>
 
     
 
-    
-        <h3 class="subsection-title">Type Definitions</h3>
-
-        <dl>
-                
-<hr>
-<dt>
-    <h4 class="name" id="~onChannelCallback"><span class="type-signature"></span>onChannelCallback(channel)</h4>
-    
-    
-</dt>
-<dd>
-
-    
-    <div class="description">
-        <p>On channel callback for <code>module:channelBuilder~Interface#open</code>
-function.</p>
-    </div>
-    
-
-    
-
-    
-
-    
-    
-        <h5>Parameters:</h5>
-        
-
-<table class="params table table-striped">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>channel</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type"><a href="Channel.html">Channel</a></span>
-
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>A new channel.</p></td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-    
-
-    
-<dl class="details">
-    
-
-	
-
-	
-
-	
-
-    
-
-    
-
-    
-
-    
-
-	
-
-	
-
-	
-
-	
-
-	
-
-
-
-	
-	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
-	<dd class="tag-source">
-		<ul class="dummy">
-			<li>
-				<a href="service_channelBuilder_channelBuilder.js.html">service/channelBuilder/channelBuilder.js</a>,
-				 <a href="service_channelBuilder_channelBuilder.js.html#sunlight-1-line-9">line 9</a>
-			</li>
-		</ul>
-	</dd>
-	
-
-	
-
-	
-
-	
-</dl>
-
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-</dd>
-
-            
-                
-<hr>
-<dt>
-    <h4 class="name" id="~initChannel"><span class="type-signature"></span>initChannel(ch, id)</h4>
-    
-    
-</dt>
-<dd>
-
-    
-    <div class="description">
-        <p>Call back to initialize the channel. It should be executed on both peer
-sides during connection establishment to assure that both channels would be
-ready to be used in the web channel.</p>
-    </div>
-    
-
-    
-
-    
-
-    
-    
-        <h5>Parameters:</h5>
-        
-
-<table class="params table table-striped">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>ch</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type"><a href="Channel.html">Channel</a></span>
-
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>Channel.</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>id</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>Unique channel identifier.</p></td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-    
-
-    
-<dl class="details">
-    
-
-	
-
-	
-
-	
-
-    
-
-    
-
-    
-
-    
-
-	
-
-	
-
-	
-
-	
-
-	
-
-
-
-	
-	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
-	<dd class="tag-source">
-		<ul class="dummy">
-			<li>
-				<a href="service_channelBuilder_channelBuilder.js.html">service/channelBuilder/channelBuilder.js</a>,
-				 <a href="service_channelBuilder_channelBuilder.js.html#sunlight-1-line-17">line 17</a>
-			</li>
-		</ul>
-	</dd>
-	
-
-	
-
-	
-
-	
-</dl>
-
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-</dd>
-
-            </dl>
     
 
     

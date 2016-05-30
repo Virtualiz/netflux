@@ -4,7 +4,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width">
-	<title>Netflux Module: service</title>
+	<title>Netflux Source: service/channelBuilder/channelBuilder.js</title>
 
 	<!--[if lt IE 9]>
 	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -86,192 +86,105 @@
 <div class="row">
 
 	
-	<div class="col-md-8">
+	<div class="col-md-12">
 	
 		<div id="main">
 			
 
-	<h1 class="page-title">Module: service</h1>
+		<h1 class="page-title">Source: service/channelBuilder/channelBuilder.js</h1>
+    
 <section>
+    <article>
+        <pre
+            class="sunlight-highlight-javascript linenums">import {ServiceInterface} from '../service'
+/**
+ * Channel Builder module is responsible to create a connection between two
+ * peers.
+ * @module channelBuilder
+ * @see Channel
+ */
 
-<header>
-    
-</header>
+/**
+ * On channel callback for {@link module:channelBuilder~Interface#open}
+ * function.
+ *
+ * @callback module:channelBuilder~onChannelCallback
+ * @param {Channel} channel - A new channel.
+ */
 
+/**
+ * Call back to initialize the channel. It should be executed on both peer
+ * sides during connection establishment to assure that both channels would be
+ * ready to be used in the web channel.
+ *
+ * @callback module:channelBuilder~initChannel
+ * @param {Channel} ch - Channel.
+ * @param {string} id - Unique channel identifier.
+ */
 
-<article>
-    <div class="container-overview">
-    
-        
-            <div class="description"><p>Service module includes <a href="module-channelBuilder.html"><code>module:channelBuilder</code></a>,
-<a href="module-webChannelManager.html"><code>module:webChannelManager</code></a> and <code>module:channelProxy</code> modules.
-Services are substitutable stateless objects. Each service is identified by
-its class name and can receive messages via <code>WebChannel</code> sent by another
-service.</p></div>
-        
+/**
+ * Interface to be implemented by each connection service.
+ *
+ * @interface
+ * @extends module:service~Interface
+ */
+class ChannelBuilderInterface extends ServiceInterface {
 
-        
-<dl class="details">
-    
+  constructor () {
+    super()
+  }
 
-	
+  /**
+   * Enables other clients to establish a connection with you.
+   *
+   * @abstract
+   * @param {string} key - The unique identifier which has to be passed to the
+   * peers who need to connect to you.
+   * @param {module:channelBuilder~Interface~onChannelCallback} onChannel - Callback
+   * function to execute once the connection has been established.
+   * @param {Object} [options] - Any other options which depend on the service implementation.
+   * @return {Promise} - Once resolved, provide an Object with `key` and `url`
+   * attributes to be passed to {@link module:channelBuilder~Interface#join} function.
+   * It is rejected if an error occured.
+   */
+  open (key, onChannel, options) {
+    throw new Error('Must be implemented by subclass!')
+  }
 
-	
+  /**
+   * Connects you with the peer who provided the `key`.
+   *
+   * @abstract
+   * @param  {string} key - A key obtained from the peer who executed
+   * {@link module:channelBuilder~Interface#open} function.
+   * @param  {Object} [options] Any other options which depend on the implementation.
+   * @return {Promise} It is resolved when the connection is established, otherwise it is rejected.
+   */
+  join (key, options) {
+    throw new Error('Must be implemented by subclass!')
+  }
 
-	
+  /**
+   * Establish a connection between you and another peer (including joining peer) via web channel.
+   *
+   * @abstract
+   * @param  {WebChannel} wc - Web Channel through which the connection will be established.
+   * @param  {string} id - Peer id with whom you will be connected.
+   * @return {Promise} - Resolved once the connection has been established, rejected otherwise.
+   */
+  connectMeTo (wc, id) {
+    throw new Error('Must be implemented by subclass!')
+  }
+}
 
-    
-
-    
-
-    
-
-    
-
-	
-
-	
-
-	
-
-	
-
-	
-
-
-
-	
-	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
-	<dd class="tag-source">
-		<ul class="dummy">
-			<li>
-				<a href="service_service.js.html">service/service.js</a>,
-				 <a href="service_service.js.html#sunlight-1-line-1">line 1</a>
-			</li>
-		</ul>
-	</dd>
-	
-
-	
-
-	
-	<dt class="tag-see method-doc-label method-doc-details-label">See:</dt>
-	<dd class="tag-see">
-		<ul>
-			<li><a href="module-channelBuilder.html">module:channelBuilder</a></li>
-			
-			<li><a href="module-webChannelManager.html">module:webChannelManager</a></li>
-			
-			<li>module:channelProxy</li>
-			</ul>
-	</dd>
-	
-
-	
-</dl>
-
-
-        
-    
-    </div>
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-        <h3 class="subsection-title">Members</h3>
-
-        <dl>
-            
-<hr>
-<dt class="name" id=".ServiceInterface">
-    <h4><span class="type-signature">&lt;static> </span>ServiceInterface<span class="type-signature"></span></h4>
-
-    
-</dt>
-<dd>
-    
-
-    
-
-    
-<dl class="details">
-    
-
-	
-
-	
-
-	
-
-    
-
-    
-
-    
-
-    
-
-	
-
-	
-
-	
-
-	
-
-	
-
-
-
-	
-	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
-	<dd class="tag-source">
-		<ul class="dummy">
-			<li>
-				<a href="service_service.js.html">service/service.js</a>,
-				 <a href="service_service.js.html#sunlight-1-line-33">line 33</a>
-			</li>
-		</ul>
-	</dd>
-	
-
-	
-
-	
-	<dt class="tag-see method-doc-label method-doc-details-label">See:</dt>
-	<dd class="tag-see">
-		<ul>
-			<li>module:service~Interface</li>
-			</ul>
-	</dd>
-	
-
-	
-</dl>
-
-
-    
-</dd>
-
-        </dl>
-    
-
-    
-
-    
-
-    
-</article>
-
+export {
+  /** @see module:channelBuilder~Interface */
+  ChannelBuilderInterface
+}
+</pre>
+    </article>
 </section>
+
 
 
 
@@ -281,10 +194,6 @@ service.</p></div>
 
 	<div class="clearfix"></div>
 
-	
-		<div class="col-md-3">
-			<div id="toc" class="col-md-3 hidden-xs hidden-sm hidden-md"></div>
-		</div>
 	
 
 </div>
