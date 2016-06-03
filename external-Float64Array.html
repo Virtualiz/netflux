@@ -4,7 +4,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width">
-	<title>Netflux v0.8.0 Source: JoiningPeer.js</title>
+	<title>Netflux v0.8.0 External: Float64Array</title>
 
 	<!--[if lt IE 9]>
 	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -86,92 +86,110 @@
 <div class="row">
 
 	
-	<div class="col-md-12">
+	<div class="col-md-8">
 	
 		<div id="main">
 			
 
-		<h1 class="page-title">Source: JoiningPeer.js</h1>
-    
+	<h1 class="page-title">External: Float64Array</h1>
 <section>
-    <article>
-        <pre
-            class="sunlight-highlight-javascript linenums">/**
- * This class represents a temporary state of a peer, while he is about to join
- * the web channel. During the joining process every peer in the web channel
- * and the joining peer have an instance of this class with the same `id` and
- * `intermediaryId` attribute values. After the joining process has been finished
- * regardless of success, these instances will be deleted.
- */
-class JoiningPeer {
-  constructor (id, intermediaryId, intermediaryChannel) {
-    /**
-     * The joining peer id.
-     *
-     * @type {string}
-     */
-    this.id = id
 
-    /**
-     * The id of the peer who invited the joining peer to the web channel. It is
-     * a member of the web channel and called an intermediary peer between the
-     * joining peer and the web channel. The same value for all instances.
-     *
-     * @type {string}
-     */
-    this.intermediaryId = intermediaryId
+<header>
+    
+        <h2>
+        Float64Array
+        </h2>
+        
+    
+</header>
 
-    /**
-     * The channel between the joining peer and intermediary peer. It is null
-     * for every peer, but the joining and intermediary peers.
-     *
-     * @type {Channel}
-     */
-    this.intermediaryChannel = intermediaryChannel
 
-    /**
-     * This attribute is proper to each peer. Array of channels which will be
-     * added to the current peer once the joining peer become the member of the
-     * web channel.
-     *
-     * @type {Channel[]}
-     */
-    this.channelsToAdd = []
+<article>
+    <div class="container-overview">
+    
+        
 
-    /**
-     * This attribute is proper to each peer. Array of channels which will be
-     * closed with the current peer once the joining peer become the member of the
-     * web channel.
-     *
-     * @type {Channel[]}
-     */
-    this.channelsToRemove = []
-  }
+        
+<dl class="details">
+    
 
-  /**
-   * Add channel to `channelsToAdd` array.
-   *
-   * @param  {Channel} channel - Channel to add.
-   */
-  toAddList (channel) {
-    this.channelsToAdd[this.channelsToAdd.length] = channel
-  }
+	
 
-  /**
-   * Add channel to `channelsToRemove` array
-   *
-   * @param  {Channel} channel - Channel to add.
-   */
-  toRemoveList (channel) {
-    this.channelsToAdd[this.channelsToAdd.length] = channel
-  }
-}
+	
 
-export default JoiningPeer
-</pre>
-    </article>
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="index.js.html">index.js</a>,
+				 <a href="index.js.html#sunlight-1-line-93">line 93</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+	<dt class="tag-see method-doc-label method-doc-details-label">See:</dt>
+	<dd class="tag-see">
+		<ul>
+			<li><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Float64Array">https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Float64Array</a></li>
+			</ul>
+	</dd>
+	
+
+	
+</dl>
+
+
+        
+    
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</article>
+
 </section>
-
 
 
 
@@ -181,6 +199,10 @@ export default JoiningPeer
 
 	<div class="clearfix"></div>
 
+	
+		<div class="col-md-3">
+			<div id="toc" class="col-md-3 hidden-xs hidden-sm hidden-md"></div>
+		</div>
 	
 
 </div>

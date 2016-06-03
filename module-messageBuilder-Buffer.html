@@ -4,7 +4,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width">
-	<title>Netflux v0.8.0 Interface: ChannelBuilderInterface</title>
+	<title>Netflux v0.8.0 Class: Buffer</title>
 
 	<!--[if lt IE 9]>
 	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -91,18 +91,21 @@
 		<div id="main">
 			
 
-	<h1 class="page-title">Interface: ChannelBuilderInterface</h1>
+	<h1 class="page-title">Class: Buffer</h1>
 <section>
 
 <header>
     
         <h2>
-            <span class="ancestors"><a href="module-channelBuilder.html">channelBuilder</a>~</span>
+            <span class="ancestors"><a href="module-messageBuilder.html">messageBuilder</a>~</span>
         
-        ChannelBuilderInterface
+        Buffer
         </h2>
         
-            <div class="class-description"><p>Interface to be implemented by each connection service.</p></div>
+            <div class="class-description"><p>Buffer class used when the user message exceeds the message size limit which
+may be sent over a <em>Channel</em>. Each buffer is identified by <em>WebChannel</em> id,
+peer id (who sends the big message) and message id (in case if the peer sends
+more then 1 big message at a time).</p></div>
         
     
 </header>
@@ -112,99 +115,119 @@
     <div class="container-overview">
     
         
-
-        
-<dl class="details">
-    
-
-	
-
-	
-
-	
-
-    
-
-    
-
-    
-
-    
-
-	
-
-	
-
-	
-
-	
-
-	
-
-
-
-	
-	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
-	<dd class="tag-source">
-		<ul class="dummy">
-			<li>
-				<a href="service_channelBuilder_channelBuilder.js.html">service/channelBuilder/channelBuilder.js</a>,
-				 <a href="service_channelBuilder_channelBuilder.js.html#sunlight-1-line-33">line 33</a>
-			</li>
-		</ul>
-	</dd>
-	
-
-	
-
-	
-
-	
-</dl>
-
-
-        
-    
-    </div>
-
-    
-        <h3 class="subsection-title">Extends</h3>
-
-        
-
-
-    <ul>
-        <li><a href="module-service-ServiceInterface.html">module:service~ServiceInterface</a></li>
-    </ul>
-
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-        <h3 class="subsection-title">Members</h3>
-
-        <dl>
-            
 <hr>
-<dt class="name" id="name">
-    <h4><span class="type-signature"></span>name<span class="type-signature"></span></h4>
-
+<dt>
+    <h4 class="name" id="Buffer"><span class="type-signature"></span>new Buffer(fullDataSize, data, action)</h4>
+    
     
 </dt>
 <dd>
+
     
-    <div class="description">
-        <p>Service name which corresponds to its class name.</p>
-    </div>
+
     
+
+    
+
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>fullDataSize</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The total user message size</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>data</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="external-ArrayBuffer.html">external:ArrayBuffer</a></span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The first chunk of the user message</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>action</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="Buffer.html#~onFullMessage">Buffer~onFullMessage</a></span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Callback to be executed when all
+message chunks are received and thus the message is ready</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
 
     
 
@@ -216,15 +239,6 @@
 
 	
 
-	
-	<dt class="inherited-from method-doc-label method-doc-details-label">Inherited From:</dt>
-	<dd class="inherited-from">
-		<ul class="dummy">
-			<li>
-				<a href="module-service-ServiceInterface.html#name">module:service~ServiceInterface#name</a>
-			</li>
-		</ul>
-	</dd>
 	
 
     
@@ -252,8 +266,8 @@
 	<dd class="tag-source">
 		<ul class="dummy">
 			<li>
-				<a href="service_service.js.html">service/service.js</a>,
-				 <a href="service_service.js.html#sunlight-1-line-24">line 24</a>
+				<a href="service_messageBuilder.js.html">service/messageBuilder.js</a>,
+				 <a href="service_messageBuilder.js.html#sunlight-1-line-444">line 444</a>
 			</li>
 		</ul>
 	</dd>
@@ -266,11 +280,35 @@
 	
 </dl>
 
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
 
     
 </dd>
 
-        </dl>
+    
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
     
 
     
@@ -280,7 +318,7 @@
             
 <hr>
 <dt>
-    <h4 class="name" id="open"><span class="type-signature">&lt;abstract> </span>open(key, onChannel [, options])</h4>
+    <h4 class="name" id="add"><span class="type-signature"></span>add(data, chunkNb)</h4>
     
     
 </dt>
@@ -288,7 +326,7 @@
 
     
     <div class="description">
-        <p>Enables other clients to establish a connection with you.</p>
+        <p>Add a chunk of message to the buffer.</p>
     </div>
     
 
@@ -311,8 +349,6 @@
         <th>Type</th>
 
         
-        <th>Argument</th>
-        
 
         
 
@@ -325,13 +361,13 @@
 
         <tr>
             
-                <td class="name"><code>key</code></td>
+                <td class="name"><code>data</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type">string</span>
+<span class="param-type"><a href="external-ArrayBuffer.html">external:ArrayBuffer</a></span>
 
 
 
@@ -339,32 +375,23 @@
             </td>
 
             
-                <td class="attributes">
-                
-
-                
-
-                
-                </td>
-            
 
             
 
-            <td class="description last"><p>The unique identifier which has to be passed to the
-peers who need to connect to you.</p></td>
+            <td class="description last"><p>Message chunk</p></td>
         </tr>
 
     
 
         <tr>
             
-                <td class="name"><code>onChannel</code></td>
+                <td class="name"><code>chunkNb</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type">module:channelBuilder~ChannelBuilderInterface~onChannelCallback</span>
+<span class="param-type">number</span>
 
 
 
@@ -372,53 +399,10 @@ peers who need to connect to you.</p></td>
             </td>
 
             
-                <td class="attributes">
-                
-
-                
-
-                
-                </td>
-            
 
             
 
-            <td class="description last"><p>Callback
-function to execute once the connection has been established.</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>options</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">Object</span>
-
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-
-                
-
-                
-                </td>
-            
-
-            
-
-            <td class="description last"><p>Any other options which depend on the service implementation.</p></td>
+            <td class="description last"><p>Number of the chunk</p></td>
         </tr>
 
     
@@ -462,8 +446,8 @@ function to execute once the connection has been established.</p></td>
 	<dd class="tag-source">
 		<ul class="dummy">
 			<li>
-				<a href="service_channelBuilder_channelBuilder.js.html">service/channelBuilder/channelBuilder.js</a>,
-				 <a href="service_channelBuilder_channelBuilder.js.html#sunlight-1-line-52">line 52</a>
+				<a href="service_messageBuilder.js.html">service/messageBuilder.js</a>,
+				 <a href="service_messageBuilder.js.html#sunlight-1-line-470">line 470</a>
 			</li>
 		</ul>
 	</dd>
@@ -488,429 +472,6 @@ function to execute once the connection has been established.</p></td>
     
 
     
-    <h5>Returns:</h5>
-    
-            
-<div class="param-desc">
-    <ul>
-<li>Once resolved, provide an Object with <code>key</code> and <code>url</code>
-attributes to be passed to <a href="module-channelBuilder-ChannelBuilderInterface.html#join"><code>module:channelBuilder~ChannelBuilderInterface#join</code></a> function.
-It is rejected if an error occured.</li>
-</ul>
-</div>
-
-
-
-<dl>
-    <dt>
-        Type
-    </dt>
-    <dd>
-        
-<span class="param-type">Promise</span>
-
-
-
-    </dd>
-</dl>
-
-
-        
-
-    
-</dd>
-
-        
-            
-<hr>
-<dt>
-    <h4 class="name" id="join"><span class="type-signature">&lt;abstract> </span>join(key [, options])</h4>
-    
-    
-</dt>
-<dd>
-
-    
-    <div class="description">
-        <p>Connects you with the peer who provided the <code>key</code>.</p>
-    </div>
-    
-
-    
-
-    
-
-    
-    
-        <h5>Parameters:</h5>
-        
-
-<table class="params table table-striped">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-        <th>Argument</th>
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>key</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-
-                
-
-                
-                </td>
-            
-
-            
-
-            <td class="description last"><p>A key obtained from the peer who executed
-<a href="module-channelBuilder-ChannelBuilderInterface.html#open"><code>module:channelBuilder~ChannelBuilderInterface#open</code></a> function.</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>options</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">Object</span>
-
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-
-                
-
-                
-                </td>
-            
-
-            
-
-            <td class="description last"><p>Any other options which depend on the implementation.</p></td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-    
-
-    
-<dl class="details">
-    
-
-	
-
-	
-
-	
-
-    
-
-    
-
-    
-
-    
-
-	
-
-	
-
-	
-
-	
-
-	
-
-
-
-	
-	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
-	<dd class="tag-source">
-		<ul class="dummy">
-			<li>
-				<a href="service_channelBuilder_channelBuilder.js.html">service/channelBuilder/channelBuilder.js</a>,
-				 <a href="service_channelBuilder_channelBuilder.js.html#sunlight-1-line-65">line 65</a>
-			</li>
-		</ul>
-	</dd>
-	
-
-	
-
-	
-
-	
-</dl>
-
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <h5>Returns:</h5>
-    
-            
-<div class="param-desc">
-    <p>It is resolved when the connection is established, otherwise it is rejected.</p>
-</div>
-
-
-
-<dl>
-    <dt>
-        Type
-    </dt>
-    <dd>
-        
-<span class="param-type">Promise</span>
-
-
-
-    </dd>
-</dl>
-
-
-        
-
-    
-</dd>
-
-        
-            
-<hr>
-<dt>
-    <h4 class="name" id="connectMeTo"><span class="type-signature">&lt;abstract> </span>connectMeTo(wc, id)</h4>
-    
-    
-</dt>
-<dd>
-
-    
-    <div class="description">
-        <p>Establish a connection between you and another peer (including joining peer) via web channel.</p>
-    </div>
-    
-
-    
-
-    
-
-    
-    
-        <h5>Parameters:</h5>
-        
-
-<table class="params table table-striped">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>wc</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type"><a href="WebChannel.html">WebChannel</a></span>
-
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>Web Channel through which the connection will be established.</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>id</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>Peer id with whom you will be connected.</p></td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-    
-
-    
-<dl class="details">
-    
-
-	
-
-	
-
-	
-
-    
-
-    
-
-    
-
-    
-
-	
-
-	
-
-	
-
-	
-
-	
-
-
-
-	
-	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
-	<dd class="tag-source">
-		<ul class="dummy">
-			<li>
-				<a href="service_channelBuilder_channelBuilder.js.html">service/channelBuilder/channelBuilder.js</a>,
-				 <a href="service_channelBuilder_channelBuilder.js.html#sunlight-1-line-77">line 77</a>
-			</li>
-		</ul>
-	</dd>
-	
-
-	
-
-	
-
-	
-</dl>
-
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <h5>Returns:</h5>
-    
-            
-<div class="param-desc">
-    <ul>
-<li>Resolved once the connection has been established, rejected otherwise.</li>
-</ul>
-</div>
-
-
-
-<dl>
-    <dt>
-        Type
-    </dt>
-    <dd>
-        
-<span class="param-type">Promise</span>
-
-
-
-    </dd>
-</dl>
-
-
-        
 
     
 </dd>

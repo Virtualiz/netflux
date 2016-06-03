@@ -4,7 +4,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width">
-	<title>Netflux v0.8.0 Interface: ChannelBuilderInterface</title>
+	<title>Netflux v0.8.0 Class: WebChannelGate</title>
 
 	<!--[if lt IE 9]>
 	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -91,18 +91,18 @@
 		<div id="main">
 			
 
-	<h1 class="page-title">Interface: ChannelBuilderInterface</h1>
+	<h1 class="page-title">Class: WebChannelGate</h1>
 <section>
 
 <header>
     
         <h2>
-            <span class="ancestors"><a href="module-channelBuilder.html">channelBuilder</a>~</span>
-        
-        ChannelBuilderInterface
+        WebChannelGate
         </h2>
         
-            <div class="class-description"><p>Interface to be implemented by each connection service.</p></div>
+            <div class="class-description"><p>This class represents a door of the <em>WebChannel</em> for this peer. If the door
+is open, then clients can join the <em>WebChannel</em> through this peer, otherwise
+they cannot.</p></div>
         
     
 </header>
@@ -112,8 +112,74 @@
     <div class="container-overview">
     
         
+<hr>
+<dt>
+    <h4 class="name" id="WebChannelGate"><span class="type-signature"></span>new WebChannelGate(onClose)</h4>
+    
+    
+</dt>
+<dd>
+
+    
+
+    
+
+    
+
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
 
         
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>onClose</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">WebChannelGate~onClose</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>close event handler</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+    
+
+    
 <dl class="details">
     
 
@@ -148,8 +214,8 @@
 	<dd class="tag-source">
 		<ul class="dummy">
 			<li>
-				<a href="service_channelBuilder_channelBuilder.js.html">service/channelBuilder/channelBuilder.js</a>,
-				 <a href="service_channelBuilder_channelBuilder.js.html#sunlight-1-line-33">line 33</a>
+				<a href="WebChannel.js.html">WebChannel.js</a>,
+				 <a href="WebChannel.js.html#sunlight-1-line-98">line 98</a>
 			</li>
 		</ul>
 	</dd>
@@ -163,20 +229,23 @@
 </dl>
 
 
-        
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dd>
+
     
     </div>
-
-    
-        <h3 class="subsection-title">Extends</h3>
-
-        
-
-
-    <ul>
-        <li><a href="module-service-ServiceInterface.html">module:service~ServiceInterface</a></li>
-    </ul>
-
 
     
 
@@ -194,18 +263,29 @@
         <dl>
             
 <hr>
-<dt class="name" id="name">
-    <h4><span class="type-signature"></span>name<span class="type-signature"></span></h4>
+<dt class="name" id="door">
+    <h4><span class="type-signature">&lt;private> </span>door<span class="type-signature"> :<a href="external-WebSocket.html">external:WebSocket</a></span></h4>
 
     
 </dt>
 <dd>
     
     <div class="description">
-        <p>Service name which corresponds to its class name.</p>
+        <p>Web socket which holds the connection with the signaling server.</p>
     </div>
     
 
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type"><a href="external-WebSocket.html">external:WebSocket</a></span>
+
+
+
+            </li>
+        </ul>
     
 
     
@@ -216,15 +296,6 @@
 
 	
 
-	
-	<dt class="inherited-from method-doc-label method-doc-details-label">Inherited From:</dt>
-	<dd class="inherited-from">
-		<ul class="dummy">
-			<li>
-				<a href="module-service-ServiceInterface.html#name">module:service~ServiceInterface#name</a>
-			</li>
-		</ul>
-	</dd>
 	
 
     
@@ -252,8 +323,170 @@
 	<dd class="tag-source">
 		<ul class="dummy">
 			<li>
-				<a href="service_service.js.html">service/service.js</a>,
-				 <a href="service_service.js.html#sunlight-1-line-24">line 24</a>
+				<a href="WebChannel.js.html">WebChannel.js</a>,
+				 <a href="WebChannel.js.html#sunlight-1-line-115">line 115</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt class="name" id="accessData">
+    <h4><span class="type-signature">&lt;private> </span>accessData<span class="type-signature"> :<a href="WebChannel.html#~AccessData">WebChannel~AccessData</a></span></h4>
+
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p>Web socket which holds the connection with the signaling server.</p>
+    </div>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type"><a href="WebChannel.html#~AccessData">WebChannel~AccessData</a></span>
+
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="WebChannel.js.html">WebChannel.js</a>,
+				 <a href="WebChannel.js.html#sunlight-1-line-122">line 122</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt class="name" id="onCloseHandler">
+    <h4><span class="type-signature">&lt;private> </span>onCloseHandler<span class="type-signature"> :WebChannelGate~onClose</span></h4>
+
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p>Close event handler.</p>
+    </div>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">WebChannelGate~onClose</span>
+
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="WebChannel.js.html">WebChannel.js</a>,
+				 <a href="WebChannel.js.html#sunlight-1-line-129">line 129</a>
 			</li>
 		</ul>
 	</dd>
@@ -280,7 +513,7 @@
             
 <hr>
 <dt>
-    <h4 class="name" id="open"><span class="type-signature">&lt;abstract> </span>open(key, onChannel [, options])</h4>
+    <h4 class="name" id="getAccessData"><span class="type-signature"></span>getAccessData()</h4>
     
     
 </dt>
@@ -288,7 +521,7 @@
 
     
     <div class="description">
-        <p>Enables other clients to establish a connection with you.</p>
+        <p>Get access data.</p>
     </div>
     
 
@@ -297,134 +530,6 @@
     
 
     
-    
-        <h5>Parameters:</h5>
-        
-
-<table class="params table table-striped">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-        <th>Argument</th>
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>key</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-
-                
-
-                
-                </td>
-            
-
-            
-
-            <td class="description last"><p>The unique identifier which has to be passed to the
-peers who need to connect to you.</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>onChannel</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">module:channelBuilder~ChannelBuilderInterface~onChannelCallback</span>
-
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-
-                
-
-                
-                </td>
-            
-
-            
-
-            <td class="description last"><p>Callback
-function to execute once the connection has been established.</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>options</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">Object</span>
-
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-
-                
-
-                
-                </td>
-            
-
-            
-
-            <td class="description last"><p>Any other options which depend on the service implementation.</p></td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
     
 
     
@@ -462,8 +567,8 @@ function to execute once the connection has been established.</p></td>
 	<dd class="tag-source">
 		<ul class="dummy">
 			<li>
-				<a href="service_channelBuilder_channelBuilder.js.html">service/channelBuilder/channelBuilder.js</a>,
-				 <a href="service_channelBuilder_channelBuilder.js.html#sunlight-1-line-52">line 52</a>
+				<a href="WebChannel.js.html">WebChannel.js</a>,
+				 <a href="WebChannel.js.html#sunlight-1-line-137">line 137</a>
 			</li>
 		</ul>
 	</dd>
@@ -493,9 +598,8 @@ function to execute once the connection has been established.</p></td>
             
 <div class="param-desc">
     <ul>
-<li>Once resolved, provide an Object with <code>key</code> and <code>url</code>
-attributes to be passed to <a href="module-channelBuilder-ChannelBuilderInterface.html#join"><code>module:channelBuilder~ChannelBuilderInterface#join</code></a> function.
-It is rejected if an error occured.</li>
+<li>Returns access data if the door
+is opened and <em>null</em> if it closed</li>
 </ul>
 </div>
 
@@ -507,7 +611,10 @@ It is rejected if an error occured.</li>
     </dt>
     <dd>
         
-<span class="param-type">Promise</span>
+<span class="param-type"><a href="WebChannel.html#~AccessData">WebChannel~AccessData</a></span>
+|
+
+<span class="param-type">null</span>
 
 
 
@@ -524,7 +631,7 @@ It is rejected if an error occured.</li>
             
 <hr>
 <dt>
-    <h4 class="name" id="join"><span class="type-signature">&lt;abstract> </span>join(key [, options])</h4>
+    <h4 class="name" id="isOpen"><span class="type-signature"></span>isOpen()</h4>
     
     
 </dt>
@@ -532,7 +639,7 @@ It is rejected if an error occured.</li>
 
     
     <div class="description">
-        <p>Connects you with the peer who provided the <code>key</code>.</p>
+        <p>Check if the door is opened or closed.</p>
     </div>
     
 
@@ -541,101 +648,6 @@ It is rejected if an error occured.</li>
     
 
     
-    
-        <h5>Parameters:</h5>
-        
-
-<table class="params table table-striped">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-        <th>Argument</th>
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>key</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-
-                
-
-                
-                </td>
-            
-
-            
-
-            <td class="description last"><p>A key obtained from the peer who executed
-<a href="module-channelBuilder-ChannelBuilderInterface.html#open"><code>module:channelBuilder~ChannelBuilderInterface#open</code></a> function.</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>options</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">Object</span>
-
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-
-                
-
-                
-                </td>
-            
-
-            
-
-            <td class="description last"><p>Any other options which depend on the implementation.</p></td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
     
 
     
@@ -673,194 +685,8 @@ It is rejected if an error occured.</li>
 	<dd class="tag-source">
 		<ul class="dummy">
 			<li>
-				<a href="service_channelBuilder_channelBuilder.js.html">service/channelBuilder/channelBuilder.js</a>,
-				 <a href="service_channelBuilder_channelBuilder.js.html#sunlight-1-line-65">line 65</a>
-			</li>
-		</ul>
-	</dd>
-	
-
-	
-
-	
-
-	
-</dl>
-
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <h5>Returns:</h5>
-    
-            
-<div class="param-desc">
-    <p>It is resolved when the connection is established, otherwise it is rejected.</p>
-</div>
-
-
-
-<dl>
-    <dt>
-        Type
-    </dt>
-    <dd>
-        
-<span class="param-type">Promise</span>
-
-
-
-    </dd>
-</dl>
-
-
-        
-
-    
-</dd>
-
-        
-            
-<hr>
-<dt>
-    <h4 class="name" id="connectMeTo"><span class="type-signature">&lt;abstract> </span>connectMeTo(wc, id)</h4>
-    
-    
-</dt>
-<dd>
-
-    
-    <div class="description">
-        <p>Establish a connection between you and another peer (including joining peer) via web channel.</p>
-    </div>
-    
-
-    
-
-    
-
-    
-    
-        <h5>Parameters:</h5>
-        
-
-<table class="params table table-striped">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>wc</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type"><a href="WebChannel.html">WebChannel</a></span>
-
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>Web Channel through which the connection will be established.</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>id</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>Peer id with whom you will be connected.</p></td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-    
-
-    
-<dl class="details">
-    
-
-	
-
-	
-
-	
-
-    
-
-    
-
-    
-
-    
-
-	
-
-	
-
-	
-
-	
-
-	
-
-
-
-	
-	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
-	<dd class="tag-source">
-		<ul class="dummy">
-			<li>
-				<a href="service_channelBuilder_channelBuilder.js.html">service/channelBuilder/channelBuilder.js</a>,
-				 <a href="service_channelBuilder_channelBuilder.js.html#sunlight-1-line-77">line 77</a>
+				<a href="WebChannel.js.html">WebChannel.js</a>,
+				 <a href="WebChannel.js.html#sunlight-1-line-146">line 146</a>
 			</li>
 		</ul>
 	</dd>
@@ -890,7 +716,8 @@ It is rejected if an error occured.</li>
             
 <div class="param-desc">
     <ul>
-<li>Resolved once the connection has been established, rejected otherwise.</li>
+<li>Returns true if the door is opened and false if it is
+closed</li>
 </ul>
 </div>
 
@@ -902,7 +729,7 @@ It is rejected if an error occured.</li>
     </dt>
     <dd>
         
-<span class="param-type">Promise</span>
+<span class="param-type">boolean</span>
 
 
 
@@ -911,6 +738,257 @@ It is rejected if an error occured.</li>
 
 
         
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt>
+    <h4 class="name" id="setOpen"><span class="type-signature"></span>setOpen(door, accessData)</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <p>Open the door.</p>
+    </div>
+    
+
+    
+
+    
+
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>door</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="external-WebSocket.html">external:WebSocket</a></span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Web socket to signalign server</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>accessData</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="WebChannel.html#~AccessData">WebChannel~AccessData</a></span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Access data to join the
+*WebChannel</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="WebChannel.js.html">WebChannel.js</a>,
+				 <a href="WebChannel.js.html#sunlight-1-line-156">line 156</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt>
+    <h4 class="name" id="close"><span class="type-signature"></span>close()</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <p>Close the door if it is open and do nothing if it is closed already.</p>
+    </div>
+    
+
+    
+
+    
+
+    
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="WebChannel.js.html">WebChannel.js</a>,
+				 <a href="WebChannel.js.html#sunlight-1-line-165">line 165</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
 
     
 </dd>
@@ -918,6 +996,164 @@ It is rejected if an error occured.</li>
         </dl>
     
 
+    
+        <h3 class="subsection-title">Type Definitions</h3>
+
+        <dl>
+                
+<hr>
+<dt class="name" id="~AccessData">
+    <h4>AccessData</h4>
+
+    
+</dt>
+<dd>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">Object</span>
+
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+    
+
+    <h5 class="subsection-title">Properties:</h5>
+
+    <dl>
+
+<table class="props table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>key</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The unique key to join the <em>WebChannel</em></p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>url</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Signaling server url</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+</dl>
+
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="WebChannel.js.html">WebChannel.js</a>,
+				 <a href="WebChannel.js.html#sunlight-1-line-100">line 100</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+</dd>
+
+            </dl>
     
 
     

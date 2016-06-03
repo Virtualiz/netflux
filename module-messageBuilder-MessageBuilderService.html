@@ -4,7 +4,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width">
-	<title>Netflux v0.8.0 Class: WebRTCService</title>
+	<title>Netflux v0.8.0 Class: MessageBuilderService</title>
 
 	<!--[if lt IE 9]>
 	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -91,17 +91,18 @@
 		<div id="main">
 			
 
-	<h1 class="page-title">Class: WebRTCService</h1>
+	<h1 class="page-title">Class: MessageBuilderService</h1>
 <section>
 
 <header>
     
         <h2>
-        WebRTCService
+            <span class="ancestors"><a href="module-messageBuilder.html">messageBuilder</a>~</span>
+        
+        MessageBuilderService
         </h2>
         
-            <div class="class-description"><p>Service class responsible to establish connections between peers via
-<code>RTCDataChannel</code>.</p></div>
+            <div class="class-description"><p>Message builder service class.</p></div>
         
     
 </header>
@@ -113,7 +114,109 @@
         
 <hr>
 <dt>
-    <h4 class="name" id="WebRTCService"><span class="type-signature"></span>new WebRTCService( [options])</h4>
+    <h4 class="name" id="MessageBuilderService"><span class="type-signature"></span>new MessageBuilderService()</h4>
+    
+    
+</dt>
+<dd>
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="service_messageBuilder.js.html">service/messageBuilder.js</a>,
+				 <a href="service_messageBuilder.js.html#sunlight-1-line-121">line 121</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dd>
+
+    
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <h3 class="subsection-title">Methods</h3>
+
+        <dl>
+            
+<hr>
+<dt>
+    <h4 class="name" id="handleUserMessage"><span class="type-signature"></span>handleUserMessage(data, senderId, recipientId, action, isBroadcast)</h4>
     
     
 </dt>
@@ -121,7 +224,7 @@
 
     
     <div class="description">
-        <p>WebRTCService constructor.</p>
+        <p>Prepare user message to be sent over the <em>WebChannel</em></p>
     </div>
     
 
@@ -144,8 +247,6 @@
         <th>Type</th>
 
         
-        <th>Argument</th>
-        
 
         
 
@@ -158,13 +259,46 @@
 
         <tr>
             
-                <td class="name"><code>options</code></td>
+                <td class="name"><code>data</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type">Object</span>
+<span class="param-type"><a href="external-ArrayBuffer.html">external:ArrayBuffer</a></span>
+|
+
+<span class="param-type"><a href="external-Uint8Array.html">external:Uint8Array</a></span>
+|
+
+<span class="param-type"><a href="external-String.html">external:String</a></span>
+|
+
+<span class="param-type"><a href="external-Int8Array.html">external:Int8Array</a></span>
+|
+
+<span class="param-type"><a href="external-Uint8ClampedArray.html">external:Uint8ClampedArray</a></span>
+|
+
+<span class="param-type"><a href="external-Int16Array.html">external:Int16Array</a></span>
+|
+
+<span class="param-type"><a href="external-Uint16Array.html">external:Uint16Array</a></span>
+|
+
+<span class="param-type"><a href="external-Int32Array.html">external:Int32Array</a></span>
+|
+
+<span class="param-type"><a href="external-Uint32Array.html">external:Uint32Array</a></span>
+|
+
+<span class="param-type"><a href="external-Float32Array.html">external:Float32Array</a></span>
+|
+
+<span class="param-type"><a href="external-Float64Array.html">external:Float64Array</a></span>
+|
+
+<span class="param-type"><a href="external-DataView.html">external:DataView</a></span>
 
 
 
@@ -172,22 +306,205 @@
             </td>
 
             
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
 
-                
+            
 
+            <td class="description last"><p>Message to be sent</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>senderId</code></td>
+            
+
+            <td class="type">
+            
                 
-                </td>
+<span class="param-type">number</span>
+
+
+
+            
+            </td>
+
             
 
             
 
-            <td class="description last"><p>This service options.</p>
-                <h6 class="method-params-label method-subparams-label">Properties</h6>
+            <td class="description last"><p>Id of the peer who sends this message</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>recipientId</code></td>
+            
+
+            <td class="type">
+            
                 
+<span class="param-type">number</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Id of the recipient peer</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>action</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="MessageBuilderService.html#~Send">MessageBuilderService~Send</a></span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Send callback executed for each
+data chunk if the message is too big</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>isBroadcast</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">boolean</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Equals to true if this message would be
+sent to all <em>WebChannel</em> members and false if only to one member</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="service_messageBuilder.js.html">service/messageBuilder.js</a>,
+				 <a href="service_messageBuilder.js.html#sunlight-1-line-164">line 164</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt>
+    <h4 class="name" id="msg"><span class="type-signature"></span>msg(code [, data])</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <p>Build a message which can be then sent trough the <em>Channel</em>.</p>
+    </div>
+    
+
+    
+
+    
+
+    
+    
+        <h5>Parameters:</h5>
+        
 
 <table class="params table table-striped">
     <thead>
@@ -215,7 +532,43 @@
 
         <tr>
             
-                <td class="name"><code>signaling</code></td>
+                <td class="name"><code>code</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                </td>
+            
+
+            <td class="description last"><p>One of the internal message type code (e.g. <a href="global.html#USER_DATA"><code>USER_DATA</code></a>)</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>data</code></td>
             
 
             <td class="type">
@@ -243,60 +596,12 @@
             
                 <td class="default">
                 
-                    'wws://sigver-coastteam.rhcloud.com:8000'
+                    {}
                 
                 </td>
             
 
-            <td class="description last"><p>Signaling server URL.</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>iceServers</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">Array.&lt;Object></span>
-
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-
-                
-
-                
-                </td>
-            
-
-            
-                <td class="default">
-                
-                    [{urls: 'stun:23.21.150.121'},{urls: 'stun:stun.l.google.com:19302'},{urls: 'turn:numb.viagenie.ca', credential: 'webrtcdemo', username: 'louis%40mozilla.com'}]
-                
-                </td>
-            
-
-            <td class="description last"><p>WebRTC options to setup which STUN
-and TURN servers to be used.</p></td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-            </td>
+            <td class="description last"><p>Message. Could be empty if the code is enough</p></td>
         </tr>
 
     
@@ -340,230 +645,8 @@ and TURN servers to be used.</p></td>
 	<dd class="tag-source">
 		<ul class="dummy">
 			<li>
-				<a href="service_channelBuilder_WebRTCService.js.html">service/channelBuilder/WebRTCService.js</a>,
-				 <a href="service_channelBuilder_WebRTCService.js.html#sunlight-1-line-112">line 112</a>
-			</li>
-		</ul>
-	</dd>
-	
-
-	
-
-	
-	<dt class="tag-see method-doc-label method-doc-details-label">See:</dt>
-	<dd class="tag-see">
-		<ul>
-			<li><a href="external-RTCPeerConnection.html"><code>external:RTCPeerConnection</code></a></li>
-			</ul>
-	</dd>
-	
-
-	
-</dl>
-
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-</dd>
-
-    
-    </div>
-
-    
-        <h3 class="subsection-title">Extends</h3>
-
-        
-
-
-    <ul>
-        <li><a href="module-channelBuilder-ChannelBuilderInterface.html">module:channelBuilder~ChannelBuilderInterface</a></li>
-    </ul>
-
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-        <h3 class="subsection-title">Methods</h3>
-
-        <dl>
-            
-<hr>
-<dt>
-    <h4 class="name" id="createPeerConnectionAndOffer"><span class="type-signature"></span>createPeerConnectionAndOffer(onCandidate, sendOffer, onChannel)</h4>
-    
-    
-</dt>
-<dd>
-
-    
-    <div class="description">
-        <p>Creates a peer connection and generates an SDP offer.</p>
-    </div>
-    
-
-    
-
-    
-
-    
-    
-        <h5>Parameters:</h5>
-        
-
-<table class="params table table-striped">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>onCandidate</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type"><a href="WebRTCService.html#~onCandidate">WebRTCService~onCandidate</a></span>
-
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>Ice candidate event handler.</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>sendOffer</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type"><a href="WebRTCService.html#~onSDP">WebRTCService~onSDP</a></span>
-
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>Session description event handler.</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>onChannel</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type"><a href="WebRTCService.html#~onChannel">WebRTCService~onChannel</a></span>
-
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>Handler event when the data channel is ready.</p></td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-    
-
-    
-<dl class="details">
-    
-
-	
-
-	
-
-	
-
-    
-
-    
-
-    
-
-    
-
-	
-
-	
-
-	
-
-	
-
-	
-
-
-
-	
-	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
-	<dd class="tag-source">
-		<ul class="dummy">
-			<li>
-				<a href="service_channelBuilder_WebRTCService.js.html">service/channelBuilder/WebRTCService.js</a>,
-				 <a href="service_channelBuilder_WebRTCService.js.html#sunlight-1-line-304">line 304</a>
+				<a href="service_messageBuilder.js.html">service/messageBuilder.js</a>,
+				 <a href="service_messageBuilder.js.html#sunlight-1-line-215">line 215</a>
 			</li>
 		</ul>
 	</dd>
@@ -593,8 +676,7 @@ and TURN servers to be used.</p></td>
             
 <div class="param-desc">
     <ul>
-<li>Resolved when the offer has been succesfully created,
-set as local description and sent to the peer.</li>
+<li>Built message</li>
 </ul>
 </div>
 
@@ -606,7 +688,7 @@ set as local description and sent to the peer.</li>
     </dt>
     <dd>
         
-<span class="param-type">Promise</span>
+<span class="param-type"><a href="external-ArrayBuffer.html">external:ArrayBuffer</a></span>
 
 
 
@@ -623,7 +705,7 @@ set as local description and sent to the peer.</li>
             
 <hr>
 <dt>
-    <h4 class="name" id="createPeerConnectionAndAnswer"><span class="type-signature"></span>createPeerConnectionAndAnswer(onCandidate, sendOffer, onChannel, offer)</h4>
+    <h4 class="name" id="readUserMessage"><span class="type-signature"></span>readUserMessage(wcId, senderId, data, action)</h4>
     
     
 </dt>
@@ -631,7 +713,8 @@ set as local description and sent to the peer.</li>
 
     
     <div class="description">
-        <p>Creates a peer connection and generates an SDP answer.</p>
+        <p>Read user message which was prepared by another peer with
+<code>MessageBuilderService#handleUserMessage</code> and sent.</p>
     </div>
     
 
@@ -666,13 +749,13 @@ set as local description and sent to the peer.</li>
 
         <tr>
             
-                <td class="name"><code>onCandidate</code></td>
+                <td class="name"><code>wcId</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type"><a href="WebRTCService.html#~onCandidate">WebRTCService~onCandidate</a></span>
+<span class="param-type">number</span>
 
 
 
@@ -683,20 +766,20 @@ set as local description and sent to the peer.</li>
 
             
 
-            <td class="description last"><p>Ice candidate event handler.</p></td>
+            <td class="description last"><p><em>WebChannel</em> identifier</p></td>
         </tr>
 
     
 
         <tr>
             
-                <td class="name"><code>sendOffer</code></td>
+                <td class="name"><code>senderId</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type"><a href="WebRTCService.html#~onSDP">WebRTCService~onSDP</a></span>
+<span class="param-type">number</span>
 
 
 
@@ -707,20 +790,20 @@ set as local description and sent to the peer.</li>
 
             
 
-            <td class="description last"><p>Session description event handler.</p></td>
+            <td class="description last"><p>Id of the peer who sent this message</p></td>
         </tr>
 
     
 
         <tr>
             
-                <td class="name"><code>onChannel</code></td>
+                <td class="name"><code>data</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type"><a href="WebRTCService.html#~onChannel">WebRTCService~onChannel</a></span>
+<span class="param-type"><a href="external-ArrayBuffer.html">external:ArrayBuffer</a></span>
 
 
 
@@ -731,23 +814,322 @@ set as local description and sent to the peer.</li>
 
             
 
-            <td class="description last"><p>Handler event when the data channel is ready.</p></td>
+            <td class="description last"><p>Message</p></td>
         </tr>
 
     
 
         <tr>
             
-                <td class="name"><code>offer</code></td>
+                <td class="name"><code>action</code></td>
             
 
             <td class="type">
             
                 
+<span class="param-type"><a href="MessageBuilderService.html#~Receive">MessageBuilderService~Receive</a></span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Callback when the message is
+ready</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="service_messageBuilder.js.html">service/messageBuilder.js</a>,
+				 <a href="service_messageBuilder.js.html#sunlight-1-line-233">line 233</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt>
+    <h4 class="name" id="readInternalMessage"><span class="type-signature"></span>readInternalMessage(data)</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <p>Read internal Netflux message.</p>
+    </div>
+    
+
+    
+
+    
+
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>data</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="external-ArrayBuffer.html">external:ArrayBuffer</a></span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Message</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="service_messageBuilder.js.html">service/messageBuilder.js</a>,
+				 <a href="service_messageBuilder.js.html#sunlight-1-line-267">line 267</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <h5>Returns:</h5>
+    
+            
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
 <span class="param-type">Object</span>
 
 
 
+    </dd>
+</dl>
+
+
+        
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt>
+    <h4 class="name" id="readHeader"><span class="type-signature"></span>readHeader(data)</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <p>Extract header from the message. Each user message has a header which is
+a part of the message metadata.
+TODO: add header also to the internal messages.</p>
+    </div>
+    
+
+    
+
+    
+
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>data</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="external-ArrayBuffer.html">external:ArrayBuffer</a></span>
+
+
+
             
             </td>
 
@@ -755,7 +1137,7 @@ set as local description and sent to the peer.</li>
 
             
 
-            <td class="description last"><p>Offer received from a peer.</p></td>
+            <td class="description last"><p>Whole message</p></td>
         </tr>
 
     
@@ -799,8 +1181,8 @@ set as local description and sent to the peer.</li>
 	<dd class="tag-source">
 		<ul class="dummy">
 			<li>
-				<a href="service_channelBuilder_WebRTCService.js.html">service/channelBuilder/WebRTCService.js</a>,
-				 <a href="service_channelBuilder_WebRTCService.js.html#sunlight-1-line-334">line 334</a>
+				<a href="service_messageBuilder.js.html">service/messageBuilder.js</a>,
+				 <a href="service_messageBuilder.js.html#sunlight-1-line-281">line 281</a>
 			</li>
 		</ul>
 	</dd>
@@ -828,13 +1210,6 @@ set as local description and sent to the peer.</li>
     <h5>Returns:</h5>
     
             
-<div class="param-desc">
-    <ul>
-<li>Resolved when the offer has been succesfully created,
-set as local description and sent to the peer.</li>
-</ul>
-</div>
-
 
 
 <dl>
@@ -843,7 +1218,7 @@ set as local description and sent to the peer.</li>
     </dt>
     <dd>
         
-<span class="param-type">Promise</span>
+<span class="param-type"><a href="MessageBuilderService.html#~Header">MessageBuilderService~Header</a></span>
 
 
 
@@ -860,7 +1235,7 @@ set as local description and sent to the peer.</li>
             
 <hr>
 <dt>
-    <h4 class="name" id="createPeerConnection"><span class="type-signature">&lt;private> </span>createPeerConnection(onCandidate)</h4>
+    <h4 class="name" id="writeHeader"><span class="type-signature">&lt;private> </span>writeHeader(code, senderId, recipientId, dataSize)</h4>
     
     
 </dt>
@@ -868,7 +1243,7 @@ set as local description and sent to the peer.</li>
 
     
     <div class="description">
-        <p>Creates an instance of <code>RTCPeerConnection</code> and sets <code>onicecandidate</code> event handler.</p>
+        <p>Create an <em>ArrayBuffer</em> and fill in the header.</p>
     </div>
     
 
@@ -903,13 +1278,13 @@ set as local description and sent to the peer.</li>
 
         <tr>
             
-                <td class="name"><code>onCandidate</code></td>
+                <td class="name"><code>code</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type"><a href="WebRTCService.html#~onCandidate">WebRTCService~onCandidate</a></span>
+<span class="param-type">number</span>
 
 
 
@@ -920,8 +1295,79 @@ set as local description and sent to the peer.</li>
 
             
 
-            <td class="description last"><p>Ice
-candidate event handler.</p></td>
+            <td class="description last"><p>Message type code</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>senderId</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Sender peer id</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>recipientId</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Recipient peer id</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>dataSize</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Message size in bytes</p></td>
         </tr>
 
     
@@ -965,8 +1411,8 @@ candidate event handler.</p></td>
 	<dd class="tag-source">
 		<ul class="dummy">
 			<li>
-				<a href="service_channelBuilder_WebRTCService.js.html">service/channelBuilder/WebRTCService.js</a>,
-				 <a href="service_channelBuilder_WebRTCService.js.html#sunlight-1-line-376">line 376</a>
+				<a href="service_messageBuilder.js.html">service/messageBuilder.js</a>,
+				 <a href="service_messageBuilder.js.html#sunlight-1-line-299">line 299</a>
 			</li>
 		</ul>
 	</dd>
@@ -996,7 +1442,7 @@ candidate event handler.</p></td>
             
 <div class="param-desc">
     <ul>
-<li>Peer connection.</li>
+<li>Data view with initialized header</li>
 </ul>
 </div>
 
@@ -1008,7 +1454,7 @@ candidate event handler.</p></td>
     </dt>
     <dd>
         
-<span class="param-type"><a href="external-RTCPeerConnection.html">external:RTCPeerConnection</a></span>
+<span class="param-type"><a href="external-DataView.html">external:DataView</a></span>
 
 
 
@@ -1025,7 +1471,7 @@ candidate event handler.</p></td>
             
 <hr>
 <dt>
-    <h4 class="name" id="createIceCandidate"><span class="type-signature">&lt;private> </span>createIceCandidate(candidate)</h4>
+    <h4 class="name" id="extractUserData"><span class="type-signature">&lt;private> </span>extractUserData(buffer, type)</h4>
     
     
 </dt>
@@ -1033,7 +1479,8 @@ candidate event handler.</p></td>
 
     
     <div class="description">
-        <p>Creates an instance of <code>RTCIceCandidate</code>.</p>
+        <p>Netflux sends data in <em>ArrayBuffer</em>, but the user can send data in different
+types. This function retrieve the inital message sent by the user.</p>
     </div>
     
 
@@ -1068,13 +1515,13 @@ candidate event handler.</p></td>
 
         <tr>
             
-                <td class="name"><code>candidate</code></td>
+                <td class="name"><code>buffer</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type">Object</span>
+<span class="param-type"><a href="external-ArrayBuffer.html">external:ArrayBuffer</a></span>
 
 
 
@@ -1085,255 +1532,9 @@ candidate event handler.</p></td>
 
             
 
-            <td class="description last"><p>Candidate object created in
-<a href="WebRTCService.html#createPeerConnection"><code>WebRTCService#createPeerConnection</code></a>.</p>
-                <h6 class="method-params-label method-subparams-label">Properties</h6>
-                
-
-<table class="params table table-striped">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>candidate</code></td>
-            
-
-            <td class="type">
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"></td>
+            <td class="description last"><p>Message as it was received by the <em>WebChannel</em></p></td>
         </tr>
 
-    
-
-        <tr>
-            
-                <td class="name"><code>sdpMLineIndex</code></td>
-            
-
-            <td class="type">
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"></td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-            </td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-    
-
-    
-<dl class="details">
-    
-
-	
-
-	
-
-	
-
-    
-
-    
-
-    
-
-    
-
-	
-
-	
-
-	
-
-	
-
-	
-
-
-
-	
-	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
-	<dd class="tag-source">
-		<ul class="dummy">
-			<li>
-				<a href="service_channelBuilder_WebRTCService.js.html">service/channelBuilder/WebRTCService.js</a>,
-				 <a href="service_channelBuilder_WebRTCService.js.html#sunlight-1-line-400">line 400</a>
-			</li>
-		</ul>
-	</dd>
-	
-
-	
-
-	
-
-	
-</dl>
-
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <h5>Returns:</h5>
-    
-            
-<div class="param-desc">
-    <ul>
-<li>Ice candidate.</li>
-</ul>
-</div>
-
-
-
-<dl>
-    <dt>
-        Type
-    </dt>
-    <dd>
-        
-<span class="param-type"><a href="external-RTCIceCandidate.html">external:RTCIceCandidate</a></span>
-
-
-
-    </dd>
-</dl>
-
-
-        
-
-    
-</dd>
-
-        
-            
-<hr>
-<dt>
-    <h4 class="name" id="createSessionDescription"><span class="type-signature">&lt;private> </span>createSessionDescription(sd)</h4>
-    
-    
-</dt>
-<dd>
-
-    
-    <div class="description">
-        <p>Creates an instance of <code>RTCSessionDescription</code>.</p>
-    </div>
-    
-
-    
-
-    
-
-    
-    
-        <h5>Parameters:</h5>
-        
-
-<table class="params table table-striped">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>sd</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">Object</span>
-
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>An offer or an answer created by WebRTC API.</p>
-                <h6 class="method-params-label method-subparams-label">Properties</h6>
-                
-
-<table class="params table table-striped">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
     
 
         <tr>
@@ -1343,23 +1544,11 @@ candidate event handler.</p></td>
 
             <td class="type">
             
-            </td>
+                
+<span class="param-type">number</span>
 
-            
 
-            
 
-            <td class="description last"></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>sdp</code></td>
-            
-
-            <td class="type">
             
             </td>
 
@@ -1367,14 +1556,7 @@ candidate event handler.</p></td>
 
             
 
-            <td class="description last"></td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-            </td>
+            <td class="description last"><p>Message type as it was defined by the user</p></td>
         </tr>
 
     
@@ -1418,8 +1600,8 @@ candidate event handler.</p></td>
 	<dd class="tag-source">
 		<ul class="dummy">
 			<li>
-				<a href="service_channelBuilder_WebRTCService.js.html">service/channelBuilder/WebRTCService.js</a>,
-				 <a href="service_channelBuilder_WebRTCService.js.html#sunlight-1-line-413">line 413</a>
+				<a href="service_messageBuilder.js.html">service/messageBuilder.js</a>,
+				 <a href="service_messageBuilder.js.html#sunlight-1-line-319">line 319</a>
 			</li>
 		</ul>
 	</dd>
@@ -1449,7 +1631,8 @@ candidate event handler.</p></td>
             
 <div class="param-desc">
     <ul>
-<li>Session description.</li>
+<li>Initial
+user message</li>
 </ul>
 </div>
 
@@ -1461,7 +1644,40 @@ candidate event handler.</p></td>
     </dt>
     <dd>
         
-<span class="param-type"><a href="external-RTCSessionDescription.html">external:RTCSessionDescription</a></span>
+<span class="param-type"><a href="external-ArrayBuffer.html">external:ArrayBuffer</a></span>
+|
+
+<span class="param-type"><a href="external-Uint8Array.html">external:Uint8Array</a></span>
+|
+
+<span class="param-type"><a href="external-String.html">external:String</a></span>
+|
+
+<span class="param-type"><a href="external-Int8Array.html">external:Int8Array</a></span>
+|
+
+<span class="param-type"><a href="external-Uint8ClampedArray.html">external:Uint8ClampedArray</a></span>
+|
+
+<span class="param-type"><a href="external-Int16Array.html">external:Int16Array</a></span>
+|
+
+<span class="param-type"><a href="external-Uint16Array.html">external:Uint16Array</a></span>
+|
+
+<span class="param-type"><a href="external-Int32Array.html">external:Int32Array</a></span>
+|
+
+<span class="param-type"><a href="external-Uint32Array.html">external:Uint32Array</a></span>
+|
+
+<span class="param-type"><a href="external-Float32Array.html">external:Float32Array</a></span>
+|
+
+<span class="param-type"><a href="external-Float64Array.html">external:Float64Array</a></span>
+|
+
+<span class="param-type"><a href="external-DataView.html">external:DataView</a></span>
 
 
 
@@ -1478,7 +1694,7 @@ candidate event handler.</p></td>
             
 <hr>
 <dt>
-    <h4 class="name" id="open"><span class="type-signature">&lt;abstract> </span>open(key, onChannel [, options])</h4>
+    <h4 class="name" id="userDataToType"><span class="type-signature">&lt;private> </span>userDataToType(data)</h4>
     
     
 </dt>
@@ -1486,486 +1702,7 @@ candidate event handler.</p></td>
 
     
     <div class="description">
-        <p>Enables other clients to establish a connection with you.</p>
-    </div>
-    
-
-    
-
-    
-
-    
-    
-        <h5>Parameters:</h5>
-        
-
-<table class="params table table-striped">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-        <th>Argument</th>
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>key</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-
-                
-
-                
-                </td>
-            
-
-            
-
-            <td class="description last"><p>The unique identifier which has to be passed to the
-peers who need to connect to you.</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>onChannel</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">module:channelBuilder~ChannelBuilderInterface~onChannelCallback</span>
-
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-
-                
-
-                
-                </td>
-            
-
-            
-
-            <td class="description last"><p>Callback
-function to execute once the connection has been established.</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>options</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">Object</span>
-
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-
-                
-
-                
-                </td>
-            
-
-            
-
-            <td class="description last"><p>Any other options which depend on the service implementation.</p></td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-    
-
-    
-<dl class="details">
-    
-
-	
-
-	
-
-	
-	<dt class="inherited-from method-doc-label method-doc-details-label">Inherited From:</dt>
-	<dd class="inherited-from">
-		<ul class="dummy">
-			<li>
-				<a href="module-channelBuilder-ChannelBuilderInterface.html#open">module:channelBuilder~ChannelBuilderInterface#open</a>
-			</li>
-		</ul>
-	</dd>
-	
-
-    
-    <dt class="tag-overrides">Overrides:</dt>
-    <dd class="tag-overrides"><ul class="dummy"><li>
-        <a href="module-channelBuilder-ChannelBuilderInterface.html#open">module:channelBuilder~ChannelBuilderInterface#open</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-
-	
-
-	
-
-	
-
-	
-
-	
-
-
-
-	
-	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
-	<dd class="tag-source">
-		<ul class="dummy">
-			<li>
-				<a href="service_channelBuilder_channelBuilder.js.html">service/channelBuilder/channelBuilder.js</a>,
-				 <a href="service_channelBuilder_channelBuilder.js.html#sunlight-1-line-52">line 52</a>
-			</li>
-		</ul>
-	</dd>
-	
-
-	
-
-	
-
-	
-</dl>
-
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <h5>Returns:</h5>
-    
-            
-<div class="param-desc">
-    <ul>
-<li>Once resolved, provide an Object with <code>key</code> and <code>url</code>
-attributes to be passed to <a href="module-channelBuilder-ChannelBuilderInterface.html#join"><code>module:channelBuilder~ChannelBuilderInterface#join</code></a> function.
-It is rejected if an error occured.</li>
-</ul>
-</div>
-
-
-
-<dl>
-    <dt>
-        Type
-    </dt>
-    <dd>
-        
-<span class="param-type">Promise</span>
-
-
-
-    </dd>
-</dl>
-
-
-        
-
-    
-</dd>
-
-        
-            
-<hr>
-<dt>
-    <h4 class="name" id="join"><span class="type-signature">&lt;abstract> </span>join(key [, options])</h4>
-    
-    
-</dt>
-<dd>
-
-    
-    <div class="description">
-        <p>Connects you with the peer who provided the <code>key</code>.</p>
-    </div>
-    
-
-    
-
-    
-
-    
-    
-        <h5>Parameters:</h5>
-        
-
-<table class="params table table-striped">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-        <th>Argument</th>
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>key</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-
-                
-
-                
-                </td>
-            
-
-            
-
-            <td class="description last"><p>A key obtained from the peer who executed
-<a href="module-channelBuilder-ChannelBuilderInterface.html#open"><code>module:channelBuilder~ChannelBuilderInterface#open</code></a> function.</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>options</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">Object</span>
-
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-
-                
-
-                
-                </td>
-            
-
-            
-
-            <td class="description last"><p>Any other options which depend on the implementation.</p></td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-    
-
-    
-<dl class="details">
-    
-
-	
-
-	
-
-	
-	<dt class="inherited-from method-doc-label method-doc-details-label">Inherited From:</dt>
-	<dd class="inherited-from">
-		<ul class="dummy">
-			<li>
-				<a href="module-channelBuilder-ChannelBuilderInterface.html#join">module:channelBuilder~ChannelBuilderInterface#join</a>
-			</li>
-		</ul>
-	</dd>
-	
-
-    
-    <dt class="tag-overrides">Overrides:</dt>
-    <dd class="tag-overrides"><ul class="dummy"><li>
-        <a href="module-channelBuilder-ChannelBuilderInterface.html#join">module:channelBuilder~ChannelBuilderInterface#join</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-
-	
-
-	
-
-	
-
-	
-
-	
-
-
-
-	
-	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
-	<dd class="tag-source">
-		<ul class="dummy">
-			<li>
-				<a href="service_channelBuilder_channelBuilder.js.html">service/channelBuilder/channelBuilder.js</a>,
-				 <a href="service_channelBuilder_channelBuilder.js.html#sunlight-1-line-65">line 65</a>
-			</li>
-		</ul>
-	</dd>
-	
-
-	
-
-	
-
-	
-</dl>
-
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <h5>Returns:</h5>
-    
-            
-<div class="param-desc">
-    <p>It is resolved when the connection is established, otherwise it is rejected.</p>
-</div>
-
-
-
-<dl>
-    <dt>
-        Type
-    </dt>
-    <dd>
-        
-<span class="param-type">Promise</span>
-
-
-
-    </dd>
-</dl>
-
-
-        
-
-    
-</dd>
-
-        
-            
-<hr>
-<dt>
-    <h4 class="name" id="connectMeTo"><span class="type-signature">&lt;abstract> </span>connectMeTo(wc, id)</h4>
-    
-    
-</dt>
-<dd>
-
-    
-    <div class="description">
-        <p>Establish a connection between you and another peer (including joining peer) via web channel.</p>
+        <p>Identify the user message type.</p>
     </div>
     
 
@@ -2000,13 +1737,46 @@ It is rejected if an error occured.</li>
 
         <tr>
             
-                <td class="name"><code>wc</code></td>
+                <td class="name"><code>data</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type"><a href="WebChannel.html">WebChannel</a></span>
+<span class="param-type"><a href="external-ArrayBuffer.html">external:ArrayBuffer</a></span>
+|
+
+<span class="param-type"><a href="external-Uint8Array.html">external:Uint8Array</a></span>
+|
+
+<span class="param-type"><a href="external-String.html">external:String</a></span>
+|
+
+<span class="param-type"><a href="external-Int8Array.html">external:Int8Array</a></span>
+|
+
+<span class="param-type"><a href="external-Uint8ClampedArray.html">external:Uint8ClampedArray</a></span>
+|
+
+<span class="param-type"><a href="external-Int16Array.html">external:Int16Array</a></span>
+|
+
+<span class="param-type"><a href="external-Uint16Array.html">external:Uint16Array</a></span>
+|
+
+<span class="param-type"><a href="external-Int32Array.html">external:Int32Array</a></span>
+|
+
+<span class="param-type"><a href="external-Uint32Array.html">external:Uint32Array</a></span>
+|
+
+<span class="param-type"><a href="external-Float32Array.html">external:Float32Array</a></span>
+|
+
+<span class="param-type"><a href="external-Float64Array.html">external:Float64Array</a></span>
+|
+
+<span class="param-type"><a href="external-DataView.html">external:DataView</a></span>
 
 
 
@@ -2017,31 +1787,7 @@ It is rejected if an error occured.</li>
 
             
 
-            <td class="description last"><p>Web Channel through which the connection will be established.</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>id</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>Peer id with whom you will be connected.</p></td>
+            <td class="description last"><p>User message</p></td>
         </tr>
 
     
@@ -2059,21 +1805,7 @@ It is rejected if an error occured.</li>
 	
 
 	
-	<dt class="inherited-from method-doc-label method-doc-details-label">Inherited From:</dt>
-	<dd class="inherited-from">
-		<ul class="dummy">
-			<li>
-				<a href="module-channelBuilder-ChannelBuilderInterface.html#connectMeTo">module:channelBuilder~ChannelBuilderInterface#connectMeTo</a>
-			</li>
-		</ul>
-	</dd>
-	
 
-    
-    <dt class="tag-overrides">Overrides:</dt>
-    <dd class="tag-overrides"><ul class="dummy"><li>
-        <a href="module-channelBuilder-ChannelBuilderInterface.html#connectMeTo">module:channelBuilder~ChannelBuilderInterface#connectMeTo</a>
-    </li></ul></dd>
     
 
     
@@ -2099,8 +1831,8 @@ It is rejected if an error occured.</li>
 	<dd class="tag-source">
 		<ul class="dummy">
 			<li>
-				<a href="service_channelBuilder_channelBuilder.js.html">service/channelBuilder/channelBuilder.js</a>,
-				 <a href="service_channelBuilder_channelBuilder.js.html#sunlight-1-line-77">line 77</a>
+				<a href="service_messageBuilder.js.html">service/messageBuilder.js</a>,
+				 <a href="service_messageBuilder.js.html#sunlight-1-line-357">line 357</a>
 			</li>
 		</ul>
 	</dd>
@@ -2130,7 +1862,7 @@ It is rejected if an error occured.</li>
             
 <div class="param-desc">
     <ul>
-<li>Resolved once the connection has been established, rejected otherwise.</li>
+<li>User message type</li>
 </ul>
 </div>
 
@@ -2142,7 +1874,7 @@ It is rejected if an error occured.</li>
     </dt>
     <dd>
         
-<span class="param-type">Promise</span>
+<span class="param-type">number</span>
 
 
 
@@ -2151,6 +1883,432 @@ It is rejected if an error occured.</li>
 
 
         
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt>
+    <h4 class="name" id="getBuffer"><span class="type-signature">&lt;private> </span>getBuffer(wcId, peerId, msgId)</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <p>Get the buffer.</p>
+    </div>
+    
+
+    
+
+    
+
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>wcId</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p><em>WebChannel</em> id</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>peerId</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Peer id</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>msgId</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Message id</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="service_messageBuilder.js.html">service/messageBuilder.js</a>,
+				 <a href="service_messageBuilder.js.html#sunlight-1-line-404">line 404</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    <ul>
+<li>Returns buffer if it was found and undefined
+if not</li>
+</ul>
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type"><a href="Buffer.html">Buffer</a></span>
+|
+
+<span class="param-type">undefined</span>
+
+
+
+    </dd>
+</dl>
+
+
+        
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt>
+    <h4 class="name" id="setBuffer"><span class="type-signature">&lt;private> </span>setBuffer(wcId, peerId, msgId, buffer)</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <p>Add a new buffer to the buffer array.</p>
+    </div>
+    
+
+    
+
+    
+
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>wcId</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p><em>WebChannel</em> id</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>peerId</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Peer id</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>msgId</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Message id</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>buffer</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="Buffer.html">Buffer</a></span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>buffer</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="service_messageBuilder.js.html">service/messageBuilder.js</a>,
+				 <a href="service_messageBuilder.js.html#sunlight-1-line-423">line 423</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
 
     
 </dd>
@@ -2158,424 +2316,6 @@ It is rejected if an error occured.</li>
         </dl>
     
 
-    
-        <h3 class="subsection-title">Type Definitions</h3>
-
-        <dl>
-                
-<hr>
-<dt>
-    <h4 class="name" id="~onCandidate"><span class="type-signature"></span>onCandidate(evt)</h4>
-    
-    
-</dt>
-<dd>
-
-    
-    <div class="description">
-        <p>Ice candidate event handler.</p>
-    </div>
-    
-
-    
-
-    
-
-    
-    
-        <h5>Parameters:</h5>
-        
-
-<table class="params table table-striped">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>evt</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type"><a href="external-RTCPeerConnectionIceEvent.html">external:RTCPeerConnectionIceEvent</a></span>
-
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>Event.</p></td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-    
-
-    
-<dl class="details">
-    
-
-	
-
-	
-
-	
-
-    
-
-    
-
-    
-
-    
-
-	
-
-	
-
-	
-
-	
-
-	
-
-
-
-	
-	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
-	<dd class="tag-source">
-		<ul class="dummy">
-			<li>
-				<a href="service_channelBuilder_WebRTCService.js.html">service/channelBuilder/WebRTCService.js</a>,
-				 <a href="service_channelBuilder_WebRTCService.js.html#sunlight-1-line-3">line 3</a>
-			</li>
-		</ul>
-	</dd>
-	
-
-	
-
-	
-
-	
-</dl>
-
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-</dd>
-
-            
-                
-<hr>
-<dt>
-    <h4 class="name" id="~onSDP"><span class="type-signature"></span>onSDP(evt)</h4>
-    
-    
-</dt>
-<dd>
-
-    
-    <div class="description">
-        <p>Session description event handler.</p>
-    </div>
-    
-
-    
-
-    
-
-    
-    
-        <h5>Parameters:</h5>
-        
-
-<table class="params table table-striped">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>evt</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type"><a href="external-RTCPeerConnectionIceEvent.html">external:RTCPeerConnectionIceEvent</a></span>
-
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>Event.</p></td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-    
-
-    
-<dl class="details">
-    
-
-	
-
-	
-
-	
-
-    
-
-    
-
-    
-
-    
-
-	
-
-	
-
-	
-
-	
-
-	
-
-
-
-	
-	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
-	<dd class="tag-source">
-		<ul class="dummy">
-			<li>
-				<a href="service_channelBuilder_WebRTCService.js.html">service/channelBuilder/WebRTCService.js</a>,
-				 <a href="service_channelBuilder_WebRTCService.js.html#sunlight-1-line-10">line 10</a>
-			</li>
-		</ul>
-	</dd>
-	
-
-	
-
-	
-
-	
-</dl>
-
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-</dd>
-
-            
-                
-<hr>
-<dt>
-    <h4 class="name" id="~onChannel"><span class="type-signature"></span>onChannel(evt)</h4>
-    
-    
-</dt>
-<dd>
-
-    
-    <div class="description">
-        <p>Data channel event handler.</p>
-    </div>
-    
-
-    
-
-    
-
-    
-    
-        <h5>Parameters:</h5>
-        
-
-<table class="params table table-striped">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>evt</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type"><a href="external-RTCPeerConnectionIceEvent.html">external:RTCPeerConnectionIceEvent</a></span>
-
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>Event.</p></td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-    
-
-    
-<dl class="details">
-    
-
-	
-
-	
-
-	
-
-    
-
-    
-
-    
-
-    
-
-	
-
-	
-
-	
-
-	
-
-	
-
-
-
-	
-	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
-	<dd class="tag-source">
-		<ul class="dummy">
-			<li>
-				<a href="service_channelBuilder_WebRTCService.js.html">service/channelBuilder/WebRTCService.js</a>,
-				 <a href="service_channelBuilder_WebRTCService.js.html#sunlight-1-line-17">line 17</a>
-			</li>
-		</ul>
-	</dd>
-	
-
-	
-
-	
-
-	
-</dl>
-
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-</dd>
-
-            </dl>
     
 
     

@@ -4,7 +4,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width">
-	<title>Netflux v0.8.0 Global</title>
+	<title>Netflux v0.8.0 Module: messageBuilder</title>
 
 	<!--[if lt IE 9]>
 	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -91,15 +91,10 @@
 		<div id="main">
 			
 
-	<h1 class="page-title">Global</h1>
+	<h1 class="page-title">Module: messageBuilder</h1>
 <section>
 
 <header>
-    
-        <h2>
-        
-        </h2>
-        
     
 </header>
 
@@ -107,6 +102,11 @@
 <article>
     <div class="container-overview">
     
+        
+            <div class="description"><p>Message builder module is responsible to build messages to send them over the
+<em>WebChannel</em> and treat messages received by the <em>WebChannel</em>. It also manage
+big messages (more then 16ko) sent by users. Internal messages are always less
+16ko.</p></div>
         
 
         
@@ -140,6 +140,16 @@
 
 
 	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="service_messageBuilder.js.html">service/messageBuilder.js</a>,
+				 <a href="service_messageBuilder.js.html#sunlight-1-line-1">line 1</a>
+			</li>
+		</ul>
+	</dd>
+	
 
 	
 
@@ -157,6 +167,16 @@
 
     
 
+    
+        <h3 class="subsection-title">Classes</h3>
+
+        <dl>
+            <dt><a href="module-messageBuilder-MessageBuilderService.html">MessageBuilderService</a></dt>
+            <dd></dd>
+        
+            <dt><a href="module-messageBuilder-Buffer.html">Buffer</a></dt>
+            <dd></dd>
+        </dl>
     
 
     
@@ -169,15 +189,15 @@
         <dl>
             
 <hr>
-<dt class="name" id="MAX_ID">
-    <h4><span class="type-signature">&lt;constant> </span>MAX_ID<span class="type-signature"> :number</span></h4>
+<dt class="name" id="~MAX_MSG_SIZE">
+    <h4><span class="type-signature">&lt;inner, constant> </span>MAX_MSG_SIZE<span class="type-signature"> :number</span></h4>
 
     
 </dt>
 <dd>
     
     <div class="description">
-        <p>Maximum identifier number for <a href="WebChannel.html#generateId"><code>WebChannel#generateId</code></a> function.</p>
+        <p>Maximum message size sent over <em>Channel</em>.</p>
     </div>
     
 
@@ -229,8 +249,8 @@
 	<dd class="tag-source">
 		<ul class="dummy">
 			<li>
-				<a href="WebChannel.js.html">WebChannel.js</a>,
-				 <a href="WebChannel.js.html#sunlight-1-line-11">line 11</a>
+				<a href="service_messageBuilder.js.html">service/messageBuilder.js</a>,
+				 <a href="service_messageBuilder.js.html#sunlight-1-line-15">line 15</a>
 			</li>
 		</ul>
 	</dd>
@@ -250,15 +270,15 @@
         
             
 <hr>
-<dt class="name" id="PING_TIMEOUT">
-    <h4><span class="type-signature">&lt;constant> </span>PING_TIMEOUT<span class="type-signature"> :number</span></h4>
+<dt class="name" id="~MAX_USER_MSG_SIZE">
+    <h4><span class="type-signature">&lt;inner, constant> </span>MAX_USER_MSG_SIZE<span class="type-signature"> :number</span></h4>
 
     
 </dt>
 <dd>
     
     <div class="description">
-        <p>Timout for ping <em>WebChannel</em> in milliseconds.</p>
+        <p>Maximum user message size sent over <em>Channel</em>. Is meant without metadata.</p>
     </div>
     
 
@@ -310,8 +330,8 @@
 	<dd class="tag-source">
 		<ul class="dummy">
 			<li>
-				<a href="WebChannel.js.html">WebChannel.js</a>,
-				 <a href="WebChannel.js.html#sunlight-1-line-17">line 17</a>
+				<a href="service_messageBuilder.js.html">service/messageBuilder.js</a>,
+				 <a href="service_messageBuilder.js.html#sunlight-1-line-21">line 21</a>
 			</li>
 		</ul>
 	</dd>
@@ -331,15 +351,15 @@
         
             
 <hr>
-<dt class="name" id="USER_DATA">
-    <h4><span class="type-signature">&lt;constant> </span>USER_DATA<span class="type-signature"> :number</span></h4>
+<dt class="name" id="~USER_MSG_OFFSET">
+    <h4><span class="type-signature">&lt;inner, constant> </span>USER_MSG_OFFSET<span class="type-signature"> :number</span></h4>
 
     
 </dt>
 <dd>
     
     <div class="description">
-        <p>One of the internal message type. It's a peer message.</p>
+        <p>User message offset in the array buffer. All data before are metadata.</p>
     </div>
     
 
@@ -391,8 +411,8 @@
 	<dd class="tag-source">
 		<ul class="dummy">
 			<li>
-				<a href="WebChannel.js.html">WebChannel.js</a>,
-				 <a href="WebChannel.js.html#sunlight-1-line-23">line 23</a>
+				<a href="service_messageBuilder.js.html">service/messageBuilder.js</a>,
+				 <a href="service_messageBuilder.js.html#sunlight-1-line-27">line 27</a>
 			</li>
 		</ul>
 	</dd>
@@ -412,16 +432,15 @@
         
             
 <hr>
-<dt class="name" id="SERVICE_DATA">
-    <h4><span class="type-signature">&lt;constant> </span>SERVICE_DATA<span class="type-signature"> :number</span></h4>
+<dt class="name" id="~HEADER_END_OFFSET">
+    <h4><span class="type-signature">&lt;inner, constant> </span>HEADER_END_OFFSET<span class="type-signature"> :number</span></h4>
 
     
 </dt>
 <dd>
     
     <div class="description">
-        <p>One of the internal message type. This message should be threated by a
-specific service class.</p>
+        <p>First index in the array buffer after header (which is the part of metadata).</p>
     </div>
     
 
@@ -473,8 +492,8 @@ specific service class.</p>
 	<dd class="tag-source">
 		<ul class="dummy">
 			<li>
-				<a href="WebChannel.js.html">WebChannel.js</a>,
-				 <a href="WebChannel.js.html#sunlight-1-line-30">line 30</a>
+				<a href="service_messageBuilder.js.html">service/messageBuilder.js</a>,
+				 <a href="service_messageBuilder.js.html#sunlight-1-line-33">line 33</a>
 			</li>
 		</ul>
 	</dd>
@@ -494,15 +513,15 @@ specific service class.</p>
         
             
 <hr>
-<dt class="name" id="LEAVE">
-    <h4><span class="type-signature">&lt;constant> </span>LEAVE<span class="type-signature"> :number</span></h4>
+<dt class="name" id="~MAX_MSG_ID_SIZE">
+    <h4><span class="type-signature">&lt;inner, constant> </span>MAX_MSG_ID_SIZE<span class="type-signature"> :number</span></h4>
 
     
 </dt>
 <dd>
     
     <div class="description">
-        <p>One of the internal message type. Means a peer has left the <em>WebChannel</em>.</p>
+        <p>Maximum message id number.</p>
     </div>
     
 
@@ -554,8 +573,8 @@ specific service class.</p>
 	<dd class="tag-source">
 		<ul class="dummy">
 			<li>
-				<a href="WebChannel.js.html">WebChannel.js</a>,
-				 <a href="WebChannel.js.html#sunlight-1-line-36">line 36</a>
+				<a href="service_messageBuilder.js.html">service/messageBuilder.js</a>,
+				 <a href="service_messageBuilder.js.html#sunlight-1-line-39">line 39</a>
 			</li>
 		</ul>
 	</dd>
@@ -575,15 +594,15 @@ specific service class.</p>
         
             
 <hr>
-<dt class="name" id="JOIN_INIT">
-    <h4><span class="type-signature">&lt;constant> </span>JOIN_INIT<span class="type-signature"> :number</span></h4>
+<dt class="name" id="~ARRAY_BUFFER_TYPE">
+    <h4><span class="type-signature">&lt;inner, constant> </span>ARRAY_BUFFER_TYPE<span class="type-signature"> :number</span></h4>
 
     
 </dt>
 <dd>
     
     <div class="description">
-        <p>One of the internal message type. Initialization message for the joining peer.</p>
+        <p>User allowed message type: <a href="external-ArrayBuffer.html"><code>external:ArrayBuffer</code></a></p>
     </div>
     
 
@@ -635,8 +654,8 @@ specific service class.</p>
 	<dd class="tag-source">
 		<ul class="dummy">
 			<li>
-				<a href="WebChannel.js.html">WebChannel.js</a>,
-				 <a href="WebChannel.js.html#sunlight-1-line-43">line 43</a>
+				<a href="service_messageBuilder.js.html">service/messageBuilder.js</a>,
+				 <a href="service_messageBuilder.js.html#sunlight-1-line-45">line 45</a>
 			</li>
 		</ul>
 	</dd>
@@ -656,16 +675,15 @@ specific service class.</p>
         
             
 <hr>
-<dt class="name" id="JOIN_NEW_MEMBER">
-    <h4><span class="type-signature">&lt;constant> </span>JOIN_NEW_MEMBER<span class="type-signature"> :number</span></h4>
+<dt class="name" id="~U_INT_8_ARRAY_TYPE">
+    <h4><span class="type-signature">&lt;inner, constant> </span>U_INT_8_ARRAY_TYPE<span class="type-signature"> :number</span></h4>
 
     
 </dt>
 <dd>
     
     <div class="description">
-        <p>One of the internal message type. The message is intended for the <em>WebChannel</em>
-members to notify them about the joining peer.</p>
+        <p>User allowed message type: <a href="external-Uint8Array.html"><code>external:Uint8Array</code></a></p>
     </div>
     
 
@@ -717,8 +735,8 @@ members to notify them about the joining peer.</p>
 	<dd class="tag-source">
 		<ul class="dummy">
 			<li>
-				<a href="WebChannel.js.html">WebChannel.js</a>,
-				 <a href="WebChannel.js.html#sunlight-1-line-50">line 50</a>
+				<a href="service_messageBuilder.js.html">service/messageBuilder.js</a>,
+				 <a href="service_messageBuilder.js.html#sunlight-1-line-51">line 51</a>
 			</li>
 		</ul>
 	</dd>
@@ -738,16 +756,15 @@ members to notify them about the joining peer.</p>
         
             
 <hr>
-<dt class="name" id="REMOVE_NEW_MEMBER">
-    <h4><span class="type-signature">&lt;constant> </span>REMOVE_NEW_MEMBER<span class="type-signature"> :number</span></h4>
+<dt class="name" id="~STRING_TYPE">
+    <h4><span class="type-signature">&lt;inner, constant> </span>STRING_TYPE<span class="type-signature"> :number</span></h4>
 
     
 </dt>
 <dd>
     
     <div class="description">
-        <p>One of the internal message type. The message is intended for the <em>WebChannel</em>
-members to notify them that the joining peer has not succeed.</p>
+        <p>User allowed message type: <a href="external-String.html"><code>external:String</code></a></p>
     </div>
     
 
@@ -799,8 +816,8 @@ members to notify them that the joining peer has not succeed.</p>
 	<dd class="tag-source">
 		<ul class="dummy">
 			<li>
-				<a href="WebChannel.js.html">WebChannel.js</a>,
-				 <a href="WebChannel.js.html#sunlight-1-line-57">line 57</a>
+				<a href="service_messageBuilder.js.html">service/messageBuilder.js</a>,
+				 <a href="service_messageBuilder.js.html#sunlight-1-line-57">line 57</a>
 			</li>
 		</ul>
 	</dd>
@@ -820,16 +837,15 @@ members to notify them that the joining peer has not succeed.</p>
         
             
 <hr>
-<dt class="name" id="JOIN_FINILIZE">
-    <h4><span class="type-signature">&lt;constant> </span>JOIN_FINILIZE<span class="type-signature"> :number</span></h4>
+<dt class="name" id="~INT_8_ARRAY_TYPE">
+    <h4><span class="type-signature">&lt;inner, constant> </span>INT_8_ARRAY_TYPE<span class="type-signature"> :number</span></h4>
 
     
 </dt>
 <dd>
     
     <div class="description">
-        <p>One of the internal message type. The message is intended for the joining peer
-to notify him that everything is ready and he may join the <em>WebChannel</em>.</p>
+        <p>User allowed message type: <a href="external-Int8Array.html"><code>external:Int8Array</code></a></p>
     </div>
     
 
@@ -881,8 +897,8 @@ to notify him that everything is ready and he may join the <em>WebChannel</em>.<
 	<dd class="tag-source">
 		<ul class="dummy">
 			<li>
-				<a href="WebChannel.js.html">WebChannel.js</a>,
-				 <a href="WebChannel.js.html#sunlight-1-line-64">line 64</a>
+				<a href="service_messageBuilder.js.html">service/messageBuilder.js</a>,
+				 <a href="service_messageBuilder.js.html#sunlight-1-line-63">line 63</a>
 			</li>
 		</ul>
 	</dd>
@@ -902,16 +918,15 @@ to notify him that everything is ready and he may join the <em>WebChannel</em>.<
         
             
 <hr>
-<dt class="name" id="JOIN_SUCCESS">
-    <h4><span class="type-signature">&lt;constant> </span>JOIN_SUCCESS<span class="type-signature"> :number</span></h4>
+<dt class="name" id="~U_INT_8_CLAMPED_ARRAY_TYPE">
+    <h4><span class="type-signature">&lt;inner, constant> </span>U_INT_8_CLAMPED_ARRAY_TYPE<span class="type-signature"> :number</span></h4>
 
     
 </dt>
 <dd>
     
     <div class="description">
-        <p>One of the internal message type. The message sent by the joining peer to
-notify all <em>WebChannel</em> members about his arrivel.</p>
+        <p>User allowed message type: <a href="external-Uint8ClampedArray.html"><code>external:Uint8ClampedArray</code></a></p>
     </div>
     
 
@@ -963,8 +978,8 @@ notify all <em>WebChannel</em> members about his arrivel.</p>
 	<dd class="tag-source">
 		<ul class="dummy">
 			<li>
-				<a href="WebChannel.js.html">WebChannel.js</a>,
-				 <a href="WebChannel.js.html#sunlight-1-line-71">line 71</a>
+				<a href="service_messageBuilder.js.html">service/messageBuilder.js</a>,
+				 <a href="service_messageBuilder.js.html#sunlight-1-line-69">line 69</a>
 			</li>
 		</ul>
 	</dd>
@@ -984,16 +999,15 @@ notify all <em>WebChannel</em> members about his arrivel.</p>
         
             
 <hr>
-<dt class="name" id="INIT_CHANNEL_PONG">
-    <h4><span class="type-signature">&lt;constant> </span>INIT_CHANNEL_PONG<span class="type-signature"> :number</span></h4>
+<dt class="name" id="~INT_16_ARRAY_TYPE">
+    <h4><span class="type-signature">&lt;inner, constant> </span>INT_16_ARRAY_TYPE<span class="type-signature"> :number</span></h4>
 
     
 </dt>
 <dd>
     
     <div class="description">
-        <p>One of the internal message type. This message is sent during Initialization
-of a channel.</p>
+        <p>User allowed message type: <a href="external-Int16Array.html"><code>external:Int16Array</code></a></p>
     </div>
     
 
@@ -1045,96 +1059,8 @@ of a channel.</p>
 	<dd class="tag-source">
 		<ul class="dummy">
 			<li>
-				<a href="WebChannel.js.html">WebChannel.js</a>,
-				 <a href="WebChannel.js.html#sunlight-1-line-79">line 79</a>
-			</li>
-		</ul>
-	</dd>
-	
-
-	
-
-	
-	<dt class="tag-see method-doc-label method-doc-details-label">See:</dt>
-	<dd class="tag-see">
-		<ul>
-			<li><a href="WebChannel.html#initChannel"><code>WebChannel#initChannel</code></a></li>
-			</ul>
-	</dd>
-	
-
-	
-</dl>
-
-
-    
-</dd>
-
-        
-            
-<hr>
-<dt class="name" id="PING">
-    <h4><span class="type-signature">&lt;constant> </span>PING<span class="type-signature"> :number</span></h4>
-
-    
-</dt>
-<dd>
-    
-    <div class="description">
-        <p>One of the internal message type. Ping message.</p>
-    </div>
-    
-
-    
-        <h5>Type:</h5>
-        <ul>
-            <li>
-                
-<span class="param-type">number</span>
-
-
-
-            </li>
-        </ul>
-    
-
-    
-<dl class="details">
-    
-
-	
-
-	
-
-	
-
-    
-
-    
-
-    
-
-    
-
-	
-
-	
-
-	
-
-	
-
-	
-
-
-
-	
-	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
-	<dd class="tag-source">
-		<ul class="dummy">
-			<li>
-				<a href="WebChannel.js.html">WebChannel.js</a>,
-				 <a href="WebChannel.js.html#sunlight-1-line-85">line 85</a>
+				<a href="service_messageBuilder.js.html">service/messageBuilder.js</a>,
+				 <a href="service_messageBuilder.js.html#sunlight-1-line-75">line 75</a>
 			</li>
 		</ul>
 	</dd>
@@ -1154,15 +1080,15 @@ of a channel.</p>
         
             
 <hr>
-<dt class="name" id="PONG">
-    <h4><span class="type-signature">&lt;constant> </span>PONG<span class="type-signature"> :number</span></h4>
+<dt class="name" id="~U_INT_16_ARRAY_TYPE">
+    <h4><span class="type-signature">&lt;inner, constant> </span>U_INT_16_ARRAY_TYPE<span class="type-signature"> :number</span></h4>
 
     
 </dt>
 <dd>
     
     <div class="description">
-        <p>One of the internal message type. Pong message, response to the ping message.</p>
+        <p>User allowed message type: <a href="external-Uint16Array.html"><code>external:Uint16Array</code></a></p>
     </div>
     
 
@@ -1214,8 +1140,483 @@ of a channel.</p>
 	<dd class="tag-source">
 		<ul class="dummy">
 			<li>
-				<a href="WebChannel.js.html">WebChannel.js</a>,
-				 <a href="WebChannel.js.html#sunlight-1-line-91">line 91</a>
+				<a href="service_messageBuilder.js.html">service/messageBuilder.js</a>,
+				 <a href="service_messageBuilder.js.html#sunlight-1-line-81">line 81</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt class="name" id="~INT_32_ARRAY_TYPE">
+    <h4><span class="type-signature">&lt;inner, constant> </span>INT_32_ARRAY_TYPE<span class="type-signature"> :number</span></h4>
+
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p>User allowed message type: <a href="external-Int32Array.html"><code>external:Int32Array</code></a></p>
+    </div>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">number</span>
+
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="service_messageBuilder.js.html">service/messageBuilder.js</a>,
+				 <a href="service_messageBuilder.js.html#sunlight-1-line-87">line 87</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt class="name" id="~U_INT_32_ARRAY_TYPE">
+    <h4><span class="type-signature">&lt;inner, constant> </span>U_INT_32_ARRAY_TYPE<span class="type-signature"> :number</span></h4>
+
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p>User allowed message type: <a href="external-Uint32Array.html"><code>external:Uint32Array</code></a></p>
+    </div>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">number</span>
+
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="service_messageBuilder.js.html">service/messageBuilder.js</a>,
+				 <a href="service_messageBuilder.js.html#sunlight-1-line-93">line 93</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt class="name" id="~FLOAT_32_ARRAY_TYPE">
+    <h4><span class="type-signature">&lt;inner, constant> </span>FLOAT_32_ARRAY_TYPE<span class="type-signature"> :number</span></h4>
+
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p>User allowed message type: <a href="external-Float32Array.html"><code>external:Float32Array</code></a></p>
+    </div>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">number</span>
+
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="service_messageBuilder.js.html">service/messageBuilder.js</a>,
+				 <a href="service_messageBuilder.js.html#sunlight-1-line-99">line 99</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt class="name" id="~FLOAT_64_ARRAY_TYPE">
+    <h4><span class="type-signature">&lt;inner, constant> </span>FLOAT_64_ARRAY_TYPE<span class="type-signature"> :number</span></h4>
+
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p>User allowed message type: <a href="external-Float64Array.html"><code>external:Float64Array</code></a></p>
+    </div>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">number</span>
+
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="service_messageBuilder.js.html">service/messageBuilder.js</a>,
+				 <a href="service_messageBuilder.js.html#sunlight-1-line-105">line 105</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt class="name" id="~DATA_VIEW_TYPE">
+    <h4><span class="type-signature">&lt;inner, constant> </span>DATA_VIEW_TYPE<span class="type-signature"> :number</span></h4>
+
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p>User allowed message type: <a href="external-DataView.html"><code>external:DataView</code></a></p>
+    </div>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">number</span>
+
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="service_messageBuilder.js.html">service/messageBuilder.js</a>,
+				 <a href="service_messageBuilder.js.html#sunlight-1-line-111">line 111</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt class="name" id="~buffers">
+    <h4><span class="type-signature">&lt;inner, constant> </span>buffers<span class="type-signature"></span></h4>
+
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p>Buffer for big user messages.</p>
+    </div>
+    
+
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="service_messageBuilder.js.html">service/messageBuilder.js</a>,
+				 <a href="service_messageBuilder.js.html#sunlight-1-line-116">line 116</a>
 			</li>
 		</ul>
 	</dd>
